@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="APalette-ableAdventure/APalette-ableAdventure.csproj" />
+  <Project Path="MonoGameLibrary/MonoGameLibrary.csproj" />
+</Solution>

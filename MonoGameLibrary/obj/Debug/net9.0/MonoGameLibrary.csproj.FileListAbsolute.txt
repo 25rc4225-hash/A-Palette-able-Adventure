@@ -1,0 +1,36 @@
+G:\My Drive\CompSci\0 MyNEA\MonoGameTestProject\MonoGameLibrary\bin\Debug\net9.0\MonoGameLibrary.deps.json
+G:\My Drive\CompSci\0 MyNEA\MonoGameTestProject\MonoGameLibrary\bin\Debug\net9.0\MonoGameLibrary.dll
+G:\My Drive\CompSci\0 MyNEA\MonoGameTestProject\MonoGameLibrary\bin\Debug\net9.0\MonoGameLibrary.pdb
+G:\My Drive\CompSci\0 MyNEA\MonoGameTestProject\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.csproj.AssemblyReference.cache
+G:\My Drive\CompSci\0 MyNEA\MonoGameTestProject\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.GeneratedMSBuildEditorConfig.editorconfig
+G:\My Drive\CompSci\0 MyNEA\MonoGameTestProject\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.AssemblyInfoInputs.cache
+G:\My Drive\CompSci\0 MyNEA\MonoGameTestProject\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.AssemblyInfo.cs
+G:\My Drive\CompSci\0 MyNEA\MonoGameTestProject\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.csproj.CoreCompileInputs.cache
+G:\My Drive\CompSci\0 MyNEA\MonoGameTestProject\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.dll
+G:\My Drive\CompSci\0 MyNEA\MonoGameTestProject\MonoGameLibrary\obj\Debug\net9.0\refint\MonoGameLibrary.dll
+G:\My Drive\CompSci\0 MyNEA\MonoGameTestProject\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.pdb
+G:\My Drive\CompSci\0 MyNEA\MonoGameTestProject\MonoGameLibrary\obj\Debug\net9.0\ref\MonoGameLibrary.dll
+C:\0 MyNEA\MonoGameTestProject\MonoGameLibrary\bin\Debug\net9.0\MonoGameLibrary.deps.json
+C:\0 MyNEA\MonoGameTestProject\MonoGameLibrary\bin\Debug\net9.0\MonoGameLibrary.dll
+C:\0 MyNEA\MonoGameTestProject\MonoGameLibrary\bin\Debug\net9.0\MonoGameLibrary.pdb
+C:\0 MyNEA\MonoGameTestProject\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.csproj.AssemblyReference.cache
+C:\0 MyNEA\MonoGameTestProject\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\0 MyNEA\MonoGameTestProject\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.AssemblyInfoInputs.cache
+C:\0 MyNEA\MonoGameTestProject\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.AssemblyInfo.cs
+C:\0 MyNEA\MonoGameTestProject\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.csproj.CoreCompileInputs.cache
+C:\0 MyNEA\MonoGameTestProject\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.dll
+C:\0 MyNEA\MonoGameTestProject\MonoGameLibrary\obj\Debug\net9.0\refint\MonoGameLibrary.dll
+C:\0 MyNEA\MonoGameTestProject\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.pdb
+C:\0 MyNEA\MonoGameTestProject\MonoGameLibrary\obj\Debug\net9.0\ref\MonoGameLibrary.dll
+C:\0 MyNEA\APalette-ableAdventure\MonoGameLibrary\bin\Debug\net9.0\MonoGameLibrary.deps.json
+C:\0 MyNEA\APalette-ableAdventure\MonoGameLibrary\bin\Debug\net9.0\MonoGameLibrary.dll
+C:\0 MyNEA\APalette-ableAdventure\MonoGameLibrary\bin\Debug\net9.0\MonoGameLibrary.pdb
+C:\0 MyNEA\APalette-ableAdventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.csproj.AssemblyReference.cache
+C:\0 MyNEA\APalette-ableAdventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\0 MyNEA\APalette-ableAdventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.AssemblyInfoInputs.cache
+C:\0 MyNEA\APalette-ableAdventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.AssemblyInfo.cs
+C:\0 MyNEA\APalette-ableAdventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.csproj.CoreCompileInputs.cache
+C:\0 MyNEA\APalette-ableAdventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.dll
+C:\0 MyNEA\APalette-ableAdventure\MonoGameLibrary\obj\Debug\net9.0\refint\MonoGameLibrary.dll
+C:\0 MyNEA\APalette-ableAdventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.pdb
+C:\0 MyNEA\APalette-ableAdventure\MonoGameLibrary\obj\Debug\net9.0\ref\MonoGameLibrary.dll

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Profile>Reach</Profile>
+  <Platform>DesktopGL</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/0 MyNEA/APalette-ableAdventure/APalette-ableAdventure/Content/audio/bounce.wav</File>
+    <File>C:/0 MyNEA/APalette-ableAdventure/APalette-ableAdventure/Content/audio/collect.wav</File>
+    <File>C:/0 MyNEA/APalette-ableAdventure/APalette-ableAdventure/Content/audio/theme.ogg</File>
+    <File>C:/0 MyNEA/APalette-ableAdventure/APalette-ableAdventure/Content/audio/ui.wav</File>
+    <File>C:/0 MyNEA/APalette-ableAdventure/APalette-ableAdventure/Content/fonts/04B_30_5x.spritefont</File>
+    <File>C:/0 MyNEA/APalette-ableAdventure/APalette-ableAdventure/Content/fonts/04B_30.spritefont</File>
+    <File>C:/0 MyNEA/APalette-ableAdventure/APalette-ableAdventure/Content/images/atlas.png</File>
+    <File>C:/0 MyNEA/APalette-ableAdventure/APalette-ableAdventure/Content/images/background-pattern.png</File>
+    <File>C:/0 MyNEA/APalette-ableAdventure/APalette-ableAdventure/Content/images/GamePixelArt.png</File>
+    <File>C:/0 MyNEA/APalette-ableAdventure/APalette-ableAdventure/Content/images/logo.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>

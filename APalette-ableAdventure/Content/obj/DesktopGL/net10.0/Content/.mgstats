@@ -1,0 +1,3 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"G:/My Drive/CompSci/0 MyNEA/MonoGameTestProject/MonoGameTestProject/Content/images/atlas.png","G:/My Drive/CompSci/0 MyNEA/MonoGameTestProject/MonoGameTestProject/Content/bin/DesktopGL/Content/images/atlas.xnb","TextureProcessor","Texture2DContent",590,16469,0.1332646
+"G:/My Drive/CompSci/0 MyNEA/MonoGameTestProject/MonoGameTestProject/Content/images/logo.png","G:/My Drive/CompSci/0 MyNEA/MonoGameTestProject/MonoGameTestProject/Content/bin/DesktopGL/Content/images/logo.xnb","TextureProcessor","Texture2DContent",16734,311381,0.0424434

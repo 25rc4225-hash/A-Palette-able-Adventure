@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas>
+	<Texture>images/GamePixelArt</Texture>
+	<Regions>
+		<Region name="MoverR" x="0" y="0" width="12" height="12" />
+		<Region name="MoverU" x="12" y="0" width="12" height="12" />
+		<Region name="MoverL" x="0" y="12" width="12" height="12" />
+		<Region name="MoverD" x="12" y="12" width="12" height="12" />
+		<Region name="gravBlock" x="24" y="0" width="12" height="12" />
+		<Region name="X" x="24" y="12" width="12" height="12" />
+		<Region name="EqualH" x="36" y="0" width="12" height="12" />
+		<Region name="EqualV" x="36" y="12" width="12" height="12" />
+		<Region name="RotateC" x="48" y="0" width="12" height="12" />
+		<Region name="RotateAC" x="48" y="12" width="12" height="12" />
+		<Region name="Palette-1" x="0" y="48" width="12" height="16" />
+		<Region name="Palette-2" x="0" y="64" width="12" height="16" />
+		<Region name="Button-Off" x="78" y="24" width="18" height="8" />
+		<Region name="Button-On" x="78" y="32" width="18" height="4" />
+		<Region name="unfocused-button" x="259" y="80" width="65" height="14" />
+		<Region name="focused-button-1" x="259" y="94" width="65" height="14" />
+		<Region name="focused-button-2" x="259" y="109" width="65" height="14" />
+		<Region name="panel-background" x="324" y="97" width="15" height="15" />
+		<Region name="slider-off-background" x="341" y="96" width="11" height="10" />
+		<Region name="slider-middle-background" x="345" y="81" width="3" height="3" />
+		<Region name="slider-max-background" x="354" y="96" width="11" height="10" />
+	</Regions>
+	<Animations>
+		<Animation name="palette-animation" delay="500">
+			<Frame region="Palette-1" />
+			<Frame region="Palette-1" />
+			<Frame region="Palette-1" />
+			<Frame region="Palette-1" />
+			<Frame region="Palette-1" />
+			<Frame region="Palette-1" />
+			<Frame region="Palette-2" />
+			<Frame region="Palette-1" />
+			<Frame region="Palette-1" />
+			<Frame region="Palette-1" />
+			<Frame region="Palette-1" />
+			<Frame region="Palette-1" />
+			<Frame region="Palette-1" />
+			<Frame region="Palette-1" />
+			<Frame region="Palette-1" />
+			<Frame region="Palette-1" />
+			<Frame region="Palette-2" />
+		</Animation>
+		<Animation name="focused-button-animation" delay="300">
+			<Frame region="focused-button-1" />
+			<Frame region="focused-button-2" />
+		</Animation>
+		<Animation name="Button" delay="1">
+			<Frame region="Button-Off" />
+			<Frame region="Button-On" />
+		</Animation>
+	</Animations>
+</TextureAtlas>

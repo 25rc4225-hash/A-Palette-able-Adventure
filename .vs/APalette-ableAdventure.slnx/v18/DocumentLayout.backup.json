@@ -1,0 +1,681 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\0 MyNEA\\APalette-ableAdventure\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\0 mynea\\apalette-ableadventure\\apalette-ableadventure\\gameobjects\\effector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\gameobjects\\effector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\0 mynea\\apalette-ableadventure\\apalette-ableadventure\\scenes\\tutorial1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\scenes\\tutorial1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\0 mynea\\apalette-ableadventure\\apalette-ableadventure\\content\\images\\atlas-definition.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\content\\images\\atlas-definition.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\0 mynea\\apalette-ableadventure\\apalette-ableadventure\\gameobjects\\button.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\gameobjects\\button.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|c:\\0 mynea\\apalette-ableadventure\\monogamelibrary\\graphics\\textureregion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|solutionrelative:monogamelibrary\\graphics\\textureregion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|c:\\0 mynea\\apalette-ableadventure\\monogamelibrary\\graphics\\tilemap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|solutionrelative:monogamelibrary\\graphics\\tilemap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\0 mynea\\apalette-ableadventure\\apalette-ableadventure\\gameobjects\\block.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\gameobjects\\block.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\0 mynea\\apalette-ableadventure\\apalette-ableadventure\\gameobjects\\mover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\gameobjects\\mover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\0 mynea\\apalette-ableadventure\\apalette-ableadventure\\content\\images\\tutorial1_map.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\content\\images\\tutorial1_map.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|c:\\0 mynea\\apalette-ableadventure\\monogamelibrary\\graphics\\xmlarray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|solutionrelative:monogamelibrary\\graphics\\xmlarray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\0 mynea\\apalette-ableadventure\\apalette-ableadventure\\gameobjects\\palette.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\gameobjects\\palette.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|c:\\0 mynea\\apalette-ableadventure\\monogamelibrary\\graphics\\tileset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|solutionrelative:monogamelibrary\\graphics\\tileset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\0 mynea\\apalette-ableadventure\\apalette-ableadventure\\content\\images\\tilemap-definition.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\content\\images\\tilemap-definition.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|c:\\0 mynea\\apalette-ableadventure\\monogamelibrary\\graphics\\textureatlas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|solutionrelative:monogamelibrary\\graphics\\textureatlas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\0 mynea\\apalette-ableadventure\\apalette-ableadventure\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|c:\\0 mynea\\apalette-ableadventure\\monogamelibrary\\graphics\\animatedsprite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|solutionrelative:monogamelibrary\\graphics\\animatedsprite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\0 mynea\\apalette-ableadventure\\apalette-ableadventure\\content\\images\\border_map.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\content\\images\\border_map.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|c:\\0 mynea\\apalette-ableadventure\\monogamelibrary\\graphics\\sprite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|solutionrelative:monogamelibrary\\graphics\\sprite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|c:\\0 mynea\\apalette-ableadventure\\monogamelibrary\\graphics\\animation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|solutionrelative:monogamelibrary\\graphics\\animation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\0 mynea\\apalette-ableadventure\\apalette-ableadventure\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\0 mynea\\apalette-ableadventure\\apalette-ableadventure\\scenes\\gamescene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\scenes\\gamescene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\0 mynea\\apalette-ableadventure\\apalette-ableadventure\\ui\\gamesceneui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\ui\\gamesceneui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|c:\\0 mynea\\apalette-ableadventure\\monogamelibrary\\core.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|solutionrelative:monogamelibrary\\core.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\0 mynea\\apalette-ableadventure\\apalette-ableadventure\\gameobjects\\slime.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\gameobjects\\slime.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\0 mynea\\apalette-ableadventure\\apalette-ableadventure\\gameobjects\\bat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\gameobjects\\bat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\0 mynea\\apalette-ableadventure\\apalette-ableadventure\\gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|c:\\0 mynea\\apalette-ableadventure\\monogamelibrary\\input\\keyboardinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|solutionrelative:monogamelibrary\\input\\keyboardinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\0 mynea\\apalette-ableadventure\\apalette-ableadventure\\scenes\\titlescene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\scenes\\titlescene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|c:\\0 mynea\\apalette-ableadventure\\monogamelibrary\\circle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|solutionrelative:monogamelibrary\\circle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|c:\\0 mynea\\apalette-ableadventure\\monogamelibrary\\audio\\audiocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|solutionrelative:monogamelibrary\\audio\\audiocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\0 mynea\\apalette-ableadventure\\apalette-ableadventure\\ui\\animatedbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\ui\\animatedbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\0 mynea\\apalette-ableadventure\\apalette-ableadventure\\content\\fonts\\04b_30_5x.spritefont||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\content\\fonts\\04b_30_5x.spritefont||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\0 mynea\\apalette-ableadventure\\apalette-ableadventure\\content\\fonts\\04b_30.spritefont||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\content\\fonts\\04b_30.spritefont||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|c:\\0 mynea\\apalette-ableadventure\\monogamelibrary\\input\\inputmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|solutionrelative:monogamelibrary\\input\\inputmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\0 mynea\\apalette-ableadventure\\apalette-ableadventure\\gameobjects\\slimesegment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\gameobjects\\slimesegment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\0 mynea\\apalette-ableadventure\\apalette-ableadventure\\ui\\optionsslider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\ui\\optionsslider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|c:\\0 mynea\\apalette-ableadventure\\monogamelibrary\\scenes\\scene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|solutionrelative:monogamelibrary\\scenes\\scene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|c:\\0 mynea\\apalette-ableadventure\\monogamelibrary\\monogamelibrary.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|solutionrelative:monogamelibrary\\monogamelibrary.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|c:\\0 mynea\\apalette-ableadventure\\monogamelibrary\\input\\mouseinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|solutionrelative:monogamelibrary\\input\\mouseinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|c:\\0 mynea\\apalette-ableadventure\\monogamelibrary\\input\\mousebutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|solutionrelative:monogamelibrary\\input\\mousebutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Button.cs",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\GameObjects\\Button.cs",
+              "RelativeDocumentMoniker": "APalette-ableAdventure\\GameObjects\\Button.cs",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\GameObjects\\Button.cs",
+              "RelativeToolTip": "APalette-ableAdventure\\GameObjects\\Button.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-01T18:05:28.749Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Tutorial1.cs",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\Scenes\\Tutorial1.cs",
+              "RelativeDocumentMoniker": "APalette-ableAdventure\\Scenes\\Tutorial1.cs",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\Scenes\\Tutorial1.cs",
+              "RelativeToolTip": "APalette-ableAdventure\\Scenes\\Tutorial1.cs",
+              "ViewState": "AgIAAJkAAAAAAAAAAAAAwLMAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-09T15:08:26.727Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "XmlArray.cs",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\MonoGameLibrary\\Graphics\\XmlArray.cs",
+              "RelativeDocumentMoniker": "MonoGameLibrary\\Graphics\\XmlArray.cs",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\MonoGameLibrary\\Graphics\\XmlArray.cs",
+              "RelativeToolTip": "MonoGameLibrary\\Graphics\\XmlArray.cs",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAIwGkAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-25T20:12:30.774Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Tutorial1_Map.xml",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\Content\\images\\Tutorial1_Map.xml",
+              "RelativeDocumentMoniker": "APalette-ableAdventure\\Content\\images\\Tutorial1_Map.xml",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\Content\\images\\Tutorial1_Map.xml",
+              "RelativeToolTip": "APalette-ableAdventure\\Content\\images\\Tutorial1_Map.xml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2026-08-21T19:01:28.381Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Mover.cs",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\GameObjects\\Mover.cs",
+              "RelativeDocumentMoniker": "APalette-ableAdventure\\GameObjects\\Mover.cs",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\GameObjects\\Mover.cs",
+              "RelativeToolTip": "APalette-ableAdventure\\GameObjects\\Mover.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-10T10:48:27.823Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Block.cs",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\GameObjects\\Block.cs",
+              "RelativeDocumentMoniker": "APalette-ableAdventure\\GameObjects\\Block.cs",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\GameObjects\\Block.cs",
+              "RelativeToolTip": "APalette-ableAdventure\\GameObjects\\Block.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAswAwAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-01T17:15:51.74Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Palette.cs",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\GameObjects\\Palette.cs",
+              "RelativeDocumentMoniker": "APalette-ableAdventure\\GameObjects\\Palette.cs",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\GameObjects\\Palette.cs",
+              "RelativeToolTip": "APalette-ableAdventure\\GameObjects\\Palette.cs",
+              "ViewState": "AgIAAJMAAAAAAAAAAAAswBMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-09T15:11:47.577Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Effector.cs",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\GameObjects\\Effector.cs",
+              "RelativeDocumentMoniker": "APalette-ableAdventure\\GameObjects\\Effector.cs",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\GameObjects\\Effector.cs",
+              "RelativeToolTip": "APalette-ableAdventure\\GameObjects\\Effector.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-01T19:01:35.908Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TextureRegion.cs",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\MonoGameLibrary\\Graphics\\TextureRegion.cs",
+              "RelativeDocumentMoniker": "MonoGameLibrary\\Graphics\\TextureRegion.cs",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\MonoGameLibrary\\Graphics\\TextureRegion.cs",
+              "RelativeToolTip": "MonoGameLibrary\\Graphics\\TextureRegion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T17:45:52.522Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "atlas-definition.xml",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\Content\\images\\atlas-definition.xml",
+              "RelativeDocumentMoniker": "APalette-ableAdventure\\Content\\images\\atlas-definition.xml",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\Content\\images\\atlas-definition.xml",
+              "RelativeToolTip": "APalette-ableAdventure\\Content\\images\\atlas-definition.xml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAADQAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2026-08-25T14:06:22.563Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Tilemap.cs",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\MonoGameLibrary\\Graphics\\Tilemap.cs",
+              "RelativeDocumentMoniker": "MonoGameLibrary\\Graphics\\Tilemap.cs",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\MonoGameLibrary\\Graphics\\Tilemap.cs",
+              "RelativeToolTip": "MonoGameLibrary\\Graphics\\Tilemap.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAmwGgAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T17:46:07.249Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "tilemap-definition.xml",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\Content\\images\\tilemap-definition.xml",
+              "RelativeDocumentMoniker": "APalette-ableAdventure\\Content\\images\\tilemap-definition.xml",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\Content\\images\\tilemap-definition.xml",
+              "RelativeToolTip": "APalette-ableAdventure\\Content\\images\\tilemap-definition.xml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2026-08-06T17:46:12.503Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Tileset.cs",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\MonoGameLibrary\\Graphics\\Tileset.cs",
+              "RelativeDocumentMoniker": "MonoGameLibrary\\Graphics\\Tileset.cs",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\MonoGameLibrary\\Graphics\\Tileset.cs",
+              "RelativeToolTip": "MonoGameLibrary\\Graphics\\Tileset.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T17:46:22.989Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "TextureAtlas.cs",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\MonoGameLibrary\\Graphics\\TextureAtlas.cs",
+              "RelativeDocumentMoniker": "MonoGameLibrary\\Graphics\\TextureAtlas.cs",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\MonoGameLibrary\\Graphics\\TextureAtlas.cs",
+              "RelativeToolTip": "MonoGameLibrary\\Graphics\\TextureAtlas.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAmwC0AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T17:45:51.635Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Game1.cs",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\Game1.cs",
+              "RelativeDocumentMoniker": "APalette-ableAdventure\\Game1.cs",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\Game1.cs",
+              "RelativeToolTip": "APalette-ableAdventure\\Game1.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-09T15:07:15.647Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "AnimatedSprite.cs",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\MonoGameLibrary\\Graphics\\AnimatedSprite.cs",
+              "RelativeDocumentMoniker": "MonoGameLibrary\\Graphics\\AnimatedSprite.cs",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\MonoGameLibrary\\Graphics\\AnimatedSprite.cs",
+              "RelativeToolTip": "MonoGameLibrary\\Graphics\\AnimatedSprite.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T17:40:21.419Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Border_Map.xml",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\Content\\images\\Border_Map.xml",
+              "RelativeDocumentMoniker": "APalette-ableAdventure\\Content\\images\\Border_Map.xml",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\Content\\images\\Border_Map.xml",
+              "RelativeToolTip": "APalette-ableAdventure\\Content\\images\\Border_Map.xml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2026-08-23T10:38:41.327Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Animation.cs",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\MonoGameLibrary\\Graphics\\Animation.cs",
+              "RelativeDocumentMoniker": "MonoGameLibrary\\Graphics\\Animation.cs",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\MonoGameLibrary\\Graphics\\Animation.cs",
+              "RelativeToolTip": "MonoGameLibrary\\Graphics\\Animation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T17:40:31.981Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Sprite.cs",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\MonoGameLibrary\\Graphics\\Sprite.cs",
+              "RelativeDocumentMoniker": "MonoGameLibrary\\Graphics\\Sprite.cs",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\MonoGameLibrary\\Graphics\\Sprite.cs",
+              "RelativeToolTip": "MonoGameLibrary\\Graphics\\Sprite.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAswAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T17:45:40.689Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "MouseButton.cs",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\MonoGameLibrary\\Input\\MouseButton.cs",
+              "RelativeDocumentMoniker": "MonoGameLibrary\\Input\\MouseButton.cs",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\MonoGameLibrary\\Input\\MouseButton.cs",
+              "RelativeToolTip": "MonoGameLibrary\\Input\\MouseButton.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T17:42:58.444Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\Program.cs",
+              "RelativeDocumentMoniker": "APalette-ableAdventure\\Program.cs",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\Program.cs",
+              "RelativeToolTip": "APalette-ableAdventure\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T17:23:36.497Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "GameScene.cs",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\Scenes\\GameScene.cs",
+              "RelativeDocumentMoniker": "APalette-ableAdventure\\Scenes\\GameScene.cs",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\Scenes\\GameScene.cs",
+              "RelativeToolTip": "APalette-ableAdventure\\Scenes\\GameScene.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAANQAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T17:41:31.186Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "GameSceneUI.cs",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\UI\\GameSceneUI.cs",
+              "RelativeDocumentMoniker": "APalette-ableAdventure\\UI\\GameSceneUI.cs",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\UI\\GameSceneUI.cs",
+              "RelativeToolTip": "APalette-ableAdventure\\UI\\GameSceneUI.cs",
+              "ViewState": "AgIAAAoBAAAAAAAAAAAUwO8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-09T14:28:53.267Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Slime.cs",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\GameObjects\\Slime.cs",
+              "RelativeDocumentMoniker": "APalette-ableAdventure\\GameObjects\\Slime.cs",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\GameObjects\\Slime.cs",
+              "RelativeToolTip": "APalette-ableAdventure\\GameObjects\\Slime.cs",
+              "ViewState": "AgIAAMkAAAAAAAAAAAAswPAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-09T14:28:36.896Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Bat.cs",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\GameObjects\\Bat.cs",
+              "RelativeDocumentMoniker": "APalette-ableAdventure\\GameObjects\\Bat.cs",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\GameObjects\\Bat.cs",
+              "RelativeToolTip": "APalette-ableAdventure\\GameObjects\\Bat.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAE8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-09T14:28:15.882Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Core.cs",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\MonoGameLibrary\\Core.cs",
+              "RelativeDocumentMoniker": "MonoGameLibrary\\Core.cs",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\MonoGameLibrary\\Core.cs",
+              "RelativeToolTip": "MonoGameLibrary\\Core.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAIwG0AAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T17:33:32.96Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "GameController.cs",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\GameController.cs",
+              "RelativeDocumentMoniker": "APalette-ableAdventure\\GameController.cs",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\GameController.cs",
+              "RelativeToolTip": "APalette-ableAdventure\\GameController.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAgwBIAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-09T14:31:13.859Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "KeyboardInfo.cs",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\MonoGameLibrary\\Input\\KeyboardInfo.cs",
+              "RelativeDocumentMoniker": "MonoGameLibrary\\Input\\KeyboardInfo.cs",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\MonoGameLibrary\\Input\\KeyboardInfo.cs",
+              "RelativeToolTip": "MonoGameLibrary\\Input\\KeyboardInfo.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T17:42:56.722Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "TitleScene.cs",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\Scenes\\TitleScene.cs",
+              "RelativeDocumentMoniker": "APalette-ableAdventure\\Scenes\\TitleScene.cs",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\Scenes\\TitleScene.cs",
+              "RelativeToolTip": "APalette-ableAdventure\\Scenes\\TitleScene.cs",
+              "ViewState": "AgIAAMYAAAAAAAAAAAAowNIAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T17:46:30.511Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Circle.cs",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\MonoGameLibrary\\Circle.cs",
+              "RelativeDocumentMoniker": "MonoGameLibrary\\Circle.cs",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\MonoGameLibrary\\Circle.cs",
+              "RelativeToolTip": "MonoGameLibrary\\Circle.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T17:41:19.647Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "AudioController.cs",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\MonoGameLibrary\\Audio\\AudioController.cs",
+              "RelativeDocumentMoniker": "MonoGameLibrary\\Audio\\AudioController.cs",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\MonoGameLibrary\\Audio\\AudioController.cs",
+              "RelativeToolTip": "MonoGameLibrary\\Audio\\AudioController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T17:41:06.979Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "AnimatedButton.cs",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\UI\\AnimatedButton.cs",
+              "RelativeDocumentMoniker": "APalette-ableAdventure\\UI\\AnimatedButton.cs",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\UI\\AnimatedButton.cs",
+              "RelativeToolTip": "APalette-ableAdventure\\UI\\AnimatedButton.cs",
+              "ViewState": "AgIAAH8AAAAAAAAAAAAQwJUAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-08T19:24:51.459Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "04B_30_5x.spritefont",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\Content\\fonts\\04B_30_5x.spritefont",
+              "RelativeDocumentMoniker": "APalette-ableAdventure\\Content\\fonts\\04B_30_5x.spritefont",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\Content\\fonts\\04B_30_5x.spritefont",
+              "RelativeToolTip": "APalette-ableAdventure\\Content\\fonts\\04B_30_5x.spritefont",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-08-06T17:40:03.537Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "04B_30.spritefont",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\Content\\fonts\\04B_30.spritefont",
+              "RelativeDocumentMoniker": "APalette-ableAdventure\\Content\\fonts\\04B_30.spritefont",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\Content\\fonts\\04B_30.spritefont",
+              "RelativeToolTip": "APalette-ableAdventure\\Content\\fonts\\04B_30.spritefont",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-08-06T17:39:57.893Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "SlimeSegment.cs",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\GameObjects\\SlimeSegment.cs",
+              "RelativeDocumentMoniker": "APalette-ableAdventure\\GameObjects\\SlimeSegment.cs",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\GameObjects\\SlimeSegment.cs",
+              "RelativeToolTip": "APalette-ableAdventure\\GameObjects\\SlimeSegment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-09T14:28:43.468Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "InputManager.cs",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\MonoGameLibrary\\Input\\InputManager.cs",
+              "RelativeDocumentMoniker": "MonoGameLibrary\\Input\\InputManager.cs",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\MonoGameLibrary\\Input\\InputManager.cs",
+              "RelativeToolTip": "MonoGameLibrary\\Input\\InputManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T17:41:43.634Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "OptionsSlider.cs",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\UI\\OptionsSlider.cs",
+              "RelativeDocumentMoniker": "APalette-ableAdventure\\UI\\OptionsSlider.cs",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\APalette-ableAdventure\\UI\\OptionsSlider.cs",
+              "RelativeToolTip": "APalette-ableAdventure\\UI\\OptionsSlider.cs",
+              "ViewState": "AgIAANgAAAAAAAAAAAAkwOQAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-08T19:27:11.802Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "Scene.cs",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\MonoGameLibrary\\Scenes\\Scene.cs",
+              "RelativeDocumentMoniker": "MonoGameLibrary\\Scenes\\Scene.cs",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\MonoGameLibrary\\Scenes\\Scene.cs",
+              "RelativeToolTip": "MonoGameLibrary\\Scenes\\Scene.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T17:45:30.264Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "MonoGameLibrary.csproj",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\MonoGameLibrary\\MonoGameLibrary.csproj",
+              "RelativeDocumentMoniker": "MonoGameLibrary\\MonoGameLibrary.csproj",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\MonoGameLibrary\\MonoGameLibrary.csproj",
+              "RelativeToolTip": "MonoGameLibrary\\MonoGameLibrary.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-08-06T17:43:30.234Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "MouseInfo.cs",
+              "DocumentMoniker": "C:\\0 MyNEA\\APalette-ableAdventure\\MonoGameLibrary\\Input\\MouseInfo.cs",
+              "RelativeDocumentMoniker": "MonoGameLibrary\\Input\\MouseInfo.cs",
+              "ToolTip": "C:\\0 MyNEA\\APalette-ableAdventure\\MonoGameLibrary\\Input\\MouseInfo.cs",
+              "RelativeToolTip": "MonoGameLibrary\\Input\\MouseInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T17:42:59.388Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

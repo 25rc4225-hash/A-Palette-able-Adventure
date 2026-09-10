@@ -29,16 +29,13 @@ public class Tutorial1 : Scene
     private static List<Mover> Movers;
     private static List<Block> Blocks;
     private static List<Button> Buttons;
-    private static List<AnimatedSprite> Effectors;
+    private static List<Effector> Effectors;
 
     // Defines the tilemap to draw
     private static Tilemap _tilemap;
 
     // Defines the bounds of the room
     private Rectangle _roomBounds;
-
-    // Sound effect for palette landing
-    private SoundEffect _landingSoundEffect;
 
     private GameSceneUI _ui;
 
@@ -109,9 +106,6 @@ public class Tutorial1 : Scene
         // Initialize the palette
         _palette.Initialize();
 
-        // Initialize the mover
-        _mover.Initialize(Vector2.UnitY * (Core.GraphicsDevice.PresentationParameters.BackBufferHeight / 2));  //(subject to change with map creation)--------------------------------------------------------------------------------
-
         // Set the game state to playing.
         _state = GameState.Playing;
     }
@@ -131,28 +125,54 @@ public class Tutorial1 : Scene
         // Load the bounce sound effect for the bat.
         SoundEffect jumpSoundEffect = Content.Load<SoundEffect>("audio/bounce");
 
+        List<AnimatedSprite> pAnimations = new List<AnimatedSprite>();
         // Create the animated sprite for the slime from the atlas.
-        AnimatedSprite paletteRight = atlas.CreateAnimatedSprite("palette-animation");
-        paletteRight.Scale = new Vector2(3.5f, 3.5f);
-        AnimatedSprite paletteLeft = atlas.CreateAnimatedSprite("palette-animation");
-        paletteLeft.Scale = new Vector2(3.5f, 3.5f);
         AnimatedSprite paletteNull = atlas.CreateAnimatedSprite("palette-animation");
         paletteNull.Scale = new Vector2(3.5f, 3.5f);
+        pAnimations.Add(paletteNull);
+        AnimatedSprite paletteRight = atlas.CreateAnimatedSprite("palette-animation");
+        paletteRight.Scale = new Vector2(3.5f, 3.5f);
+        pAnimations.Add(paletteRight);
+        AnimatedSprite paletteLeft = atlas.CreateAnimatedSprite("palette-animation");
+        paletteLeft.Scale = new Vector2(3.5f, 3.5f);
+        pAnimations.Add(paletteLeft);
 
+        List<Sprite> mSprites = new List<Sprite>();
         MonoGameLibrary.Graphics.Sprite moverR = atlas.CreateSprite("MoverR");
         moverR.Scale = new Vector2(3.5f, 3.5f);
+        mSprites.Add(moverR);
         MonoGameLibrary.Graphics.Sprite moverL = atlas.CreateSprite("MoverL");
         moverL.Scale = new Vector2(3.5f, 3.5f);
+        mSprites.Add(moverL);
         MonoGameLibrary.Graphics.Sprite moverU = atlas.CreateSprite("MoverU");
         moverU.Scale = new Vector2(3.5f, 3.5f);
+        mSprites.Add(moverU);
         MonoGameLibrary.Graphics.Sprite moverD = atlas.CreateSprite("MoverD");
         moverD.Scale = new Vector2(3.5f, 3.5f);
+        mSprites.Add(moverD);
 
         MonoGameLibrary.Graphics.Sprite gravBlock = atlas.CreateSprite("gravBlock");
         gravBlock.Scale = new Vector2(3.5f, 3.5f);
 
         AnimatedSprite Button = atlas.CreateAnimatedSprite("Button");
         Button.Scale = new Vector2(3.5f, 3.5f);
+
+        List<AnimatedSprite> eAnimations = new List<AnimatedSprite>();
+        AnimatedSprite Ecks = atlas.CreateAnimatedSprite("Ecks");
+        Ecks.Scale = new Vector2(3.5f, 3.5f);
+        eAnimations.Add(Ecks);
+        AnimatedSprite Clock = atlas.CreateAnimatedSprite("Clock");
+        Clock.Scale = new Vector2(3.5f, 3.5f);
+        eAnimations.Add(Clock);
+        AnimatedSprite antiClock = atlas.CreateAnimatedSprite("antiClock");
+        antiClock.Scale = new Vector2(3.5f, 3.5f);
+        eAnimations.Add(antiClock);
+        AnimatedSprite VertEqual = atlas.CreateAnimatedSprite("VertEqual");
+        VertEqual.Scale = new Vector2(3.5f, 3.5f);
+        eAnimations.Add(VertEqual);
+        AnimatedSprite HorizEqual = atlas.CreateAnimatedSprite("HorizEqual");
+        HorizEqual.Scale = new Vector2(3.5f, 3.5f);
+        eAnimations.Add(HorizEqual);
 
         entities = Map.GetEntites();
 
@@ -161,11 +181,11 @@ public class Tutorial1 : Scene
             if (entity[0] == "P")
             {
                 // Create the palette
-                _palette = new Palette(paletteNull, paletteRight, paletteLeft, jumpSoundEffect, int.Parse(entity[1]), int.Parse(entity[2]));
+                _palette = new Palette(pAnimations, int.Parse(entity[1]), int.Parse(entity[2]));
             }
             else if ("LRUD".Contains(entity[0]))
             {
-                Movers.Add(new Mover(entity[0], moverR, moverL, moverU, moverD, int.Parse(entity[1]), int.Parse(entity[2])));
+                Movers.Add(new Mover(entity[0], mSprites, int.Parse(entity[1]), int.Parse(entity[2])));
             }
             else if (entity[0] == "G")
             {
@@ -175,9 +195,9 @@ public class Tutorial1 : Scene
             {
                 Buttons.Add(new Button(Button, int.Parse(entity[1]), int.Parse(entity[2])));
             }
-            else if ("XR=".Contains(entity[0]))
+            else if ("XCAVH".Contains(entity[0]))
             {
-                Effectors.Add(new Effector(entity[0],)
+                Effectors.Add(new Effector(entity[0], eAnimations, int.Parse(entity[1]), int.Parse(entity[2])));
             }
         }
     }
@@ -209,7 +229,14 @@ public class Tutorial1 : Scene
         // Update the palette
         _palette.Update(gameTime);
 
-        _mover.Update(gameTime);
+        foreach (Mover mover in Movers)
+        {
+            mover.Update(gameTime);
+        }
+        foreach (Block block in Blocks)
+        {
+            block.Update();
+        }
 
         // Perform collision checks.
         CollisionChecks();
@@ -220,10 +247,9 @@ public class Tutorial1 : Scene
         // Capture the current bounds of the palette
         Rectangle paletteBounds = _palette.GetBounds();
 
-        // Capture the current bounds of the mover.
-        Rectangle moverBounds = _mover.GetBounds();
-
         List<Rectangle> mapBlocks = MapCollision(); // ----------------------------------------------------------------------------------------------------------
+
+        bool pIsMoved = false;
 
         foreach (Rectangle rect in mapBlocks)
         {
@@ -241,176 +267,118 @@ public class Tutorial1 : Scene
                 if (minDistance == distanceLeft)
                 {
                     _palette.Shift("left", (int)minDistance);
+                    pIsMoved = true;
                 }
                 if (minDistance == distanceRight)
                 {
                     _palette.Shift("right", (int)minDistance);
+                    pIsMoved = true;
                 }
                 if (minDistance == distanceTop)
                 {
                     _palette.Shift("up", (int)minDistance);
+                    pIsMoved = true;
                     // Therefore Palette is on terrain
                     _palette.Land();
                 }
                 if (minDistance == distanceBottom)
                 {
                     _palette.Shift("down", (int)minDistance);
+                    pIsMoved = true;
                 }
-                // Checks if palette is standing on terrain
-                //if (paletteBounds.Bottom == rect.Top && paletteBounds.Right > rect.Left && paletteBounds.Left < rect.Right)
-                //{
-                //    _palette.Land();
-                //}
             }
-            if (moverBounds.Intersects(rect))
+        }
+
+        foreach (Mover mover in Movers)
+        {
+            Rectangle moverBounds = mover.GetBounds();
+            foreach (Rectangle rect in mapBlocks)
+            {
+                if (moverBounds.Intersects(rect))
+                {
+                    // Find the distance from the edge of the paleete to mover
+                    float distanceLeft = Math.Abs(rect.Left - moverBounds.Right);
+                    float distanceRight = Math.Abs(rect.Right - moverBounds.Left);
+                    float distanceTop = Math.Abs(rect.Top - moverBounds.Bottom);
+                    float distanceBottom = Math.Abs(rect.Bottom - moverBounds.Top);
+
+                    // Determine which mover edge is the closest.
+                    float minDistance = Math.Min(Math.Min(distanceLeft, distanceRight), Math.Min(distanceTop, distanceBottom));
+
+                    if (minDistance == distanceLeft)
+                    {
+                        mover.Shift("left", (int)minDistance);
+
+                    }
+                    else if (minDistance == distanceRight)
+                    {
+                        mover.Shift("right", (int)minDistance);
+                    }
+                    else if (minDistance == distanceTop)
+                    {
+                        mover.Shift("up", (int)minDistance);
+                    }
+                    else if (minDistance == distanceBottom)
+                    {
+                        mover.Shift("down", (int)minDistance);
+                    }
+                }
+            }
+            if (moverBounds.Intersects(paletteBounds))
             {
                 // Find the distance from the edge of the paleete to mover
-                float distanceLeft = Math.Abs(rect.Left - moverBounds.Right);
-                float distanceRight = Math.Abs(rect.Right - moverBounds.Left);
-                float distanceTop = Math.Abs(rect.Top - moverBounds.Bottom);
-                float distanceBottom = Math.Abs(rect.Bottom - moverBounds.Top);
+                float distanceLeft = Math.Abs(moverBounds.Left - paletteBounds.Right);
+                float distanceRight = Math.Abs(moverBounds.Right - paletteBounds.Left);
+                float distanceTop = Math.Abs(moverBounds.Top - paletteBounds.Bottom);
+                float distanceBottom = Math.Abs(moverBounds.Bottom - paletteBounds.Top);
 
                 // Determine which mover edge is the closest.
                 float minDistance = Math.Min(Math.Min(distanceLeft, distanceRight), Math.Min(distanceTop, distanceBottom));
 
-                if (minDistance == distanceLeft)
+                if (!pIsMoved)
                 {
-                    for (int i = 0; i < minDistance; i++)
+                    if (minDistance == distanceLeft)
                     {
-                        _mover.Shift("left");
+                        _palette.Shift("left", (int)minDistance);
+                    }
+                    if (minDistance == distanceRight)
+                    {
+                        _palette.Shift("right", (int)minDistance);
+                    }
+                    if (minDistance == distanceTop)
+                    {
+                        _palette.Shift("up", (int)minDistance);
+                        // If palette is moved up, it is standing on something
+                        _palette.Land();
+                    }
+                    if (minDistance == distanceBottom)
+                    {
+                        _palette.Shift("down", (int)minDistance);
                     }
                 }
-                else if (minDistance == distanceRight)
+                else
                 {
-                    for (int i = 0; i < minDistance; i++)
+                    if (minDistance == distanceLeft)
                     {
-                        _mover.Shift("right");
+                        mover.Shift("right", (int)minDistance);
                     }
-                }
-                else if (minDistance == distanceTop)
-                {
-                    for (int i = 0; i < minDistance; i++)
+                    if (minDistance == distanceRight)
                     {
-                        _mover.Shift("up");
+                        mover.Shift("left", (int)minDistance);
                     }
-                }
-                else if (minDistance == distanceBottom)
-                {
-                    for (int i = 0; i < minDistance; i++)
+                    if (minDistance == distanceTop)
                     {
-                        _mover.Shift("down");
+                        mover.Shift("down", (int)minDistance);
+                        // If mover is moved down, palette is standing on it
+                        _palette.Land();
+                    }
+                    if (minDistance == distanceBottom)
+                    {
+                        mover.Shift("up", (int)minDistance);
                     }
                 }
             }
         }
-
-        if (true)
-        {
-            // Checks if palette is above map
-            if (paletteBounds.Top < _roomBounds.Top)
-            {
-                // Moves palette back into game box
-                _palette.Shift("down", (_roomBounds.Top - paletteBounds.Top));
-            }
-            // Checks if palette is below map
-            if (paletteBounds.Bottom > _roomBounds.Bottom)
-            {
-                // Moves palette back into game box
-                _palette.Shift("up", paletteBounds.Bottom - _roomBounds.Bottom);
-            }
-            // Checks if palette is left of map
-            if (paletteBounds.Left < _roomBounds.Left)
-            {
-                // Moves palette back into game box
-                _palette.Shift("right", _roomBounds.Left - paletteBounds.Left);
-            }
-            // Checks if palette is right of map
-            if (paletteBounds.Right > _roomBounds.Right)
-            {
-                // Moves palette back into game box
-                _palette.Shift("left", paletteBounds.Right - _roomBounds.Right);
-            }
-
-            // Checks if palette is touching bottom of map
-            if (paletteBounds.Bottom == _roomBounds.Bottom)
-            {
-                _palette.Land();
-            }
-
-
-            // Checks if mover is above map
-            if (moverBounds.Top < _roomBounds.Top)
-            {
-                for (int i = 0; i < _roomBounds.Top - moverBounds.Top; i++)
-                {
-                    // Moves mover back into game box
-                    _mover.Shift("down");
-                }
-            }
-            // Checks if mover is below map
-            if (moverBounds.Bottom > _roomBounds.Bottom)
-            {
-                for (int i = 0; i < moverBounds.Bottom - _roomBounds.Bottom; i++)
-                {
-                    // Moves mover back into game box
-                    _mover.Shift("up");
-                }
-            }
-            // Checks if mover is left of map
-            if (moverBounds.Left < _roomBounds.Left)
-            {
-                for (int i = 0; i < _roomBounds.Left - moverBounds.Left; i++)
-                {
-                    // Moves mover back into game box
-                    _mover.Shift("right");
-                }
-            }
-            // Checks if mover is right of map
-            if (moverBounds.Right > _roomBounds.Right)
-            {
-                for (int i = 0; i < moverBounds.Right - _roomBounds.Right; i++)
-                {
-                    // Moves mover back into game box
-                    _mover.Shift("left");
-                }
-            }
-        }
-
-        if (paletteBounds.Intersects(moverBounds))
-        {
-            // Find the distance from the edge of the paleete to mover
-            float distanceLeft = Math.Abs(moverBounds.Left - paletteBounds.Right);
-            float distanceRight = Math.Abs(moverBounds.Right - paletteBounds.Left);
-            float distanceTop = Math.Abs(moverBounds.Top - paletteBounds.Bottom);
-            float distanceBottom = Math.Abs(moverBounds.Bottom - paletteBounds.Top);
-
-            // Determine which mover edge is the closest.
-            float minDistance = Math.Min(Math.Min(distanceLeft, distanceRight), Math.Min(distanceTop, distanceBottom));
-
-            if (minDistance == distanceLeft)
-            {
-                _palette.Shift("left", (int)minDistance);
-            }
-            if (minDistance == distanceRight)
-            {
-                _palette.Shift("right", (int)minDistance);
-            }
-            if (minDistance == distanceTop)
-            {
-                _palette.Shift("up", (int)minDistance);
-            }
-            if (minDistance == distanceBottom)
-            {
-                _palette.Shift("down", (int)minDistance);
-            }
-        }
-        // Checks if palette is standing on mover
-        if (paletteBounds.Bottom == moverBounds.Top && paletteBounds.Right > moverBounds.Left && paletteBounds.Left < moverBounds.Right)
-        {
-            _palette.Land();
-        }
-
-        return;
     }
 
     static List<Rectangle> MapCollision()
@@ -571,8 +539,22 @@ public class Tutorial1 : Scene
         // Draw the palette
         _palette.Draw();
 
-        // Draw the mover
-        _mover.Draw();
+        foreach (Mover mover in Movers)
+        {
+            mover.Draw();
+        }
+        foreach (Block block in Blocks)
+        {
+            block.Draw();
+        }
+        foreach (Button button in Buttons)
+        {
+            button.Draw();
+        }
+        foreach (Effector effector in Effectors)
+        {
+            effector.Draw();
+        }
 
         // Always end the sprite batch when finished.
         Core.SpriteBatch.End();

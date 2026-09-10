@@ -57,4 +57,10 @@ public class Block
     {
         fallCount = 0;
     }
+
+    /// Draws block
+    public void Draw()
+    {
+        _sprite.Draw(Core.SpriteBatch, Position);
+    }
 }

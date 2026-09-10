@@ -7,11 +7,11 @@
 		<Region name="MoverL" x="0" y="12" width="12" height="12" />
 		<Region name="MoverD" x="12" y="12" width="12" height="12" />
 		<Region name="gravBlock" x="24" y="0" width="12" height="12" />
-		<Region name="X" x="24" y="12" width="12" height="12" />
-		<Region name="EqualH" x="36" y="0" width="12" height="12" />
-		<Region name="EqualV" x="36" y="12" width="12" height="12" />
-		<Region name="RotateC" x="48" y="0" width="12" height="12" />
-		<Region name="RotateAC" x="48" y="12" width="12" height="12" />
+		<Region name="Ecks-1" x="24" y="12" width="12" height="12" />
+		<Region name="VertEqual-1" x="36" y="12" width="12" height="12" />
+		<Region name="HorizEqual-1" x="36" y="0" width="12" height="12" />
+		<Region name="Clock-1" x="48" y="0" width="12" height="12" />
+		<Region name="AntiClock-1" x="48" y="12" width="12" height="12" />
 		<Region name="Palette-1" x="0" y="48" width="12" height="16" />
 		<Region name="Palette-2" x="0" y="64" width="12" height="16" />
 		<Region name="Button-Off" x="78" y="24" width="18" height="8" />
@@ -51,6 +51,21 @@
 		<Animation name="Button" delay="1">
 			<Frame region="Button-Off" />
 			<Frame region="Button-On" />
+		</Animation>
+		<Animation name="Ecks" delay="1">
+			<Frame region="Ecks-1" />
+		</Animation>
+		<Animation name="VertEqual" delay="1">
+			<Frame region="VertEqual-1" />
+		</Animation>
+		<Animation name="HorizEqual" delay="1">
+			<Frame region="HorizEqual-1" />
+		</Animation>
+		<Animation name="Clock" delay="1">
+			<Frame region="Clock-1" />
+		</Animation>
+		<Animation name="antiClock" delay="1">
+			<Frame region="antiClock-1" />
 		</Animation>
 	</Animations>
 </TextureAtlas>

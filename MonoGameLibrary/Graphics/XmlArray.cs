@@ -102,10 +102,6 @@ namespace MonoGameLibrary.Graphics
                                     else
                                     {
                                         entities.Add(new string[] { value, wide.ToString(), tall.ToString() });
-                                        //if ("LRUDBPBXCEW".Contains(value))
-                                        //{
-                                            
-                                        //}
                                     }
                                 }
                             }

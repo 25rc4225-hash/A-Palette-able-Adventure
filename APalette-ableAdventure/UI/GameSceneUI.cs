@@ -59,7 +59,7 @@ namespace APalette_ableAdventure.UI
 
             // Use that content manager to load the sound effect and atlas for the
             // user interface elements
-            _uiSoundEffect = content.Load<SoundEffect>("audio/ui");
+            ////////////////////////////////////////////////////////////////////////////////////////////_uiSoundEffect = content.Load<SoundEffect>("audio/ui");
             TextureAtlas atlas = TextureAtlas.FromFile(content, "images/atlas-definition.xml");
 
             // Create the Pause panel that is displayed when the game is paused and
@@ -189,7 +189,7 @@ namespace APalette_ableAdventure.UI
         private void OnResumeButtonClicked(object sender, EventArgs args)
         {
             // Button was clicked, play the ui sound effect for auditory feedback.
-            Core.Audio.PlaySoundEffect(_uiSoundEffect);
+            ///////////////////////////////////////////////////////////////////////////////////////////Core.Audio.PlaySoundEffect(_uiSoundEffect);
 
             // Since the resume button was clicked, we need to hide the pause panel.
             HidePausePanel();
@@ -204,7 +204,7 @@ namespace APalette_ableAdventure.UI
         private void OnRetryButtonClicked(object sender, EventArgs args)
         {
             // Button was clicked, play the ui sound effect for auditory feedback.
-            Core.Audio.PlaySoundEffect(_uiSoundEffect);
+            ////////////////////////////////////////////////////////////////////////////////////////Core.Audio.PlaySoundEffect(_uiSoundEffect);
 
             // Since the retry button was clicked, we need to hide the game over panel.
             HideGameOverPanel();
@@ -219,7 +219,7 @@ namespace APalette_ableAdventure.UI
         private void OnQuitButtonClicked(object sender, EventArgs args)
         {
             // Button was clicked, play the ui sound effect for auditory feedback.
-            Core.Audio.PlaySoundEffect(_uiSoundEffect);
+            ///////////////////////////////////////////////////////////////////////////////////////////Core.Audio.PlaySoundEffect(_uiSoundEffect);
 
             // Both panels have a quit button, so hide both panels
             HidePausePanel();
@@ -236,7 +236,7 @@ namespace APalette_ableAdventure.UI
         {
             // A ui element that can receive focus has received focus, play the
             // ui sound effect for auditory feedback.
-            Core.Audio.PlaySoundEffect(_uiSoundEffect);
+            ///////////////////////////////////////////////////////////////////////////////////Core.Audio.PlaySoundEffect(_uiSoundEffect);
         }
 
         /// Tells the game scene ui to show the pause panel.

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using MonoGameLibrary;
 using MonoGameLibrary.Graphics;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,8 @@ public class Button
     private AnimatedSprite _sprite;
 
     private Microsoft.Xna.Framework.Vector2 Position { get; set; }
+
+    private bool Pushed = false;
     
     public Button(AnimatedSprite sprite, int X, int Y)
     {
@@ -24,6 +27,18 @@ public class Button
 
     public void Push(GameTime gametime)
     {
+        Pushed = true;
         _sprite.Update(gametime);
+    }
+
+    public bool isPushed()
+    {
+        return Pushed;
+    }
+
+    /// Draws button
+    public void Draw()
+    {
+        _sprite.Draw(Core.SpriteBatch, Position);
     }
 }

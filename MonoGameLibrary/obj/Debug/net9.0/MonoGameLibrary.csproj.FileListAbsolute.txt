@@ -34,3 +34,16 @@ C:\0 MyNEA\APalette-ableAdventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibra
 C:\0 MyNEA\APalette-ableAdventure\MonoGameLibrary\obj\Debug\net9.0\refint\MonoGameLibrary.dll
 C:\0 MyNEA\APalette-ableAdventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.pdb
 C:\0 MyNEA\APalette-ableAdventure\MonoGameLibrary\obj\Debug\net9.0\ref\MonoGameLibrary.dll
+H:\GitHub\A-Palette-able-Adventure\MonoGameLibrary\bin\Debug\net9.0\MonoGameLibrary.deps.json
+H:\GitHub\A-Palette-able-Adventure\MonoGameLibrary\bin\Debug\net9.0\MonoGameLibrary.dll
+H:\GitHub\A-Palette-able-Adventure\MonoGameLibrary\bin\Debug\net9.0\MonoGameLibrary.pdb
+H:\GitHub\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.csproj.AssemblyReference.cache
+H:\GitHub\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.GeneratedMSBuildEditorConfig.editorconfig
+H:\GitHub\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.AssemblyInfoInputs.cache
+H:\GitHub\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.AssemblyInfo.cs
+H:\GitHub\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.csproj.CoreCompileInputs.cache
+H:\GitHub\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.sourcelink.json
+H:\GitHub\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.dll
+H:\GitHub\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\refint\MonoGameLibrary.dll
+H:\GitHub\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.pdb
+H:\GitHub\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\ref\MonoGameLibrary.dll

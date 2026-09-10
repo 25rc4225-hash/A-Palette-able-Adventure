@@ -23,15 +23,15 @@ public class Mover
     public Vector2 Position { get; set; }
 
     /// Creates Mover
-    public Mover(string type, Sprite R, Sprite L, Sprite U, Sprite D, int X, int Y)
+    public Mover(string type, List<Sprite> Sprites, int X, int Y)
     {
         _type = type;
         switch (_type)
         {
-            case "R": _sprite = R; break;
-            case "L": _sprite = L; break;
-            case "U": _sprite = U; break;
-            case "D": _sprite = D; break;
+            case "R": _sprite = Sprites[0]; break;
+            case "L": _sprite = Sprites[1]; break;
+            case "U": _sprite = Sprites[2]; break;
+            case "D": _sprite = Sprites[3]; break;
         }
     }
 
@@ -75,14 +75,14 @@ public class Mover
     }
 
     /// Shifts the mover by 1 so it stays in the room bounds
-    public void Shift(string direction)
+    public void Shift(string direction, int amount)
     {
         switch (direction)
         {
-            case "up": Position -= Vector2.UnitY; break;
-            case "down": Position += Vector2.UnitY; break;
-            case "left": Position -= Vector2.UnitX; break;
-            case "right": Position += Vector2.UnitX; break;
+            case "up": Position -= Vector2.UnitY * amount; break;
+            case "down": Position += Vector2.UnitY * amount; break;
+            case "left": Position -= Vector2.UnitX * amount; break;
+            case "right": Position += Vector2.UnitX * amount; break;
         }
     }
 

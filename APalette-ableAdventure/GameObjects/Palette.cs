@@ -18,9 +18,6 @@ public class Palette
     // String for storing current movement direction
     private string _movement = "N";
 
-    // Sound effect for palette jumping
-    private SoundEffect _jumpingSoundEffect;
-
     // Buffer to queue inputs input by player during input polling.
     private Queue<Vector2> _inputBuffer;
 
@@ -52,13 +49,12 @@ public class Palette
     public Vector2 Position { get; set; }
 
     /// Creates palette
-    public Palette(AnimatedSprite none, AnimatedSprite right, AnimatedSprite left,/* AnimatedSprite air,*/ SoundEffect jumpingSoundEffect, int x, int y)
+    public Palette(List<AnimatedSprite> Animations, int x, int y)
     {
-        _animations.Add("N", none);
-        _animations.Add("R", right);
-        _animations.Add("L", left);
+        _animations.Add("N", Animations[0]);
+        _animations.Add("R", Animations[1]);
+        _animations.Add("L", Animations[2]);
         //_animations["U"] = air;
-        _jumpingSoundEffect = jumpingSoundEffect;
         Position = new Vector2(x, y);
     }
 
@@ -109,8 +105,6 @@ public class Palette
             _jumping = true;
             _inAir = true;
             _jumpPoint = 20;
-            // Play the jump sound effect.
-            Core.Audio.PlaySoundEffect(_jumpingSoundEffect);
         }
 
         // If in the air then repeat previous move

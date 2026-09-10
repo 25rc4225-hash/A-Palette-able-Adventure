@@ -57,3 +57,7 @@ C:\0 MyNEA\APalette-ableAdventure\APalette-ableAdventure\bin\Debug\net9.0\MonoGa
 C:\0 MyNEA\APalette-ableAdventure\APalette-ableAdventure\bin\Debug\net9.0\Content\fonts\04b_30.fnt
 C:\0 MyNEA\APalette-ableAdventure\APalette-ableAdventure\bin\Debug\net9.0\Content\images\GamePixelArt.xnb
 C:\0 MyNEA\APalette-ableAdventure\APalette-ableAdventure\bin\Debug\net9.0\Content\images\Tutorial1_Map.xml
+H:\GitHub\A-Palette-able-Adventure\APalette-ableAdventure\obj\Debug\net9.0\mgcb.tool.restore
+H:\GitHub\A-Palette-able-Adventure\APalette-ableAdventure\obj\Debug\net9.0\APalette-ableAdventure.dll
+H:\GitHub\A-Palette-able-Adventure\APalette-ableAdventure\obj\Debug\net9.0\refint\APalette-ableAdventure.dll
+H:\GitHub\A-Palette-able-Adventure\APalette-ableAdventure\obj\Debug\net9.0\APalette-ableAdventure.pdb

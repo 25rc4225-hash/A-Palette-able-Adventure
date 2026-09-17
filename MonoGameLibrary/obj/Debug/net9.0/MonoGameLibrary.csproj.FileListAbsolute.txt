@@ -47,3 +47,16 @@ H:\GitHub\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibr
 H:\GitHub\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\refint\MonoGameLibrary.dll
 H:\GitHub\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.pdb
 H:\GitHub\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\ref\MonoGameLibrary.dll
+G:\My Drive\CompSci\APaletteableAdventure\A-Palette-able-Adventure\MonoGameLibrary\bin\Debug\net9.0\MonoGameLibrary.deps.json
+G:\My Drive\CompSci\APaletteableAdventure\A-Palette-able-Adventure\MonoGameLibrary\bin\Debug\net9.0\MonoGameLibrary.dll
+G:\My Drive\CompSci\APaletteableAdventure\A-Palette-able-Adventure\MonoGameLibrary\bin\Debug\net9.0\MonoGameLibrary.pdb
+G:\My Drive\CompSci\APaletteableAdventure\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.csproj.AssemblyReference.cache
+G:\My Drive\CompSci\APaletteableAdventure\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.GeneratedMSBuildEditorConfig.editorconfig
+G:\My Drive\CompSci\APaletteableAdventure\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.AssemblyInfoInputs.cache
+G:\My Drive\CompSci\APaletteableAdventure\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.AssemblyInfo.cs
+G:\My Drive\CompSci\APaletteableAdventure\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.csproj.CoreCompileInputs.cache
+G:\My Drive\CompSci\APaletteableAdventure\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.sourcelink.json
+G:\My Drive\CompSci\APaletteableAdventure\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.dll
+G:\My Drive\CompSci\APaletteableAdventure\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\refint\MonoGameLibrary.dll
+G:\My Drive\CompSci\APaletteableAdventure\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.pdb
+G:\My Drive\CompSci\APaletteableAdventure\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\ref\MonoGameLibrary.dll

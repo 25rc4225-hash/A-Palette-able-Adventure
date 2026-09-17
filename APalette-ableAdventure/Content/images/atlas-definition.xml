@@ -14,6 +14,20 @@
 		<Region name="AntiClock-1" x="48" y="12" width="12" height="12" />
 		<Region name="Palette-1" x="0" y="48" width="12" height="16" />
 		<Region name="Palette-2" x="0" y="64" width="12" height="16" />
+
+		<Region name="Water-1" x="96" y="24" width="12" height="12" />
+		<Region name="Water-2" x="96" y="36" width="12" height="12" />
+		<Region name="Water-3" x="96" y="48" width="12" height="12" />
+		<Region name="Water-4" x="96" y="60" width="12" height="12" />
+		<Region name="Water-5" x="96" y="72" width="12" height="12" />
+		<Region name="Water-6" x="96" y="84" width="12" height="12" />
+		<Region name="Water-7" x="108" y="24" width="12" height="12" />
+		<Region name="Water-8" x="108" y="36" width="12" height="12" />
+		<Region name="Water-9" x="108" y="48" width="12" height="12" />
+		<Region name="Water-10" x="108" y="60" width="12" height="12" />
+		<Region name="Water-11" x="108" y="72" width="12" height="12" />
+		<Region name="Water-12" x="108" y="84" width="12" height="12" />
+		
 		<Region name="Button-Off" x="78" y="24" width="18" height="8" />
 		<Region name="Button-On" x="78" y="32" width="18" height="4" />
 		<Region name="unfocused-button" x="259" y="80" width="65" height="14" />
@@ -66,6 +80,45 @@
 		</Animation>
 		<Animation name="antiClock" delay="1">
 			<Frame region="antiClock-1" />
+		</Animation>
+
+		<Animation name="Water1" delay="500">
+			<Frame region="Water-1" />
+			<Frame region="Water-2" />
+			<Frame region="Water-3" />
+			<Frame region="Water-4" />
+			<Frame region="Water-5" />
+			<Frame region="Water-6" />
+		</Animation>
+		<Animation name="Water2" delay="500">
+			<Frame region="Water-7" />
+			<Frame region="Water-8" />
+			<Frame region="Water-9" />
+			<Frame region="Water-10" />
+			<Frame region="Water-11" />
+			<Frame region="Water-12" />
+		</Animation>
+		<Animation name="Water3" delay="500">
+			<Frame region="Water-4" />
+			<Frame region="Water-5" />
+			<Frame region="Water-6" />
+			<Frame region="Water-1" />
+			<Frame region="Water-2" />
+			<Frame region="Water-3" />
+		</Animation>
+		<Animation name="Water4" delay="500">
+			<Frame region="Water-10" />
+			<Frame region="Water-11" />
+			<Frame region="Water-12" />
+			<Frame region="Water-7" />
+			<Frame region="Water-8" />
+			<Frame region="Water-9" />
+		</Animation>
+		<Animation name="MidWater" delay="500">
+			<Frame region="Water-1" />
+		</Animation>
+		<Animation name="BottomW" delay="500">
+			<Frame region="Water-1" />
 		</Animation>
 	</Animations>
 </TextureAtlas>

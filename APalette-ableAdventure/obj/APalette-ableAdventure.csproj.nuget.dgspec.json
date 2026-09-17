@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "H:\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\APalette-ableAdventure.csproj": {}
+    "G:\\My Drive\\CompSci\\APaletteableAdventure\\A-Palette-able-Adventure\\APalette-ableAdventure\\APalette-ableAdventure.csproj": {}
   },
   "projects": {
-    "H:\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\APalette-ableAdventure.csproj": {
+    "G:\\My Drive\\CompSci\\APaletteableAdventure\\A-Palette-able-Adventure\\APalette-ableAdventure\\APalette-ableAdventure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\APalette-ableAdventure.csproj",
+        "projectUniqueName": "G:\\My Drive\\CompSci\\APaletteableAdventure\\A-Palette-able-Adventure\\APalette-ableAdventure\\APalette-ableAdventure.csproj",
         "projectName": "APalette-ableAdventure",
-        "projectPath": "H:\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\APalette-ableAdventure.csproj",
-        "packagesPath": "C:\\Users\\25rC4225\\.nuget\\packages\\",
-        "outputPath": "H:\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\obj\\",
+        "projectPath": "G:\\My Drive\\CompSci\\APaletteableAdventure\\A-Palette-able-Adventure\\APalette-ableAdventure\\APalette-ableAdventure.csproj",
+        "packagesPath": "C:\\Users\\25RC4225\\.nuget\\packages\\",
+        "outputPath": "G:\\My Drive\\CompSci\\APaletteableAdventure\\A-Palette-able-Adventure\\APalette-ableAdventure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\25rC4225\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\25RC4225\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -32,8 +32,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "H:\\GitHub\\A-Palette-able-Adventure\\MonoGameLibrary\\MonoGameLibrary.csproj": {
-                "projectPath": "H:\\GitHub\\A-Palette-able-Adventure\\MonoGameLibrary\\MonoGameLibrary.csproj"
+              "G:\\My Drive\\CompSci\\APaletteableAdventure\\A-Palette-able-Adventure\\MonoGameLibrary\\MonoGameLibrary.csproj": {
+                "projectPath": "G:\\My Drive\\CompSci\\APaletteableAdventure\\A-Palette-able-Adventure\\MonoGameLibrary\\MonoGameLibrary.csproj"
               }
             }
           }
@@ -87,20 +87,20 @@
         }
       }
     },
-    "H:\\GitHub\\A-Palette-able-Adventure\\MonoGameLibrary\\MonoGameLibrary.csproj": {
+    "G:\\My Drive\\CompSci\\APaletteableAdventure\\A-Palette-able-Adventure\\MonoGameLibrary\\MonoGameLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\GitHub\\A-Palette-able-Adventure\\MonoGameLibrary\\MonoGameLibrary.csproj",
+        "projectUniqueName": "G:\\My Drive\\CompSci\\APaletteableAdventure\\A-Palette-able-Adventure\\MonoGameLibrary\\MonoGameLibrary.csproj",
         "projectName": "MonoGameLibrary",
-        "projectPath": "H:\\GitHub\\A-Palette-able-Adventure\\MonoGameLibrary\\MonoGameLibrary.csproj",
-        "packagesPath": "C:\\Users\\25rC4225\\.nuget\\packages\\",
-        "outputPath": "H:\\GitHub\\A-Palette-able-Adventure\\MonoGameLibrary\\obj\\",
+        "projectPath": "G:\\My Drive\\CompSci\\APaletteableAdventure\\A-Palette-able-Adventure\\MonoGameLibrary\\MonoGameLibrary.csproj",
+        "packagesPath": "C:\\Users\\25RC4225\\.nuget\\packages\\",
+        "outputPath": "G:\\My Drive\\CompSci\\APaletteableAdventure\\A-Palette-able-Adventure\\MonoGameLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\25rC4225\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\25RC4225\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

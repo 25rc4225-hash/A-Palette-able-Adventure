@@ -82,6 +82,7 @@ namespace MonoGameLibrary.Graphics
                         if (rows[0][wide] != ' ')
                         {
                             bool seven = false;
+                            bool firstWater = true;
                             for (int tall = 0; tall < rows.Length; tall++)
                             {
                                 string value = rows[tall][wide].ToString();
@@ -101,6 +102,29 @@ namespace MonoGameLibrary.Graphics
                                     }
                                     else
                                     {
+                                        if (value == "W")
+                                        {
+                                            if (firstWater)
+                                            {
+                                                value = "S";
+                                                firstWater = false;
+                                            }
+                                            else if (tall != rows.Length - 1)
+                                            {
+                                                if (rows[tall + 1][wide].ToString() == "W")
+                                                {
+                                                    value = "M";
+                                                }
+                                                else
+                                                {
+                                                    value = "F";
+                                                }
+                                            }
+                                            else
+                                            {
+                                                value = "M";
+                                            }
+                                        }
                                         entities.Add(new string[] { value, wide.ToString(), tall.ToString() });
                                     }
                                 }

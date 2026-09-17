@@ -1,15 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "uAYU7fRoz/Y=",
+  "dgSpecHash": "8EoKbjRMo5g=",
   "success": true,
-  "projectFilePath": "H:\\GitHub\\A-Palette-able-Adventure\\MonoGameLibrary\\MonoGameLibrary.csproj",
+  "projectFilePath": "G:\\My Drive\\CompSci\\APaletteableAdventure\\A-Palette-able-Adventure\\MonoGameLibrary\\MonoGameLibrary.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\25rC4225\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.5.1\\monogame.framework.desktopgl.3.8.5.1.nupkg.sha512",
-    "C:\\Users\\25rC4225\\.nuget\\packages\\monogame.library.openal\\1.24.3.4\\monogame.library.openal.1.24.3.4.nupkg.sha512",
-    "C:\\Users\\25rC4225\\.nuget\\packages\\monogame.library.sdl\\2.32.10.2\\monogame.library.sdl.2.32.10.2.nupkg.sha512",
-    "C:\\Users\\25rC4225\\.nuget\\packages\\nvorbis\\0.10.4\\nvorbis.0.10.4.nupkg.sha512",
-    "C:\\Users\\25rC4225\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
-    "C:\\Users\\25rC4225\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512"
+    "C:\\Users\\25RC4225\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.5.1\\monogame.framework.desktopgl.3.8.5.1.nupkg.sha512",
+    "C:\\Users\\25RC4225\\.nuget\\packages\\monogame.library.openal\\1.24.3.4\\monogame.library.openal.1.24.3.4.nupkg.sha512",
+    "C:\\Users\\25RC4225\\.nuget\\packages\\monogame.library.sdl\\2.32.10.2\\monogame.library.sdl.2.32.10.2.nupkg.sha512",
+    "C:\\Users\\25RC4225\\.nuget\\packages\\nvorbis\\0.10.4\\nvorbis.0.10.4.nupkg.sha512",
+    "C:\\Users\\25RC4225\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\25RC4225\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512"
   ],
   "logs": []
 }

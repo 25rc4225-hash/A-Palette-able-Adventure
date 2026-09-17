@@ -30,6 +30,7 @@ public class Tutorial1 : Scene
     private static List<Block> Blocks;
     private static List<Button> Buttons;
     private static List<Effector> Effectors;
+    private static List<Water> Waters;
 
     // Defines the tilemap to draw
     private static Tilemap _tilemap;
@@ -174,7 +175,29 @@ public class Tutorial1 : Scene
         HorizEqual.Scale = new Vector2(3.5f, 3.5f);
         eAnimations.Add(HorizEqual);
 
+        List<AnimatedSprite> wAnimations = new List<AnimatedSprite>();
+        AnimatedSprite Water1 = atlas.CreateAnimatedSprite("Water1");
+        Water1.Scale = new Vector2(3.5f, 3.5f);
+        wAnimations.Add(Water1);
+        AnimatedSprite Water2 = atlas.CreateAnimatedSprite("Water2");
+        Water2.Scale = new Vector2(3.5f, 3.5f);
+        wAnimations.Add(Water2);
+        AnimatedSprite Water3 = atlas.CreateAnimatedSprite("Water3");
+        Water3.Scale = new Vector2(3.5f, 3.5f);
+        wAnimations.Add(Water3);
+        AnimatedSprite Water4 = atlas.CreateAnimatedSprite("Water4");
+        Water4.Scale = new Vector2(3.5f, 3.5f);
+        wAnimations.Add(Water4);
+        AnimatedSprite MidWater = atlas.CreateAnimatedSprite("MidWater");
+        MidWater.Scale = new Vector2(3.5f, 3.5f);
+        wAnimations.Add(MidWater);
+        AnimatedSprite BottomW = atlas.CreateAnimatedSprite("BottomW");
+        BottomW.Scale = new Vector2(3.5f, 3.5f);
+        wAnimations.Add(BottomW);
+
         entities = Map.GetEntites();
+
+        int waterNum = 0;
 
         foreach (string[] entity in entities)
         {
@@ -198,6 +221,31 @@ public class Tutorial1 : Scene
             else if ("XCAVH".Contains(entity[0]))
             {
                 Effectors.Add(new Effector(entity[0], eAnimations, int.Parse(entity[1]), int.Parse(entity[2])));
+            }
+            else if ("SMF".Contains(entity[0]))
+            {
+                if (entity[0] == "S")
+                {
+                    if (waterNum == 0)
+                    {
+                        entity[0] = "W1";
+                    }
+                    else if (waterNum == 1)
+                    {
+                        entity[0] = "W2";
+                    }
+                    else if (waterNum == 2)
+                    {
+                        entity[0] = "W3";
+                    }
+                    else if (waterNum == 3)
+                    {
+                        entity[0] = "W4";
+                    }
+                    waterNum++;
+                    waterNum %= 4;
+                }
+                Waters.Add(new Water(entity[0], eAnimations, int.Parse(entity[1]), int.Parse(entity[2])));
             }
         }
     }
@@ -236,6 +284,10 @@ public class Tutorial1 : Scene
         foreach (Block block in Blocks)
         {
             block.Update();
+        }
+        foreach (Water water in Waters)
+        {
+            water.Update(gameTime);
         }
 
         // Perform collision checks.

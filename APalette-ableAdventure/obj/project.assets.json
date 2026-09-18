@@ -723,11 +723,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\My Drive\\CompSci\\APaletteableAdventure\\A-Palette-able-Adventure\\APalette-ableAdventure\\APalette-ableAdventure.csproj",
+      "projectUniqueName": "G:\\My Drive\\CompSci\\A-Palette-able-Adventure\\APalette-ableAdventure\\APalette-ableAdventure.csproj",
       "projectName": "APalette-ableAdventure",
-      "projectPath": "G:\\My Drive\\CompSci\\APaletteableAdventure\\A-Palette-able-Adventure\\APalette-ableAdventure\\APalette-ableAdventure.csproj",
+      "projectPath": "G:\\My Drive\\CompSci\\A-Palette-able-Adventure\\APalette-ableAdventure\\APalette-ableAdventure.csproj",
       "packagesPath": "C:\\Users\\25RC4225\\.nuget\\packages\\",
-      "outputPath": "G:\\My Drive\\CompSci\\APaletteableAdventure\\A-Palette-able-Adventure\\APalette-ableAdventure\\obj\\",
+      "outputPath": "G:\\My Drive\\CompSci\\A-Palette-able-Adventure\\APalette-ableAdventure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -748,8 +748,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "G:\\My Drive\\CompSci\\APaletteableAdventure\\A-Palette-able-Adventure\\MonoGameLibrary\\MonoGameLibrary.csproj": {
-              "projectPath": "G:\\My Drive\\CompSci\\APaletteableAdventure\\A-Palette-able-Adventure\\MonoGameLibrary\\MonoGameLibrary.csproj"
+            "G:\\My Drive\\CompSci\\A-Palette-able-Adventure\\MonoGameLibrary\\MonoGameLibrary.csproj": {
+              "projectPath": "G:\\My Drive\\CompSci\\A-Palette-able-Adventure\\MonoGameLibrary\\MonoGameLibrary.csproj"
             }
           }
         }

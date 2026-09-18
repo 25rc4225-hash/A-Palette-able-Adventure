@@ -65,3 +65,7 @@ G:\My Drive\CompSci\APaletteableAdventure\A-Palette-able-Adventure\APalette-able
 G:\My Drive\CompSci\APaletteableAdventure\A-Palette-able-Adventure\APalette-ableAdventure\obj\Debug\net9.0\APalette-ableAdventure.dll
 G:\My Drive\CompSci\APaletteableAdventure\A-Palette-able-Adventure\APalette-ableAdventure\obj\Debug\net9.0\refint\APalette-ableAdventure.dll
 G:\My Drive\CompSci\APaletteableAdventure\A-Palette-able-Adventure\APalette-ableAdventure\obj\Debug\net9.0\APalette-ableAdventure.pdb
+G:\My Drive\CompSci\A-Palette-able-Adventure\APalette-ableAdventure\obj\Debug\net9.0\mgcb.tool.restore
+G:\My Drive\CompSci\A-Palette-able-Adventure\APalette-ableAdventure\obj\Debug\net9.0\APalette-ableAdventure.dll
+G:\My Drive\CompSci\A-Palette-able-Adventure\APalette-ableAdventure\obj\Debug\net9.0\refint\APalette-ableAdventure.dll
+G:\My Drive\CompSci\A-Palette-able-Adventure\APalette-ableAdventure\obj\Debug\net9.0\APalette-ableAdventure.pdb

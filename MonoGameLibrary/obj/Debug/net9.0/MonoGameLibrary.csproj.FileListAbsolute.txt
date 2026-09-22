@@ -73,3 +73,16 @@ G:\My Drive\CompSci\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\Mo
 G:\My Drive\CompSci\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\refint\MonoGameLibrary.dll
 G:\My Drive\CompSci\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.pdb
 G:\My Drive\CompSci\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\ref\MonoGameLibrary.dll
+C:\Users\rober\OneDrive\Documents\GitHub\A-Palette-able-Adventure\MonoGameLibrary\bin\Debug\net9.0\MonoGameLibrary.deps.json
+C:\Users\rober\OneDrive\Documents\GitHub\A-Palette-able-Adventure\MonoGameLibrary\bin\Debug\net9.0\MonoGameLibrary.dll
+C:\Users\rober\OneDrive\Documents\GitHub\A-Palette-able-Adventure\MonoGameLibrary\bin\Debug\net9.0\MonoGameLibrary.pdb
+C:\Users\rober\OneDrive\Documents\GitHub\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.csproj.AssemblyReference.cache
+C:\Users\rober\OneDrive\Documents\GitHub\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rober\OneDrive\Documents\GitHub\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.AssemblyInfoInputs.cache
+C:\Users\rober\OneDrive\Documents\GitHub\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.AssemblyInfo.cs
+C:\Users\rober\OneDrive\Documents\GitHub\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.csproj.CoreCompileInputs.cache
+C:\Users\rober\OneDrive\Documents\GitHub\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.sourcelink.json
+C:\Users\rober\OneDrive\Documents\GitHub\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.dll
+C:\Users\rober\OneDrive\Documents\GitHub\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\refint\MonoGameLibrary.dll
+C:\Users\rober\OneDrive\Documents\GitHub\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\MonoGameLibrary.pdb
+C:\Users\rober\OneDrive\Documents\GitHub\A-Palette-able-Adventure\MonoGameLibrary\obj\Debug\net9.0\ref\MonoGameLibrary.dll

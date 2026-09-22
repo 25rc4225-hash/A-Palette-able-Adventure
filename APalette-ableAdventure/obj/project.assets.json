@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "targets": {
     "net9.0": {
       "CsvHelper/33.1.0": {
@@ -717,24 +717,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\25RC4225\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\rober\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\My Drive\\CompSci\\A-Palette-able-Adventure\\APalette-ableAdventure\\APalette-ableAdventure.csproj",
+      "projectUniqueName": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\APalette-ableAdventure.csproj",
       "projectName": "APalette-ableAdventure",
-      "projectPath": "G:\\My Drive\\CompSci\\A-Palette-able-Adventure\\APalette-ableAdventure\\APalette-ableAdventure.csproj",
-      "packagesPath": "C:\\Users\\25RC4225\\.nuget\\packages\\",
-      "outputPath": "G:\\My Drive\\CompSci\\A-Palette-able-Adventure\\APalette-ableAdventure\\obj\\",
+      "projectPath": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\APalette-ableAdventure.csproj",
+      "packagesPath": "C:\\Users\\rober\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\25RC4225\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\rober\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -746,10 +741,11 @@
       },
       "frameworks": {
         "net9.0": {
+          "framework": "net9.0",
           "targetAlias": "net9.0",
           "projectReferences": {
-            "G:\\My Drive\\CompSci\\A-Palette-able-Adventure\\MonoGameLibrary\\MonoGameLibrary.csproj": {
-              "projectPath": "G:\\My Drive\\CompSci\\A-Palette-able-Adventure\\MonoGameLibrary\\MonoGameLibrary.csproj"
+            "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\MonoGameLibrary\\MonoGameLibrary.csproj": {
+              "projectPath": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\MonoGameLibrary\\MonoGameLibrary.csproj"
             }
           }
         }
@@ -764,10 +760,11 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "10.0.400"
     },
     "frameworks": {
       "net9.0": {
+        "framework": "net9.0",
         "targetAlias": "net9.0",
         "dependencies": {
           "Gum.MonoGame": {
@@ -799,7 +796,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.316/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

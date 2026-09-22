@@ -14,7 +14,7 @@ namespace MonoGameLibrary.Graphics
     public class Layout
     {
         private static int[,] map;
-        private static List<string[]> entities;
+        private static List<string[]> entities = new List<string[]>();
         private static ContentManager _content;
         private static string _filename;
         private static Tileset _tileset;

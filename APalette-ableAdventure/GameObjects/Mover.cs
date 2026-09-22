@@ -33,6 +33,7 @@ public class Mover
             case "U": _sprite = Sprites[2]; break;
             case "D": _sprite = Sprites[3]; break;
         }
+        Position = new Vector2(X, Y);
     }
 
     /// Initializes the Mover, can be used to reset it back to an initial state.

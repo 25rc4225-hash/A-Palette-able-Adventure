@@ -21,25 +21,37 @@ public class Mover
 
     /// Gets or Sets position of mover
     public Vector2 Position { get; set; }
+    public Vector2 startPosition { get; set; }
+    private bool hidden = false;
+    private Sprite rSprite;
+    private Sprite lSprite;
+    private Sprite uSprite;
+    private Sprite dSprite;
+    private bool affected = false;
 
     /// Creates Mover
     public Mover(string type, List<Sprite> Sprites, int X, int Y)
     {
         _type = type;
+        rSprite = Sprites[0];
+        lSprite = Sprites[1];
+        uSprite = Sprites[2];
+        dSprite = Sprites[3];
         switch (_type)
         {
-            case "R": _sprite = Sprites[0]; break;
-            case "L": _sprite = Sprites[1]; break;
-            case "U": _sprite = Sprites[2]; break;
-            case "D": _sprite = Sprites[3]; break;
+            case "R": _sprite = rSprite; break;
+            case "L": _sprite = lSprite; break;
+            case "U": _sprite = uSprite; break;
+            case "D": _sprite = dSprite; break;
         }
         Position = new Vector2(X, Y);
+        startPosition = Position;
     }
 
     /// Initializes the Mover, can be used to reset it back to an initial state.
-    public void Initialize(Vector2 startingPosition)
+    public void Initialize()
     {
-        Position = startingPosition;
+        Position = startPosition;
     }
 
     /// Moves mover
@@ -56,6 +68,42 @@ public class Mover
         Position += _direction * MOVEMENT_SPEED;
     }
 
+    public string getType()
+    {
+        return _type;
+    }
+    public void affect()
+    {
+        affected = true;
+    }
+    public void unaffect()
+    {
+        affected = false;
+    }
+    public bool isAffected() 
+    { 
+        return affected; 
+    }
+    public void changeType(string newType)
+    {
+        _type = newType;
+        switch (_type)
+        {
+            case "R": _sprite = rSprite; break;
+            case "L": _sprite = lSprite; break;
+            case "U": _sprite = uSprite; break;
+            case "D": _sprite = dSprite; break;
+        }
+    }
+    public int getX()
+    {
+        return (int)Position.X;
+    }
+    public int getY()
+    {
+        return (int)Position.X;
+    }
+
     /// Updates Mover
     public void Update(GameTime gameTime)
     {
@@ -63,10 +111,22 @@ public class Mover
         Move();
     }
 
+    public void Hide()
+    {
+        hidden = true;
+    }
+    public void unHide()
+    {
+        hidden = false;
+    }
+
     /// Draws mover
     public void Draw()
     {
-        _sprite.Draw(Core.SpriteBatch, Position);
+        if (!hidden)
+        {
+            _sprite.Draw(Core.SpriteBatch, Position);
+        }
     }
 
     /// Returns rectangle bounds for Mover

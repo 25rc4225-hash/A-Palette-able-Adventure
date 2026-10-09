@@ -45,5 +45,10 @@ namespace APalette_ableAdventure
         {
             return s_keyboard.WasKeyJustPressed(Keys.Enter);
         }
+
+        public static bool Reset()
+        {
+            return s_keyboard.WasKeyJustPressed(Keys.R);
+        }
     }
 }

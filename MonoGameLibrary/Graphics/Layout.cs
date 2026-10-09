@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualBasic;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -19,6 +18,7 @@ namespace MonoGameLibrary.Graphics
         private static string _filename;
         private static Tileset _tileset;
         private static Tilemap _tilemap;
+        private static Vector2 Scale = new Vector2(3.333f, 3.333f);
         public Layout(ContentManager content, string filename)
         {
             _content = content;
@@ -32,6 +32,10 @@ namespace MonoGameLibrary.Graphics
         public List<string[]> GetEntites()
         {
             return entities;
+        }
+        public Vector2 GetScale()
+        {
+            return Scale;
         }
         public void XmlArray()
         {
@@ -125,7 +129,7 @@ namespace MonoGameLibrary.Graphics
                                                 value = "M";
                                             }
                                         }
-                                        entities.Add(new string[] { value, wide.ToString(), tall.ToString() });
+                                        entities.Add(new string[] { value, (Math.Floor(wide * tileWidth * Scale.X / 2)).ToString(), (Math.Floor(tall * tileHeight * Scale.Y)).ToString() });
                                     }
                                 }
                             }
@@ -155,22 +159,38 @@ namespace MonoGameLibrary.Graphics
                     }
                     else if (map[y, x] == 1)
                     {
+                        bool one;
+                        bool two;
+                        bool three;
+                        bool four;
+                        bool six;
+                        bool seven;
+                        bool eight;
+                        bool nine;
+
                         if (x == 0 || y == 0 || x == width - 1 || y == height - 1)
                         {
                             if (x == 0 && y == 0)
                             {
-                                if ((map[y + 1, x] == 1))
+                                if (map[y + 1, x + 1] == 1)
                                 {
                                     tileIndex = 19;
                                 }
                                 else
                                 {
-                                    tileIndex = 12;
+                                    tileIndex = 20;
                                 }
                             }
                             else if (x == width - 1 && y == 0)
                             {
-                                tileIndex = 21;
+                                if (map[y + 1, x - 1] == 1)
+                                {
+                                    tileIndex = 21;
+                                }
+                                else
+                                {
+                                    tileIndex = 22;
+                                }
                             }
                             else if (x == 0 && y == height - 1)
                             {
@@ -183,17 +203,655 @@ namespace MonoGameLibrary.Graphics
                                     tileIndex = 12;
                                 }
                             }
+                            else if (x == width - 1 && y == height - 1)
+                            {
+                                if (map[y - 1, x - 1] == 1)
+                                {
+                                    tileIndex = 11;
+                                    rotation = 270;
+                                }
+                                else
+                                {
+                                    tileIndex = 12;
+                                    rotation = 270;
+                                }
+                            }
+
+                            else if (x == 0)
+                            {
+                                two = map[y - 1, x] == 1;
+                                three = map[y - 1, x + 1] == 1;
+                                six = map[y, x + 1] == 1;
+                                eight = map[y + 1, x] == 1;
+                                nine = map[y + 1, x + 1] == 1;
+
+                                // Solitary island check
+                                if (three && !two && !six)
+                                {
+                                    three = false;
+                                }
+                                if (nine && !six && !eight)
+                                {
+                                    nine = false;
+                                }
+                                bool[] boolCount = { two, three, six, eight, nine };
+                                int bools = boolCount.Count(c => c == true);
+
+                                if (bools == 0)
+                                {
+                                    tileIndex = 26;
+                                }
+                                else if (bools == 1)
+                                {
+                                    if (two)
+                                    {
+                                        tileIndex = 13;
+                                    }
+                                    else if (six)
+                                    {
+                                        tileIndex = 23;
+                                    }
+                                    else if (eight)
+                                    {
+                                        tileIndex = 24;
+                                    }
+                                }
+                                else if (bools == 2)
+                                {
+                                    if (two)
+                                    {
+                                        if (three)
+                                        {
+                                            tileIndex = 13;
+                                        }
+                                        else if (six)
+                                        {
+                                            tileIndex = 12;
+                                        }
+                                        else if (eight)
+                                        {
+                                            tileIndex = 10;
+                                        }
+                                    }
+                                    else if (three)
+                                    {
+                                        tileIndex = 23;
+                                    }
+                                    else if (six)
+                                    {
+                                        if (eight)
+                                        {
+                                            tileIndex = 20;
+                                        }
+                                        else if (nine)
+                                        {
+                                            tileIndex = 23;
+                                        }
+                                    }
+                                    else if (eight)
+                                    {
+                                        tileIndex = 24;
+                                    }
+                                }
+                                else if (bools == 3)
+                                {
+                                    if (two)
+                                    {
+                                        if (three)
+                                        {
+                                            if (six)
+                                            {
+                                                tileIndex = 11;
+                                            }
+                                            else if (eight)
+                                            {
+                                                tileIndex = 10;
+                                            }
+                                        }
+                                        else if (six)
+                                        {
+                                            if (eight)
+                                            {
+                                                tileIndex = 9;
+                                            }
+                                            else if (nine)
+                                            {
+                                                tileIndex = 12;
+                                            }
+                                        }
+                                        else if (eight)
+                                        {
+                                            tileIndex = 10;
+                                        }
+                                    }
+                                    else if (three)
+                                    {
+                                        if (eight)
+                                        {
+                                            tileIndex = 20;
+                                        }
+                                        else if (nine)
+                                        {
+                                            tileIndex = 23;
+                                        }
+                                    }
+                                    else if (six)
+                                    {
+                                        tileIndex = 19;
+                                    }
+                                }
+                                else if (bools == 4)
+                                {
+                                    if (two)
+                                    {
+                                        if (three)
+                                        {
+                                            if (six)
+                                            {
+                                                if (eight)
+                                                {
+                                                    tileIndex = 8;
+                                                }
+                                                else if (nine)
+                                                {
+                                                    tileIndex = 11;
+                                                }
+                                            }
+                                            else if (eight)
+                                            {
+                                                tileIndex = 10;
+                                            }
+                                        }
+                                        else if (six)
+                                        {
+                                            tileIndex = 7;
+                                        }
+                                    }
+                                    else if (three)
+                                    {
+                                        tileIndex = 19;
+                                    }
+                                }
+                                else if (bools == 5)
+                                {
+                                    tileIndex = 6;
+                                }
+                            }
+                            else if (x == width - 1)
+                            {
+                                one = map[y - 1, x - 1] == 1;
+                                two = map[y - 1, x] == 1;
+                                four = map[y, x - 1] == 1;
+                                seven = map[y + 1, x - 1] == 1;
+                                eight = map[y + 1, x] == 1;
+
+                                // Solitary island check
+                                if (one && !two && !four)
+                                {
+                                    one = false;
+                                }
+                                if (seven && !four && !eight)
+                                {
+                                    seven = false;
+                                }
+                                bool[] boolCount = { one, two, four, seven, eight };
+                                int bools = boolCount.Count(c => c == true);
+
+                                if (bools == 0)
+                                {
+                                    tileIndex = 26;
+                                }
+                                else if (bools == 1)
+                                {
+                                    if (two)
+                                    {
+                                        tileIndex = 13;
+                                    }
+                                    else if (four)
+                                    {
+                                        tileIndex = 25;
+                                    }
+                                    else if (eight)
+                                    {
+                                        tileIndex = 24;
+                                    }
+                                }
+                                else if (bools == 2)
+                                {
+                                    if (one)
+                                    {
+                                        if (two)
+                                        {
+                                            tileIndex = 13;
+                                        }
+                                        else if (four)
+                                        {
+                                            tileIndex = 25;
+                                        }
+                                    }
+                                    else if (two)
+                                    {
+                                        if (four)
+                                        {
+                                            tileIndex = 12;
+                                            rotation = 270;
+                                        }
+                                        else if (eight)
+                                        {
+                                            tileIndex = 10;
+                                        }
+                                    }
+                                    else if (four)
+                                    {
+                                        if (seven)
+                                        {
+                                            tileIndex = 25;
+                                        }
+                                        else if (eight)
+                                        {
+                                            tileIndex = 22;
+                                        }
+                                    }
+                                    else if (seven)
+                                    {
+                                        tileIndex = 24;
+                                    }
+                                }
+                                else if (bools == 3)
+                                {
+                                    if (one)
+                                    {
+                                        if (two)
+                                        {
+                                            if (four)
+                                            {
+                                                tileIndex = 11;
+                                                rotation = 270;
+                                            }
+                                            else if (eight)
+                                            {
+                                                tileIndex = 10;
+                                            }
+                                        }
+                                        else if (four)
+                                        {
+                                            if (seven)
+                                            {
+                                                tileIndex = 25;
+                                            }
+                                            else if (eight)
+                                            {
+                                                tileIndex = 22;
+                                            }
+                                        }
+                                    }
+                                    else if (two)
+                                    {
+                                        if (four)
+                                        {
+                                            if (seven)
+                                            {
+                                                tileIndex = 12;
+                                                rotation = 270;
+                                            }
+                                            else if (eight)
+                                            {
+                                                tileIndex = 9;
+                                                rotation = 180;
+                                            }
+                                        }
+                                        else if (seven)
+                                        {
+                                            tileIndex = 10;
+                                        }
+                                    }
+                                    else if (four)
+                                    {
+                                        tileIndex = 21;
+                                    }
+                                }
+                                else if (bools == 4)
+                                {
+                                    if (!one)
+                                    {
+                                        tileIndex = 8;
+                                        rotation = 180;
+                                    }
+                                    else if (!two)
+                                    {
+                                        tileIndex = 21;
+                                    }
+                                    else if (!four)
+                                    {
+                                        tileIndex = 10;
+                                    }
+                                    else if (!seven)
+                                    {
+                                        tileIndex = 7;
+                                        rotation = 180;
+                                    }
+                                    else if (!eight)
+                                    {
+                                        tileIndex = 11;
+                                        rotation = 270;
+                                    }
+                                }
+                                else if (bools == 5)
+                                {
+                                    tileIndex = 6;
+                                    rotation = 180;
+                                }
+                            }
+                            else if (y == 0)
+                            {
+                                four = map[y, x - 1] == 1;
+                                six = map[y, x + 1] == 1;
+                                seven = map[y + 1, x - 1] == 1;
+                                eight = map[y + 1, x] == 1;
+                                nine = map[y + 1, x + 1] == 1;
+
+                                //Solitary island check
+                                if (seven && !four && !eight)
+                                {
+                                    seven = false;
+                                }
+                                if (nine && !six && !eight)
+                                {
+                                    nine = false;
+                                }
+                                bool[] boolCount = { four, six, seven, eight, nine };
+                                int bools = boolCount.Count(c => c == true);
+
+                                if (bools == 0)
+                                {
+                                    tileIndex = 26;
+                                }
+                                else if (bools == 1)
+                                {
+                                    if (four)
+                                    {
+                                        tileIndex = 25;
+                                    }
+                                    else if (six)
+                                    {
+                                        tileIndex = 23;
+                                    }
+                                    else if (eight)
+                                    {
+                                        tileIndex = 24;
+                                    }
+                                }
+                                else if (bools == 2)
+                                {
+                                    if (four)
+                                    {
+                                        if (six)
+                                        {
+                                            tileIndex = 18;
+                                        }
+                                        else if (seven)
+                                        {
+                                            tileIndex = 25;
+                                        }
+                                        else if (eight)
+                                        {
+                                            tileIndex = 22;
+                                        }
+                                    }
+                                    else if (six)
+                                    {
+                                        if (eight)
+                                        {
+                                            tileIndex = 20;
+                                        }
+                                        else if (nine)
+                                        {
+                                            tileIndex = 23;
+                                        }
+                                    }
+                                    else if (eight)
+                                    {
+                                        tileIndex = 24;
+                                    }
+                                }
+                                else if (bools == 3)
+                                {
+                                    if (four)
+                                    {
+                                        if (six)
+                                        {
+                                            if (seven)
+                                            {
+                                                tileIndex = 18;
+                                            }
+                                            else if (eight)
+                                            {
+                                                tileIndex = 17;
+                                            }
+                                            else if (nine)
+                                            {
+                                                tileIndex = 18;
+                                            }
+                                        }
+                                        else if (seven)
+                                        {
+                                            tileIndex = 21;
+                                        }
+                                        else if (eight)
+                                        {
+                                            tileIndex = 22;
+                                        }
+                                    }
+                                    else if (six)
+                                    {
+                                        if (seven)
+                                        {
+                                            tileIndex = 20;
+                                        }
+                                        else if (eight)
+                                        {
+                                            tileIndex = 19;
+                                        }
+                                    }
+                                    else if (seven)
+                                    {
+                                        tileIndex = 24;
+                                    }
+                                }
+                                else if (bools == 4)
+                                {
+                                    if (!four)
+                                    {
+                                        tileIndex = 19;
+                                    }
+                                    else if (!six)
+                                    {
+                                        tileIndex = 21;
+                                    }
+                                    else if (!seven)
+                                    {
+                                        tileIndex = 16;
+                                    }
+                                    else if (!eight)
+                                    {
+                                        tileIndex = 18;
+                                    }
+                                    else if (!nine)
+                                    {
+                                        tileIndex = 15;
+                                    }
+                                }
+                                else if (bools == 5)
+                                {
+                                    tileIndex = 14;
+                                }
+                            }
+                            else if (y == height - 1)
+                            {
+                                one = map[y - 1, x - 1] == 1;
+                                two = map[y - 1, x] == 1;
+                                three = map[y - 1, x + 1] == 1;
+                                four = map[y, x - 1] == 1;
+                                six = map[y, x + 1] == 1;
+
+                                //Solitary island check
+                                if (one && !two && !four)
+                                {
+                                    one = false;
+                                }
+                                if (three && !two && !six)
+                                {
+                                    three = false;
+                                }
+                                bool[] boolCount = { one, two, three, four, six };
+                                int bools = boolCount.Count(c => c == true);
+
+                                if (bools == 0)
+                                {
+                                    tileIndex = 26;
+                                }
+                                else if (bools == 1)
+                                {
+                                    if (two)
+                                    {
+                                        tileIndex = 13;
+                                    }
+                                    else if (four)
+                                    {
+                                        tileIndex = 25;
+                                    }
+                                    else if (six)
+                                    {
+                                        tileIndex = 23;
+                                    }
+                                }
+                                else if (bools == 2)
+                                {
+                                    if (one)
+                                    {
+                                        if (two)
+                                        {
+                                            tileIndex = 13;
+                                        }
+                                        else if (four)
+                                        {
+                                            tileIndex = 25;
+                                        }
+                                    }
+                                    else if (two)
+                                    {
+                                        if (four)
+                                        {
+                                            tileIndex = 12;
+                                            rotation = 270;
+                                        }
+                                        else if (six)
+                                        {
+                                            tileIndex = 12;
+                                        }
+                                    }
+                                    else if (three)
+                                    {
+                                        tileIndex = 23;
+                                    }
+                                    else if (four)
+                                    {
+                                        tileIndex = 18;
+                                    }
+                                }
+                                else if (bools == 3)
+                                {
+                                    if (one)
+                                    {
+                                        if (two)
+                                        {
+                                            if (three)
+                                            {
+                                                tileIndex = 13;
+                                            }
+                                            else if (four)
+                                            {
+                                                tileIndex = 11;
+                                                rotation = 270;
+                                            }
+                                            else if (six)
+                                            {
+                                                tileIndex = 12;
+                                            }
+                                        }
+                                        else if (four)
+                                        {
+                                            tileIndex = 18;
+                                        }
+                                    }
+                                    else if (two)
+                                    {
+                                        if (three)
+                                        {
+                                            if (four)
+                                            {
+                                                tileIndex = 12;
+                                                rotation = 270;
+                                            }
+                                            else if (six)
+                                            {
+                                                tileIndex = 11;
+                                            }
+                                        }
+                                        else if (four)
+                                        {
+                                            tileIndex = 9;
+                                            rotation = 270;
+                                        }
+                                    }
+                                    else if (three)
+                                    {
+                                        tileIndex = 18;
+                                    }
+                                }
+                                else if (bools == 4)
+                                {
+                                    if (!one)
+                                    {
+                                        tileIndex = 7;
+                                        rotation = 270;
+                                    }
+                                    else if (!two)
+                                    {
+                                        tileIndex = 18;
+                                    }
+                                    else if (!three)
+                                    {
+                                        tileIndex = 8;
+                                        rotation = 270;
+                                    }
+                                    else if (!four)
+                                    {
+                                        tileIndex = 11;
+                                    }
+                                    else if (!six)
+                                    {
+                                        tileIndex = 11;
+                                        rotation = 270;
+                                    }
+                                }
+                                else if (bools == 5)
+                                {
+                                    tileIndex = 6;
+                                    rotation = 270;
+                                }
+                            }
                         }
                         else
                         {
-                            bool one = map[y - 1, x - 1] == 1;
-                            bool two = map[y - 1, x] == 1;
-                            bool three = map[y - 1, x + 1] == 1;
-                            bool four = map[y, x - 1] == 1;
-                            bool six = map[y, x + 1] == 1;
-                            bool seven = map[y + 1, x - 1] == 1;
-                            bool eight = map[y + 1, x] == 1;
-                            bool nine = map[y + 1, x + 1] == 1;
+                            one = map[y - 1, x - 1] == 1;
+                            two = map[y - 1, x] == 1;
+                            three = map[y - 1, x + 1] == 1;
+                            four = map[y, x - 1] == 1;
+                            six = map[y, x + 1] == 1;
+                            seven = map[y + 1, x - 1] == 1;
+                            eight = map[y + 1, x] == 1;
+                            nine = map[y + 1, x + 1] == 1;
 
                             // Solitary island check
                             if (one && !two && !four)
@@ -275,8 +933,7 @@ namespace MonoGameLibrary.Graphics
                                 {
                                     if (six)
                                     {
-                                        tileIndex = 10;
-                                        rotation = 90;
+                                        tileIndex = 18;
                                     }
                                     else if (eight)
                                     {
@@ -523,17 +1180,28 @@ namespace MonoGameLibrary.Graphics
                                     }
                                     else if (four)
                                     {
-                                        if (seven)
+                                        if (six)
                                         {
-                                            tileIndex = 18;
+                                            if (seven)
+                                            {
+                                                tileIndex = 18;
+                                            }
+                                            else if (eight)
+                                            {
+                                                tileIndex = 17;
+                                            }
+                                            else if (nine)
+                                            {
+                                                tileIndex = 18;
+                                            }
+                                        }
+                                        else if (seven)
+                                        {
+                                            tileIndex = 21;
                                         }
                                         else if (eight)
                                         {
-                                            tileIndex = 17;
-                                        }
-                                        else if (nine)
-                                        {
-                                            tileIndex = 18;
+                                            tileIndex = 22;
                                         }
                                     }
                                 }
@@ -617,7 +1285,7 @@ namespace MonoGameLibrary.Graphics
                                         }
                                         else if (eight)
                                         {
-                                            tileIndex = 9;
+                                            tileIndex = 7;
                                         }
                                     }
                                     else if (seven)
@@ -720,6 +1388,7 @@ namespace MonoGameLibrary.Graphics
                                         else if (!six)
                                         {
                                             tileIndex = 8;
+                                            rotation = 180;
                                         }
                                         else if (!seven)
                                         {

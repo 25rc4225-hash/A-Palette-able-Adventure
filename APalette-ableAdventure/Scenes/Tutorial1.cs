@@ -1,14 +1,17 @@
 ﻿using APalette_ableAdventure.GameObjects;
 using APalette_ableAdventure.UI;
+using Gum.Forms.Controls;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using MonoGameGum;
 using MonoGameLibrary;
 using MonoGameLibrary.Graphics;
 using MonoGameLibrary.Scenes;
 using System;
 using System.Collections.Generic;
+using System.Net.Http.Headers;
 
 namespace APalette_ableAdventure.Scenes;
 
@@ -26,11 +29,14 @@ public class Tutorial1 : Scene
 
     private static int[,] map;
     private static List<string[]> entities;
-    private static List<Mover> Movers;
-    private static List<Block> Blocks;
-    private static List<Button> Buttons;
-    private static List<Effector> Effectors;
-    private static List<Water> Waters;
+    private List<AnimatedSprite> pAnimations = new List<AnimatedSprite>();
+    private static List<Mover> Movers = new List<Mover>();
+    private List<Sprite> mSprites = new List<Sprite>();
+    private static List<Block> Blocks = new List<Block>();
+    private Sprite gravBlock;
+    private static List<GameObjects.Button> Buttons = new List<GameObjects.Button>();
+    private static List<Effector> Effectors = new List<Effector>();
+    private static List<Water> Waters = new List<Water>();
 
     // Defines the tilemap to draw
     private static Tilemap _tilemap;
@@ -102,10 +108,40 @@ public class Tutorial1 : Scene
         Core.ChangeScene(new TitleScene());
     }
 
+    private void Reset()
+    {
+        Movers = new List<Mover>();
+        foreach (Mover mover in Movers)
+        {
+            mover.unHide();
+        }
+        Blocks = new List<Block>();
+        Buttons = new List<GameObjects.Button>();
+        Effectors = new List<Effector>();
+        Waters = new List<Water>();
+    }
+
     private void InitializeNewGame()
     {
         // Initialize the palette
         _palette.Initialize();
+
+        foreach (Mover mover in Movers)
+        {
+            mover.Initialize();
+        }
+        foreach (Block block in Blocks)
+        {
+            block.Initialize();
+        }
+        foreach (GameObjects.Button button in Buttons)
+        {
+            button.Initialize();
+        }
+        foreach (Water water in Waters)
+        {
+            water.Initialize();
+        }
 
         // Set the game state to playing.
         _state = GameState.Playing;
@@ -126,7 +162,6 @@ public class Tutorial1 : Scene
         // Load the bounce sound effect for the bat.
         SoundEffect jumpSoundEffect = Content.Load<SoundEffect>("audio/bounce");
 
-        List<AnimatedSprite> pAnimations = new List<AnimatedSprite>();
         // Create the animated sprite for the slime from the atlas.
         AnimatedSprite paletteNull = atlas.CreateAnimatedSprite("palette-animation");
         paletteNull.Scale = new Vector2(3.5f, 3.5f);
@@ -138,7 +173,6 @@ public class Tutorial1 : Scene
         paletteLeft.Scale = new Vector2(3.5f, 3.5f);
         pAnimations.Add(paletteLeft);
 
-        List<Sprite> mSprites = new List<Sprite>();
         MonoGameLibrary.Graphics.Sprite moverR = atlas.CreateSprite("MoverR");
         moverR.Scale = new Vector2(3.5f, 3.5f);
         mSprites.Add(moverR);
@@ -152,11 +186,13 @@ public class Tutorial1 : Scene
         moverD.Scale = new Vector2(3.5f, 3.5f);
         mSprites.Add(moverD);
 
-        MonoGameLibrary.Graphics.Sprite gravBlock = atlas.CreateSprite("gravBlock");
+        gravBlock = atlas.CreateSprite("gravBlock");
         gravBlock.Scale = new Vector2(3.5f, 3.5f);
 
-        AnimatedSprite Button = atlas.CreateAnimatedSprite("Button");
-        Button.Scale = new Vector2(3.5f, 3.5f);
+        Sprite onButton = atlas.CreateSprite("onButton");
+        onButton.Scale = new Vector2(3.5f, 3.5f);
+        Sprite offButton = atlas.CreateSprite("offButton");
+        offButton.Scale = new Vector2(3.5f, 3.5f);
 
         List<AnimatedSprite> eAnimations = new List<AnimatedSprite>();
         AnimatedSprite Ecks = atlas.CreateAnimatedSprite("Ecks");
@@ -179,18 +215,23 @@ public class Tutorial1 : Scene
         AnimatedSprite Water1 = atlas.CreateAnimatedSprite("Water1");
         Water1.Scale = new Vector2(3.5f, 3.5f);
         wAnimations.Add(Water1);
+
         AnimatedSprite Water2 = atlas.CreateAnimatedSprite("Water2");
         Water2.Scale = new Vector2(3.5f, 3.5f);
         wAnimations.Add(Water2);
+
         AnimatedSprite Water3 = atlas.CreateAnimatedSprite("Water3");
         Water3.Scale = new Vector2(3.5f, 3.5f);
         wAnimations.Add(Water3);
+
         AnimatedSprite Water4 = atlas.CreateAnimatedSprite("Water4");
         Water4.Scale = new Vector2(3.5f, 3.5f);
         wAnimations.Add(Water4);
+
         AnimatedSprite MidWater = atlas.CreateAnimatedSprite("MidWater");
         MidWater.Scale = new Vector2(3.5f, 3.5f);
         wAnimations.Add(MidWater);
+
         AnimatedSprite BottomW = atlas.CreateAnimatedSprite("BottomW");
         BottomW.Scale = new Vector2(3.5f, 3.5f);
         wAnimations.Add(BottomW);
@@ -216,7 +257,7 @@ public class Tutorial1 : Scene
             }
             else if (entity[0] == "B")
             {
-                Buttons.Add(new Button(Button, int.Parse(entity[1]), int.Parse(entity[2])));
+                Buttons.Add(new GameObjects.Button(offButton, onButton, int.Parse(entity[1]), int.Parse(entity[2]) + 13));
             }
             else if ("XCAVH".Contains(entity[0]))
             {
@@ -245,7 +286,7 @@ public class Tutorial1 : Scene
                     waterNum++;
                     waterNum %= 4;
                 }
-                Waters.Add(new Water(entity[0], eAnimations, int.Parse(entity[1]), int.Parse(entity[2])));
+                Waters.Add(new Water(entity[0], wAnimations, int.Parse(entity[1]), int.Parse(entity[2])));
             }
         }
     }
@@ -259,7 +300,8 @@ public class Tutorial1 : Scene
         // here.
         if (_state == GameState.GameOver)
         {
-            return;
+            Reset();
+            Core.ChangeScene(new TitleScene());
         }
 
         // If the pause button is pressed, toggle the pause state.
@@ -291,10 +333,15 @@ public class Tutorial1 : Scene
         }
 
         // Perform collision checks.
-        CollisionChecks();
+        CollisionChecks(gameTime);
+
+        if (GameController.Reset())
+        {
+            InitializeNewGame();
+        }
     }
 
-    private void CollisionChecks()
+    private void CollisionChecks(GameTime gameTime)
     {
         // Capture the current bounds of the palette
         Rectangle paletteBounds = _palette.GetBounds();
@@ -302,6 +349,15 @@ public class Tutorial1 : Scene
         List<Rectangle> mapBlocks = MapCollision(); // ----------------------------------------------------------------------------------------------------------
 
         bool pIsMoved = false;
+
+        foreach (Water water in Waters)
+        {
+            Rectangle waterBounds = water.GetBounds();
+            if (paletteBounds.Intersects(waterBounds))
+            {
+                _state = GameState.GameOver;
+            }
+        }
 
         foreach (Rectangle rect in mapBlocks)
         {
@@ -341,6 +397,8 @@ public class Tutorial1 : Scene
             }
         }
 
+        List<Mover> newMovers = new List<Mover>();
+
         foreach (Mover mover in Movers)
         {
             Rectangle moverBounds = mover.GetBounds();
@@ -348,7 +406,7 @@ public class Tutorial1 : Scene
             {
                 if (moverBounds.Intersects(rect))
                 {
-                    // Find the distance from the edge of the paleete to mover
+                    // Find the distance from the edge of the rect to mover
                     float distanceLeft = Math.Abs(rect.Left - moverBounds.Right);
                     float distanceRight = Math.Abs(rect.Right - moverBounds.Left);
                     float distanceTop = Math.Abs(rect.Top - moverBounds.Bottom);
@@ -360,7 +418,6 @@ public class Tutorial1 : Scene
                     if (minDistance == distanceLeft)
                     {
                         mover.Shift("left", (int)minDistance);
-
                     }
                     else if (minDistance == distanceRight)
                     {
@@ -430,6 +487,155 @@ public class Tutorial1 : Scene
                     }
                 }
             }
+            foreach (GameObjects.Button button in Buttons)
+            {
+                Rectangle buttonBounds = button.GetBounds();
+                if (moverBounds.Intersects(buttonBounds))
+                {
+                    // Find the distance from the edge of the button to mover
+                    float distanceLeft = Math.Abs(buttonBounds.Left - moverBounds.Right);
+                    float distanceRight = Math.Abs(buttonBounds.Right - moverBounds.Left);
+                    float distanceTop = Math.Abs(buttonBounds.Top - moverBounds.Bottom);
+                    float distanceBottom = Math.Abs(buttonBounds.Bottom - moverBounds.Top);
+
+                    // Determine which mover edge is the closest.
+                    float minDistance = Math.Min(Math.Min(distanceLeft, distanceRight), Math.Min(distanceTop, distanceBottom));
+
+                    if (minDistance == distanceLeft)
+                    {
+                        mover.Shift("left", (int)minDistance);
+                    }
+                    else if (minDistance == distanceRight)
+                    {
+                        mover.Shift("right", (int)minDistance);
+                    }
+                    else if (minDistance == distanceTop)
+                    {
+                        mover.Shift("up", (int)minDistance);
+                        if (!button.isPushed())
+                        {
+                            button.Push(gameTime);
+                        }
+                        mover.Hide();
+                    }
+                    else if (minDistance == distanceBottom)
+                    {
+                        mover.Shift("down", (int)minDistance);
+                    }
+                }
+            }
+            foreach (Effector effector in Effectors)
+            {
+                string whichFace = "";
+                Rectangle effBounds = effector.GetBounds();
+                if (moverBounds.Intersects(effBounds))
+                {
+                    // Find the distance from the edge of the effector to mover
+                    float distanceLeft = Math.Abs(effBounds.Left - moverBounds.Right);
+                    float distanceRight = Math.Abs(effBounds.Right - moverBounds.Left);
+                    float distanceTop = Math.Abs(effBounds.Top - moverBounds.Bottom);
+                    float distanceBottom = Math.Abs(effBounds.Bottom - moverBounds.Top);
+
+                    // Determine which mover edge is the closest.
+                    float minDistance = Math.Min(Math.Min(distanceLeft, distanceRight), Math.Min(distanceTop, distanceBottom));
+
+                    if (minDistance == distanceLeft)
+                    {
+                        mover.Shift("left", (int)minDistance);
+                        whichFace = "left";
+                    }
+                    else if (minDistance == distanceRight)
+                    {
+                        mover.Shift("right", (int)minDistance);
+                        whichFace = "right";
+                    }
+                    else if (minDistance == distanceTop)
+                    {
+                        mover.Shift("up", (int)minDistance);
+                        whichFace= "top";
+                    }
+                    else if (minDistance == distanceBottom)
+                    {
+                        mover.Shift("down", (int)minDistance);
+                        whichFace = "bottom";
+                    }
+                }
+                bool touching = false;
+                if (moverBounds.Right == effBounds.Left && moverBounds.Bottom >= effBounds.Top && moverBounds.Top <= effBounds.Bottom)
+                {
+                    whichFace = "left";
+                    touching = true;
+                }
+                else if (moverBounds.Left == effBounds.Right && moverBounds.Bottom >= effBounds.Top && moverBounds.Top <= effBounds.Bottom)
+                {
+                    whichFace = "right";
+                    touching = true;
+                }
+                else if (moverBounds.Top == effBounds.Bottom && moverBounds.Right >= effBounds.Left && moverBounds.Left <= effBounds.Right)
+                {
+                    whichFace = "bottom";
+                    touching = true;
+                }
+                else if (moverBounds.Bottom == effBounds.Top && moverBounds.Right >= effBounds.Left && moverBounds.Left <= effBounds.Right)
+                {
+                    whichFace = "top";
+                    touching = true;
+                }
+                if (touching && !mover.isAffected())
+                {
+                    mover.affect();
+                    switch (effector.whichType())
+                    {
+                        case "C":
+                            switch (mover.getType())
+                            {
+                                case "R": mover.changeType("U"); break;
+                                case "L": mover.changeType("D"); break;
+                                case "U": mover.changeType("L"); break;
+                                case "D": mover.changeType("R"); break;
+                            }
+
+
+
+                            break;
+                        case "A":
+
+
+
+
+                            break;
+                        case "V":
+                            switch (whichFace)
+                            {
+                                case "top":
+                                    //newMovers.Add(new Mover(mover.getType(), mSprites, mover.getX(), mover.getY() + (int)( 1.5 * (effector.GetHeight() + mover.GetHeight()))));
+                                    break;
+
+                            }
+
+
+
+                            break;
+                        case "H":
+
+
+
+
+                            break;
+                    }
+                }
+                if (!touching)
+                {
+                    mover.unaffect();
+                }
+
+
+
+            }
+        }
+        foreach (Mover mover in newMovers)
+        {
+            Movers.Add(mover);
         }
     }
 
@@ -543,11 +749,6 @@ public class Tutorial1 : Scene
         return groupRects;
     }
 
-    private void CreateEntities()
-    {
-
-    }
-
     private void TogglePause()
     {
         if (_state == GameState.Paused)
@@ -599,13 +800,17 @@ public class Tutorial1 : Scene
         {
             block.Draw();
         }
-        foreach (Button button in Buttons)
+        foreach (GameObjects.Button button in Buttons)
         {
             button.Draw();
         }
         foreach (Effector effector in Effectors)
         {
             effector.Draw();
+        }
+        foreach (Water water in Waters)
+        {
+            water.Draw();
         }
 
         // Always end the sprite batch when finished.

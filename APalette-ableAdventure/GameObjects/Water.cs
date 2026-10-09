@@ -9,6 +9,7 @@ namespace APalette_ableAdventure.GameObjects;
 public class Water
 {
     private AnimatedSprite _sprite;
+    private AnimatedSprite startSprite;
 
     private string _type;
 
@@ -22,15 +23,23 @@ public class Water
         {
             case "W1": _sprite = Animations[0]; break;
             case "W2": _sprite = Animations[1]; break;
-            case "M": _sprite = Animations[2]; break;
-            case "F": _sprite = Animations[3]; break;
+            case "W3": _sprite = Animations[2]; break;
+            case "W4": _sprite = Animations[3]; break;
+            case "M": _sprite = Animations[4]; break;
+            case "F": _sprite = Animations[5]; break;
         }
+        startSprite = _sprite;
         Position = new Vector2(X, Y);
+    }
+
+    public void Initialize()
+    {
+        _sprite = startSprite;
     }
 
     public bool IsSurface()
     {
-        if (_type == "W1" || _type == "W2")
+        if (_type == "W1" || _type == "W2" || _type == "W3" || _type == "W4")
         {
             return true;
         }

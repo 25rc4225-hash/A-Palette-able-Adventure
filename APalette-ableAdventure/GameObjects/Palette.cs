@@ -47,6 +47,7 @@ public class Palette
 
     /// Gets or Sets position of palette
     public Vector2 Position { get; set; }
+    public Vector2 startPosition { get; set; }
 
     /// Creates palette
     public Palette(List<AnimatedSprite> Animations, int x, int y)
@@ -56,11 +57,13 @@ public class Palette
         _animations.Add("L", Animations[2]);
         //_animations["U"] = air;
         Position = new Vector2(x, y);
+        startPosition = Position;
     }
 
     /// Initializes the palette, can be used to reset it back to an initial state.
     public void Initialize()
     {
+        Position = startPosition;
         // initialize the input buffer.
         _inputBuffer = new Queue<Vector2>(MAX_BUFFER_SIZE);
     }

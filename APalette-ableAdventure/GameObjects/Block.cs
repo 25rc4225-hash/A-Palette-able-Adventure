@@ -19,6 +19,7 @@ public class Block
 
     /// Gets or Sets position of block
     public Vector2 Position { get; set; }
+    public Vector2 startPosition { get; set; }
 
     private int fallCount = 0;
 
@@ -26,6 +27,11 @@ public class Block
     {
         _sprite = sprite;
         Position = new Vector2(X, Y);
+        startPosition = Position;
+    }
+    public void Initialize()
+    {
+        Position = startPosition;
     }
 
     public void changeGrav(string way)

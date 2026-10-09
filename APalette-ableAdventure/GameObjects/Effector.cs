@@ -43,4 +43,20 @@ public class Effector
     {
         _sprite.Update(gameTime);
     }
+    public string whichType()
+    {
+        return _type;
+    }
+
+    // Return sprite height
+    public int GetHeight()
+    {
+        return (int)_sprite.Height;
+    }
+
+    // Returns sprite width
+    public int GetWidth()
+    {
+        return (int)_sprite.Width;
+    }
 }

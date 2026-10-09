@@ -13,22 +13,33 @@ namespace APalette_ableAdventure.GameObjects;
 public class Button
 {
     // The _sprite that is being modified
-    private AnimatedSprite _sprite;
+    private Sprite _sprite;
+    private Sprite _Off;
+    private Sprite _On;
 
     private Microsoft.Xna.Framework.Vector2 Position { get; set; }
 
     private bool Pushed = false;
     
-    public Button(AnimatedSprite sprite, int X, int Y)
+    public Button(Sprite Off, Sprite On, int X, int Y)
     {
         Position = new Microsoft.Xna.Framework.Vector2(X, Y);
-        _sprite = sprite;
+        _Off = Off;
+        _On = On;
+        _sprite = Off;
+    }
+
+    public void Initialize()
+    {
+        Pushed = false;
+        _sprite = _Off;
     }
 
     public void Push(GameTime gametime)
     {
         Pushed = true;
-        _sprite.Update(gametime);
+        _sprite = _On;
+        Position += System.Numerics.Vector2.UnitY * 14;
     }
 
     public bool isPushed()
@@ -40,5 +51,9 @@ public class Button
     public void Draw()
     {
         _sprite.Draw(Core.SpriteBatch, Position);
+    }
+    public Rectangle GetBounds()
+    {
+        return new Rectangle((int)Position.X, (int)Position.Y, (int)_sprite.Width, (int)_sprite.Height);
     }
 }

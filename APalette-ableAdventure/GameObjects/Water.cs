@@ -13,7 +13,7 @@ public class Water
 
     private string _type;
 
-    /// Gets or Sets position of block
+    /// Gets or Sets position of water
     public Vector2 Position { get; set; }
 
     public Water(string Type, List<AnimatedSprite> Animations, int X, int Y)

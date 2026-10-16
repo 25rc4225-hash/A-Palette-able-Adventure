@@ -4,6 +4,7 @@ using Gum.Forms.Controls;
 using MonoGameLibrary;
 using MonoGameGum;
 using Microsoft.Xna.Framework.Media;
+using APalette_ableAdventure;
 
 namespace MonoGameTestProject
 {
@@ -11,6 +12,7 @@ namespace MonoGameTestProject
     {
         // The background theme song
         private Song _themeSong;
+        private static Inbetween inbetween = new Inbetween();
 
         public Game1() : base("I am a Screen", 1280, 720, false)
         {
@@ -28,7 +30,15 @@ namespace MonoGameTestProject
             InitializeGum();
 
             // Start the game with the title scene.
-            ChangeScene(new TitleScene());
+            inbetween.Initialize();
+        }
+        public static void NextLevel(bool Title)
+        {
+            inbetween.Change(Title);
+        }
+        public static void Title()
+        {
+            Core.ChangeScene(new TitleScene());
         }
 
         protected override void LoadContent()

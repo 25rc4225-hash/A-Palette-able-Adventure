@@ -9,14 +9,20 @@ using MonoGameGum;
 using MonoGameLibrary;
 using MonoGameLibrary.Graphics;
 using MonoGameLibrary.Scenes;
+using MonoGameTestProject;
 using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 
 namespace APalette_ableAdventure.Scenes;
 
-public class Tutorial1 : Scene
+public class Tutorials : Scene
 {
+    private string mapName = "";
+    public Tutorials(string Map)
+    {
+        mapName = Map;
+    }
     private enum GameState
     {
         Playing,
@@ -36,6 +42,7 @@ public class Tutorial1 : Scene
     private Sprite gravBlock;
     private static List<GameObjects.Button> Buttons = new List<GameObjects.Button>();
     private static List<Effector> Effectors = new List<Effector>();
+    private static Portal Portal;
     private static List<Water> Waters = new List<Water>();
 
     // Defines the tilemap to draw
@@ -105,7 +112,7 @@ public class Tutorial1 : Scene
     private void OnQuitButtonClicked(object sender, EventArgs args)
     {
         // Player has chosen to quit, so return back to the title scene.
-        Core.ChangeScene(new TitleScene());
+        Game1.Title();
     }
 
     private void Reset()
@@ -152,7 +159,7 @@ public class Tutorial1 : Scene
         // Create the texture atlas from the XML configuration file.
         TextureAtlas atlas = TextureAtlas.FromFile(Core.Content, "images/atlas-definition.xml");
 
-        Layout Map = new Layout(Content, "images/Tutorial1_Map.xml");
+        Layout Map = new Layout(Content, $"images/{mapName}_Map.xml");
         map = Map.GetMap();
 
         // Create the tilemap from the XML configuration file.
@@ -210,6 +217,9 @@ public class Tutorial1 : Scene
         AnimatedSprite HorizEqual = atlas.CreateAnimatedSprite("HorizEqual");
         HorizEqual.Scale = new Vector2(3.5f, 3.5f);
         eAnimations.Add(HorizEqual);
+
+        AnimatedSprite EndPortal = atlas.CreateAnimatedSprite("EndPortal");
+        EndPortal.Scale = new Vector2(5.25f, 5.25f);
 
         List<AnimatedSprite> wAnimations = new List<AnimatedSprite>();
         AnimatedSprite Water1 = atlas.CreateAnimatedSprite("Water1");
@@ -288,6 +298,10 @@ public class Tutorial1 : Scene
                 }
                 Waters.Add(new Water(entity[0], wAnimations, int.Parse(entity[1]), int.Parse(entity[2])));
             }
+            else if (entity[0] == "E")
+            {
+                Portal = new Portal(EndPortal, int.Parse(entity[1]), int.Parse(entity[2]));
+            }
         }
     }
 
@@ -331,6 +345,7 @@ public class Tutorial1 : Scene
         {
             water.Update(gameTime);
         }
+        Portal.Update(gameTime);
 
         // Perform collision checks.
         CollisionChecks(gameTime);
@@ -345,6 +360,12 @@ public class Tutorial1 : Scene
     {
         // Capture the current bounds of the palette
         Rectangle paletteBounds = _palette.GetBounds();
+        Rectangle portalBounds = Portal.GetBounds();
+
+        if (paletteBounds.Intersects(portalBounds))
+        {
+            Game1.NextLevel(false);
+        }
 
         List<Rectangle> mapBlocks = MapCollision(); // ----------------------------------------------------------------------------------------------------------
 
@@ -812,6 +833,7 @@ public class Tutorial1 : Scene
         {
             water.Draw();
         }
+        Portal.Draw();
 
         // Always end the sprite batch when finished.
         Core.SpriteBatch.End();

@@ -10,6 +10,7 @@ using MonoGameGum.GueDeriving;
 using MonoGameLibrary;
 using MonoGameLibrary.Graphics;
 using MonoGameLibrary.Scenes;
+using MonoGameTestProject;
 
 namespace APalette_ableAdventure.Scenes;
 
@@ -208,7 +209,7 @@ public class TitleScene : Scene
         Core.Audio.PlaySoundEffect(_uiSoundEffect);
 
         // Change to the game scene to start the game.
-        Core.ChangeScene(new Tutorial1());
+        Game1.NextLevel(true);
     }
 
     private void HandleOptionsClicked(object sender, EventArgs e)

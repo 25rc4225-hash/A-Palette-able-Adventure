@@ -130,3 +130,8 @@ C:\Users\rober\OneDrive\Documents\GitHub\A-Palette-able-Adventure\APalette-ableA
 C:\Users\rober\OneDrive\Documents\GitHub\A-Palette-able-Adventure\APalette-ableAdventure\obj\Debug\net9.0\APalette-ableAdventure.genruntimeconfig.cache
 C:\Users\rober\OneDrive\Documents\GitHub\A-Palette-able-Adventure\APalette-ableAdventure\obj\Debug\net9.0\ref\APalette-ableAdventure.dll
 C:\Users\rober\OneDrive\Documents\GitHub\A-Palette-able-Adventure\APalette-ableAdventure\bin\Debug\net9.0\Content\images\Tutorial0_Map.xml
+C:\Users\rober\OneDrive\Documents\GitHub\A-Palette-able-Adventure\APalette-ableAdventure\bin\Debug\net9.0\Content\images\Tutorial2_Map.xml
+C:\Users\rober\OneDrive\Documents\GitHub\A-Palette-able-Adventure\APalette-ableAdventure\bin\Debug\net9.0\Content\images\Tutorial3_Map.xml
+C:\Users\rober\OneDrive\Documents\GitHub\A-Palette-able-Adventure\APalette-ableAdventure\bin\Debug\net9.0\Content\images\Tutorial4_Map.xml
+C:\Users\rober\OneDrive\Documents\GitHub\A-Palette-able-Adventure\APalette-ableAdventure\bin\Debug\net9.0\Content\images\Tutorial5_Map.xml
+C:\Users\rober\OneDrive\Documents\GitHub\A-Palette-able-Adventure\APalette-ableAdventure\bin\Debug\net9.0\Content\images\Tutorial6_Map.xml

@@ -10,12 +10,13 @@ namespace APalette_ableAdventure.GameObjects;
 public class Effector
 {
     private string _type;
-
+    private bool hidden = false;
     private readonly AnimatedSprite _sprite;
+    private bool isAffecting = false;
 
     /// Gets or Sets position of effector
     public Vector2 Position { get; set; }
-    public Effector(string Type, List<AnimatedSprite> Animations, int X, int Y)
+    public Effector(string Type, List<AnimatedSprite> Animations, float X, float Y)
     {
         _type = Type;
         switch (_type)
@@ -27,16 +28,37 @@ public class Effector
             case "H": _sprite = Animations[4]; break;
         }
         Position = new Vector2(X, Y);
+        hidden = false;
     }
+    public void Hide()
+    {
+        hidden = true;
+    }
+    public void unHide()
+    {
+        hidden = false;
+    }
+
     /// Draws effector
     public void Draw()
     {
-        _sprite.Draw(Core.SpriteBatch, Position);
+        if (!hidden)
+        {
+            _sprite.Draw(Core.SpriteBatch, Position);
+        }
     }
+    
     /// Returns rectangle bounds for effector
     public Rectangle GetBounds()
     {
-        return new Rectangle((int)Position.X, (int)Position.Y, (int)_sprite.Width, (int)_sprite.Height);
+        if (!hidden)
+        {
+            return new Rectangle((int)Position.X, (int)Position.Y, (int)_sprite.Width, (int)_sprite.Height);
+        }
+        else
+        {
+            return new Rectangle(0, 0, 0, 0);
+        }
     }
     /// Updates effector
     public void Update(GameTime gameTime)
@@ -58,5 +80,25 @@ public class Effector
     public int GetWidth()
     {
         return (int)_sprite.Width;
+    }
+    public int getX()
+    {
+        return (int)Position.X;
+    }
+    public int getY()
+    {
+        return (int)Position.Y;
+    }
+    public void Affect()
+    {
+        isAffecting = true;
+    }
+    public bool hasAffected()
+    {
+        return isAffecting;
+    }
+    public void unAffect()
+    {
+        isAffecting = false;
     }
 }

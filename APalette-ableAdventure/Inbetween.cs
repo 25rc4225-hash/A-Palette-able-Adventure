@@ -28,7 +28,7 @@ public class Inbetween
     }
     public void Initialize()
     {
-        Scene = 1;
+        Scene = 6;
         Core.ChangeScene(new TitleScene());
     }
     public void Change(bool Title)
@@ -43,8 +43,12 @@ public class Inbetween
             case 1: Core.ChangeScene(new Tutorials("Tutorial0")); break;
             case 2: Core.ChangeScene(new Tutorials("Tutorial1")); break;
             case 3: Core.ChangeScene(new Tutorials("Tutorial2")); break;
+            case 4: Core.ChangeScene(new Tutorials("Tutorial3")); break;
+            case 5: Core.ChangeScene(new Tutorials("Tutorial4")); break;
+            case 6: Core.ChangeScene(new Tutorials("Tutorial5")); break;
+            case 7: Core.ChangeScene(new Tutorials("Tutorial6")); break;
 
-            case 10: Core.ChangeScene(new TitleScene()); break;
+            case 10: Scene = 1; Core.ChangeScene(new TitleScene()); break;
         }
     }
 }

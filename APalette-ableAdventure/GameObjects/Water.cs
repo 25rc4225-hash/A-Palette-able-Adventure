@@ -16,7 +16,7 @@ public class Water
     /// Gets or Sets position of water
     public Vector2 Position { get; set; }
 
-    public Water(string Type, List<AnimatedSprite> Animations, int X, int Y)
+    public Water(string Type, List<AnimatedSprite> Animations, float X, float Y)
     {
         _type = Type;
         switch (_type)

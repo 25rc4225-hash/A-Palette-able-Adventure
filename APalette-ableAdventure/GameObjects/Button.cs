@@ -21,7 +21,7 @@ public class Button
 
     private bool Pushed = false;
     
-    public Button(Sprite Off, Sprite On, int X, int Y)
+    public Button(Sprite Off, Sprite On, float X, float Y)
     {
         Position = new Microsoft.Xna.Framework.Vector2(X, Y);
         _Off = Off;
@@ -31,6 +31,10 @@ public class Button
 
     public void Initialize()
     {
+        if (isPushed())
+        {
+            Position -= System.Numerics.Vector2.UnitY * 14;
+        }
         Pushed = false;
         _sprite = _Off;
     }

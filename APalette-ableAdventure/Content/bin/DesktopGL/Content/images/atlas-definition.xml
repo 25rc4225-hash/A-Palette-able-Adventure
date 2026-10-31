@@ -12,11 +12,24 @@
 		<Region name="HorizEqual-1" x="36" y="0" width="12" height="12" />
 		<Region name="Clock-1" x="48" y="0" width="12" height="12" />
 		<Region name="AntiClock-1" x="48" y="12" width="12" height="12" />
-		<Region name="offButton" x="78" y="24" width="18" height="8" />
-		<Region name="onButton" x="78" y="32" width="18" height="4" />
+		<Region name="offButton" x="60" y="24" width="18" height="8" />
+		<Region name="onButton" x="60" y="32" width="18" height="4" />
 		<Region name="Palette-1" x="0" y="48" width="12" height="16" />
 		<Region name="Palette-2" x="0" y="64" width="12" height="16" />
-		<Region name="EndPortal-1" x="60" y="24" width="18" height="18" />
+		<Region name="rPalette1-1" x="12" y="48" width="12" height="16" />
+		<Region name="rPalette1-2" x="12" y="64" width="12" height="16" />
+		<Region name="rPalette2-1" x="24" y="48" width="12" height="16" />
+		<Region name="rPalette2-2" x="24" y="64" width="12" height="16" />
+		<Region name="lPalette0-1" x="36" y="48" width="12" height="16" />
+		<Region name="lPalette0-2" x="36" y="64" width="12" height="16" />
+		<Region name="lPalette1-1" x="48" y="48" width="12" height="16" />
+		<Region name="lPalette1-2" x="48" y="64" width="12" height="16" />
+		<Region name="lPalette2-1" x="60" y="48" width="12" height="16" />
+		<Region name="lPalette2-2" x="60" y="64" width="12" height="16" />
+		<Region name="EndPortal-1" x="78" y="24" width="18" height="18" />
+		<Region name="EndPortal-2" x="78" y="42" width="18" height="18" />
+		<Region name="EndPortal-3" x="78" y="60" width="18" height="18" />
+		<Region name="EndPortal-4" x="78" y="78" width="18" height="18" />
 
 		<Region name="Water-1" x="96" y="24" width="12" height="12" />
 		<Region name="Water-2" x="96" y="36" width="12" height="12" />
@@ -43,7 +56,7 @@
 		<Region name="slider-max-background" x="354" y="96" width="11" height="10" />
 	</Regions>
 	<Animations>
-		<Animation name="palette-animation" delay="500">
+		<Animation name="rNpalette-animation" delay="500">
 			<Frame region="Palette-1" />
 			<Frame region="Palette-1" />
 			<Frame region="Palette-1" />
@@ -61,6 +74,53 @@
 			<Frame region="Palette-1" />
 			<Frame region="Palette-1" />
 			<Frame region="Palette-2" />
+		</Animation>
+		<Animation name="lNpalette-animation" delay="500">
+			<Frame region="lPalette0-1" />
+			<Frame region="lPalette0-1" />
+			<Frame region="lPalette0-1" />
+			<Frame region="lPalette0-1" />
+			<Frame region="lPalette0-1" />
+			<Frame region="lPalette0-1" />
+			<Frame region="lPalette0-1" />
+			<Frame region="lPalette0-2" />
+			<Frame region="lPalette0-1" />
+			<Frame region="lPalette0-1" />
+			<Frame region="lPalette0-1" />
+			<Frame region="lPalette0-1" />
+			<Frame region="lPalette0-1" />
+			<Frame region="lPalette0-1" />
+			<Frame region="lPalette0-1" />
+			<Frame region="lPalette0-1" />
+			<Frame region="lPalette0-2" />
+		</Animation>
+		<Animation name="Rpalette-animation" delay="250">
+			<Frame region="rPalette2-1" />
+			<Frame region="Palette-1" />
+			<Frame region="rPalette1-1" />
+			<Frame region="Palette-1" />
+			<Frame region="rPalette2-2" />
+			<Frame region="Palette-1" />
+			<Frame region="rPalette1-1" />
+			<Frame region="Palette-1" />
+			<Frame region="rPalette2-1" />
+			<Frame region="Palette-1" />
+			<Frame region="rPalette1-1" />
+			<Frame region="Palette-1" />
+		</Animation>
+		<Animation name="Lpalette-animation" delay="250">
+			<Frame region="lPalette2-1" />
+			<Frame region="lPalette0-1" />
+			<Frame region="lPalette1-1" />
+			<Frame region="lPalette0-1" />
+			<Frame region="lPalette2-1" />
+			<Frame region="lPalette0-1" />
+			<Frame region="lPalette1-1" />
+			<Frame region="lPalette0-1" />
+			<Frame region="lPalette2-1" />
+			<Frame region="lPalette0-1" />
+			<Frame region="lPalette1-2" />
+			<Frame region="lPalette0-1" />
 		</Animation>
 		<Animation name="focused-button-animation" delay="300">
 			<Frame region="focused-button-1" />
@@ -81,11 +141,14 @@
 		<Animation name="antiClock" delay="1">
 			<Frame region="AntiClock-1" />
 		</Animation>
-		<Animation name="EndPortal" delay="500">
+		<Animation name="EndPortal" delay="200">
 			<Frame region="EndPortal-1" />
+			<Frame region="EndPortal-2" />
+			<Frame region="EndPortal-3" />
+			<Frame region="EndPortal-4" />
 		</Animation>
 
-		<Animation name="Water1" delay="500">
+		<Animation name="Water1" delay="750">
 			<Frame region="Water-1" />
 			<Frame region="Water-2" />
 			<Frame region="Water-3" />
@@ -93,7 +156,7 @@
 			<Frame region="Water-5" />
 			<Frame region="Water-6" />
 		</Animation>
-		<Animation name="Water2" delay="500">
+		<Animation name="Water2" delay="750">
 			<Frame region="Water-7" />
 			<Frame region="Water-8" />
 			<Frame region="Water-9" />
@@ -101,7 +164,7 @@
 			<Frame region="Water-11" />
 			<Frame region="Water-12" />
 		</Animation>
-		<Animation name="Water3" delay="500">
+		<Animation name="Water3" delay="750">
 			<Frame region="Water-4" />
 			<Frame region="Water-5" />
 			<Frame region="Water-6" />
@@ -109,7 +172,7 @@
 			<Frame region="Water-2" />
 			<Frame region="Water-3" />
 		</Animation>
-		<Animation name="Water4" delay="500">
+		<Animation name="Water4" delay="750">
 			<Frame region="Water-10" />
 			<Frame region="Water-11" />
 			<Frame region="Water-12" />

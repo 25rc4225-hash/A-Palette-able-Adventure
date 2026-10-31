@@ -16,7 +16,9 @@ public class Palette
     private AnimatedSprite _sprite;
 
     // String for storing current movement direction
-    private string _movement = "N";
+    private string _movement = "rN";
+
+    private string lastDirection = "R";
 
     // Buffer to queue inputs input by player during input polling.
     private Queue<Vector2> _inputBuffer;
@@ -50,13 +52,14 @@ public class Palette
     public Vector2 startPosition { get; set; }
 
     /// Creates palette
-    public Palette(List<AnimatedSprite> Animations, int x, int y)
+    public Palette(List<AnimatedSprite> Animations, float X, float Y)
     {
-        _animations.Add("N", Animations[0]);
-        _animations.Add("R", Animations[1]);
-        _animations.Add("L", Animations[2]);
+        _animations.Add("rN", Animations[0]);
+        _animations.Add("lN", Animations[1]);
+        _animations.Add("R", Animations[2]);
+        _animations.Add("L", Animations[3]);
         //_animations["U"] = air;
-        Position = new Vector2(x, y);
+        Position = new Vector2(X, Y);
         startPosition = Position;
     }
 
@@ -118,9 +121,18 @@ public class Palette
 
         switch (_nextMove)
         {
-            case (-1,0): _movement = "L"; break;
-            case (1, 0): _movement = "R"; break;
-            case (0, 0): _movement = "N"; break;
+            case (-1,0): _movement = "L"; lastDirection = "L"; break;
+            case (1, 0): _movement = "R"; lastDirection = "R"; break;
+            case (0, 0): 
+                if (lastDirection == "R")
+                {
+                    _movement = "rN";
+                }
+                else
+                {
+                    _movement = "lN";
+                }
+                break;
         }
 
         // Assigns current move for the next repetition as _preMove

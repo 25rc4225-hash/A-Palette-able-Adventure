@@ -1,10 +1,8 @@
 ﻿using APalette_ableAdventure.GameObjects;
 using APalette_ableAdventure.UI;
-using Gum.Forms.Controls;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using MonoGameGum;
 using MonoGameLibrary;
 using MonoGameLibrary.Graphics;
@@ -12,7 +10,6 @@ using MonoGameLibrary.Scenes;
 using MonoGameTestProject;
 using System;
 using System.Collections.Generic;
-using System.Net.Http.Headers;
 
 namespace APalette_ableAdventure.Scenes;
 
@@ -34,16 +31,19 @@ public class Tutorials : Scene
     private Palette _palette;
 
     private static int[,] map;
+    private static int[,] entMap;
     private static List<string[]> entities;
     private List<AnimatedSprite> pAnimations = new List<AnimatedSprite>();
-    private static List<Mover> Movers = new List<Mover>();
+    private static List<Mover> Movings = new List<Mover>();
+    private static List<Mover> newMovers = new List<Mover>();
     private List<Sprite> mSprites = new List<Sprite>();
-    private static List<Block> Blocks = new List<Block>();
-    private Sprite gravBlock;
+    private Sprite gravBlock = new Sprite();
     private static List<GameObjects.Button> Buttons = new List<GameObjects.Button>();
     private static List<Effector> Effectors = new List<Effector>();
     private static Portal Portal;
     private static List<Water> Waters = new List<Water>();
+
+    private static Vector2 Scale = new Vector2(3.334f, 3.334f);
 
     // Defines the tilemap to draw
     private static Tilemap _tilemap;
@@ -57,6 +57,7 @@ public class Tutorials : Scene
 
     public override void Initialize()
     {
+        Reset();
         // LoadContent is called during base.Initialize().
         base.Initialize();
 
@@ -117,12 +118,8 @@ public class Tutorials : Scene
 
     private void Reset()
     {
-        Movers = new List<Mover>();
-        foreach (Mover mover in Movers)
-        {
-            mover.unHide();
-        }
-        Blocks = new List<Block>();
+        entities = new List<string[]>();
+        Movings = new List<Mover>();
         Buttons = new List<GameObjects.Button>();
         Effectors = new List<Effector>();
         Waters = new List<Water>();
@@ -133,13 +130,15 @@ public class Tutorials : Scene
         // Initialize the palette
         _palette.Initialize();
 
-        foreach (Mover mover in Movers)
+        foreach (var mover in Movings)
         {
+            mover.unHide();
             mover.Initialize();
+            mover.totalMoveReset();
         }
-        foreach (Block block in Blocks)
+        foreach (var mover in newMovers)
         {
-            block.Initialize();
+            Movings.Remove(mover);
         }
         foreach (GameObjects.Button button in Buttons)
         {
@@ -149,73 +148,89 @@ public class Tutorials : Scene
         {
             water.Initialize();
         }
+        foreach (Effector effector in Effectors)
+        {
+            effector.unHide();
+        }
 
         // Set the game state to playing.
         _state = GameState.Playing;
     }
 
-    public override void LoadContent()  //(subject to change with map creation)--------------------------------------------------------------------------------
+    public override void LoadContent()
     {
         // Create the texture atlas from the XML configuration file.
         TextureAtlas atlas = TextureAtlas.FromFile(Core.Content, "images/atlas-definition.xml");
 
         Layout Map = new Layout(Content, $"images/{mapName}_Map.xml");
         map = Map.GetMap();
+        entMap = Map.GetEntMap();
 
         // Create the tilemap from the XML configuration file.
         _tilemap = Map.CreateTileMap();
-        _tilemap.Scale = new Vector2(3.334f, 3.334f);
+        _tilemap.Scale = Scale;
 
         // Load the bounce sound effect for the bat.
         SoundEffect jumpSoundEffect = Content.Load<SoundEffect>("audio/bounce");
 
+        // ---------------------------------------------------------------------------------
+        //// Loading a SoundEffect using the content pipeline
+        //SoundEffect voiceLine = Content.Load<SoundEffect>($"{mapName}VoiceLine");
+
+        //// Play the sound effect with default settings
+        //voiceLine.Play();
+        // ---------------------------------------------------------------------------------
+
         // Create the animated sprite for the slime from the atlas.
-        AnimatedSprite paletteNull = atlas.CreateAnimatedSprite("palette-animation");
-        paletteNull.Scale = new Vector2(3.5f, 3.5f);
-        pAnimations.Add(paletteNull);
-        AnimatedSprite paletteRight = atlas.CreateAnimatedSprite("palette-animation");
-        paletteRight.Scale = new Vector2(3.5f, 3.5f);
+        AnimatedSprite paletteRNull = atlas.CreateAnimatedSprite("rNpalette-animation");
+        paletteRNull.Scale = Scale;
+        pAnimations.Add(paletteRNull);
+        AnimatedSprite paletteLNull = atlas.CreateAnimatedSprite("lNpalette-animation");
+        paletteLNull.Scale = Scale;
+        pAnimations.Add(paletteLNull);
+        AnimatedSprite paletteRight = atlas.CreateAnimatedSprite("Rpalette-animation");
+        paletteRight.Scale = Scale;
         pAnimations.Add(paletteRight);
-        AnimatedSprite paletteLeft = atlas.CreateAnimatedSprite("palette-animation");
-        paletteLeft.Scale = new Vector2(3.5f, 3.5f);
+        AnimatedSprite paletteLeft = atlas.CreateAnimatedSprite("Lpalette-animation");
+        paletteLeft.Scale = Scale;
         pAnimations.Add(paletteLeft);
 
         MonoGameLibrary.Graphics.Sprite moverR = atlas.CreateSprite("MoverR");
-        moverR.Scale = new Vector2(3.5f, 3.5f);
+        moverR.Scale = Scale;
         mSprites.Add(moverR);
         MonoGameLibrary.Graphics.Sprite moverL = atlas.CreateSprite("MoverL");
-        moverL.Scale = new Vector2(3.5f, 3.5f);
+        moverL.Scale = Scale;
         mSprites.Add(moverL);
         MonoGameLibrary.Graphics.Sprite moverU = atlas.CreateSprite("MoverU");
-        moverU.Scale = new Vector2(3.5f, 3.5f);
+        moverU.Scale = Scale;
         mSprites.Add(moverU);
         MonoGameLibrary.Graphics.Sprite moverD = atlas.CreateSprite("MoverD");
-        moverD.Scale = new Vector2(3.5f, 3.5f);
+        moverD.Scale = Scale;
         mSprites.Add(moverD);
 
         gravBlock = atlas.CreateSprite("gravBlock");
-        gravBlock.Scale = new Vector2(3.5f, 3.5f);
+        gravBlock.Scale = Scale;
 
         Sprite onButton = atlas.CreateSprite("onButton");
-        onButton.Scale = new Vector2(3.5f, 3.5f);
+        onButton.Scale = Scale;
         Sprite offButton = atlas.CreateSprite("offButton");
-        offButton.Scale = new Vector2(3.5f, 3.5f);
+        offButton.Scale = Scale;
 
         List<AnimatedSprite> eAnimations = new List<AnimatedSprite>();
         AnimatedSprite Ecks = atlas.CreateAnimatedSprite("Ecks");
-        Ecks.Scale = new Vector2(3.5f, 3.5f);
+        Ecks.Scale = Scale;
         eAnimations.Add(Ecks);
         AnimatedSprite Clock = atlas.CreateAnimatedSprite("Clock");
-        Clock.Scale = new Vector2(3.5f, 3.5f);
+        Clock.Scale = Scale;
         eAnimations.Add(Clock);
         AnimatedSprite antiClock = atlas.CreateAnimatedSprite("antiClock");
-        antiClock.Scale = new Vector2(3.5f, 3.5f);
+        antiClock.Scale = Scale;
         eAnimations.Add(antiClock);
         AnimatedSprite VertEqual = atlas.CreateAnimatedSprite("VertEqual");
-        VertEqual.Scale = new Vector2(3.5f, 3.5f);
+        VertEqual.Scale = Scale;
         eAnimations.Add(VertEqual);
         AnimatedSprite HorizEqual = atlas.CreateAnimatedSprite("HorizEqual");
-        HorizEqual.Scale = new Vector2(3.5f, 3.5f);
+        HorizEqual.Scale = Scale;
         eAnimations.Add(HorizEqual);
 
         AnimatedSprite EndPortal = atlas.CreateAnimatedSprite("EndPortal");
@@ -223,27 +238,27 @@ public class Tutorials : Scene
 
         List<AnimatedSprite> wAnimations = new List<AnimatedSprite>();
         AnimatedSprite Water1 = atlas.CreateAnimatedSprite("Water1");
-        Water1.Scale = new Vector2(3.5f, 3.5f);
+        Water1.Scale = Scale;
         wAnimations.Add(Water1);
 
         AnimatedSprite Water2 = atlas.CreateAnimatedSprite("Water2");
-        Water2.Scale = new Vector2(3.5f, 3.5f);
+        Water2.Scale = Scale;
         wAnimations.Add(Water2);
 
         AnimatedSprite Water3 = atlas.CreateAnimatedSprite("Water3");
-        Water3.Scale = new Vector2(3.5f, 3.5f);
+        Water3.Scale = Scale;
         wAnimations.Add(Water3);
 
         AnimatedSprite Water4 = atlas.CreateAnimatedSprite("Water4");
-        Water4.Scale = new Vector2(3.5f, 3.5f);
+        Water4.Scale = Scale;
         wAnimations.Add(Water4);
 
         AnimatedSprite MidWater = atlas.CreateAnimatedSprite("MidWater");
-        MidWater.Scale = new Vector2(3.5f, 3.5f);
+        MidWater.Scale = Scale;
         wAnimations.Add(MidWater);
 
         AnimatedSprite BottomW = atlas.CreateAnimatedSprite("BottomW");
-        BottomW.Scale = new Vector2(3.5f, 3.5f);
+        BottomW.Scale = Scale;
         wAnimations.Add(BottomW);
 
         entities = Map.GetEntites();
@@ -255,23 +270,23 @@ public class Tutorials : Scene
             if (entity[0] == "P")
             {
                 // Create the palette
-                _palette = new Palette(pAnimations, int.Parse(entity[1]), int.Parse(entity[2]));
+                _palette = new Palette(pAnimations, float.Parse(entity[1]), float.Parse(entity[2]));
             }
             else if ("LRUD".Contains(entity[0]))
             {
-                Movers.Add(new Mover(entity[0], mSprites, int.Parse(entity[1]), int.Parse(entity[2])));
+                Movings.Add(new Mover(entity[0], mSprites, float.Parse(entity[1]), float.Parse(entity[2])));
             }
             else if (entity[0] == "G")
             {
-                Blocks.Add(new Block(gravBlock, int.Parse(entity[1]), int.Parse(entity[2])));
+                Movings.Add(new Block(gravBlock, float.Parse(entity[1]), float.Parse(entity[2])));
             }
             else if (entity[0] == "B")
             {
-                Buttons.Add(new GameObjects.Button(offButton, onButton, int.Parse(entity[1]), int.Parse(entity[2]) + 13));
+                Buttons.Add(new GameObjects.Button(offButton, onButton, float.Parse(entity[1]) - 11, float.Parse(entity[2]) + 13));
             }
             else if ("XCAVH".Contains(entity[0]))
             {
-                Effectors.Add(new Effector(entity[0], eAnimations, int.Parse(entity[1]), int.Parse(entity[2])));
+                Effectors.Add(new Effector(entity[0], eAnimations, float.Parse(entity[1]), float.Parse(entity[2])));
             }
             else if ("SMF".Contains(entity[0]))
             {
@@ -296,11 +311,11 @@ public class Tutorials : Scene
                     waterNum++;
                     waterNum %= 4;
                 }
-                Waters.Add(new Water(entity[0], wAnimations, int.Parse(entity[1]), int.Parse(entity[2])));
+                Waters.Add(new Water(entity[0], wAnimations, float.Parse(entity[1]), float.Parse(entity[2])));
             }
             else if (entity[0] == "E")
             {
-                Portal = new Portal(EndPortal, int.Parse(entity[1]), int.Parse(entity[2]));
+                Portal = new Portal(EndPortal, float.Parse(entity[1]), float.Parse(entity[2]));
             }
         }
     }
@@ -333,13 +348,9 @@ public class Tutorials : Scene
         // Update the palette
         _palette.Update(gameTime);
 
-        foreach (Mover mover in Movers)
+        foreach (var mover in Movings)
         {
             mover.Update(gameTime);
-        }
-        foreach (Block block in Blocks)
-        {
-            block.Update();
         }
         foreach (Water water in Waters)
         {
@@ -347,8 +358,33 @@ public class Tutorials : Scene
         }
         Portal.Update(gameTime);
 
+        bool allPressed = true;
+        bool isButton = false;
+        foreach (GameObjects.Button button in Buttons)
+        {
+            isButton = true;
+            if (!button.isPushed())
+            {
+                allPressed = false;
+            }
+        }
+
+        bool toHide = false;
+
+        if (allPressed && isButton)
+        {
+            foreach (Effector effector in Effectors)
+            {
+                if (effector.whichType() == "X")
+                {
+                    effector.Hide();
+                }
+            }
+            toHide = true;
+        }
+
         // Perform collision checks.
-        CollisionChecks(gameTime);
+        CollisionChecks(gameTime, toHide);
 
         if (GameController.Reset())
         {
@@ -356,7 +392,7 @@ public class Tutorials : Scene
         }
     }
 
-    private void CollisionChecks(GameTime gameTime)
+    private void CollisionChecks(GameTime gameTime, bool hidden)
     {
         // Capture the current bounds of the palette
         Rectangle paletteBounds = _palette.GetBounds();
@@ -367,7 +403,8 @@ public class Tutorials : Scene
             Game1.NextLevel(false);
         }
 
-        List<Rectangle> mapBlocks = MapCollision(); // ----------------------------------------------------------------------------------------------------------
+        List<Rectangle> mapBlocks = MapCollision(map);
+        List<Rectangle> entMapBlocks = MapCollision(entMap);
 
         bool pIsMoved = false;
 
@@ -377,6 +414,51 @@ public class Tutorials : Scene
             if (paletteBounds.Intersects(waterBounds))
             {
                 _state = GameState.GameOver;
+            }
+        }
+
+        foreach (GameObjects.Button button in Buttons)
+        {
+            Rectangle buttonBounds = button.GetBounds();
+            if (paletteBounds.Intersects(buttonBounds))
+            {
+                // Find the distance from the edge of the button to mover
+                float distanceLeft = Math.Abs(buttonBounds.Left - paletteBounds.Right);
+                float distanceRight = Math.Abs(buttonBounds.Right - paletteBounds.Left);
+                float distanceTop = Math.Abs(buttonBounds.Top - paletteBounds.Bottom);
+                float distanceBottom = Math.Abs(buttonBounds.Bottom - paletteBounds.Top);
+
+                // Determine which mover edge is the closest.
+                float minDistance = Math.Min(Math.Min(distanceLeft, distanceRight), Math.Min(distanceTop, distanceBottom));
+
+                if (minDistance == distanceLeft)
+                {
+                    _palette.Shift("left", (int)minDistance);
+                }
+                else if (minDistance == distanceRight)
+                {
+                    _palette.Shift("right", (int)minDistance);
+                }
+                else if (minDistance == distanceTop)
+                {
+                    _palette.Shift("up", (int)minDistance);
+                    if (!button.isPushed())
+                    {
+                        button.Push(gameTime);
+                    }
+                }
+                else if (minDistance == distanceBottom)
+                {
+                    _palette.Shift("down", (int)minDistance);
+                }
+            }
+        }
+
+        foreach (Rectangle entBound in entMapBlocks)
+        {
+            if (!hidden)
+            {
+                mapBlocks.Add(entBound);
             }
         }
 
@@ -418,10 +500,9 @@ public class Tutorials : Scene
             }
         }
 
-        List<Mover> newMovers = new List<Mover>();
-
-        foreach (Mover mover in Movers)
+        for (int i = 0; i < Movings.Count; i++)
         {
+            var mover = Movings[i];
             Rectangle moverBounds = mover.GetBounds();
             foreach (Rectangle rect in mapBlocks)
             {
@@ -438,25 +519,29 @@ public class Tutorials : Scene
 
                     if (minDistance == distanceLeft)
                     {
+                        mover.noMoving("R");
                         mover.Shift("left", (int)minDistance);
                     }
                     else if (minDistance == distanceRight)
                     {
+                        mover.noMoving("L");
                         mover.Shift("right", (int)minDistance);
                     }
                     else if (minDistance == distanceTop)
                     {
                         mover.Shift("up", (int)minDistance);
+                        mover.Land();
                     }
                     else if (minDistance == distanceBottom)
                     {
+                        mover.noMoving("U");
                         mover.Shift("down", (int)minDistance);
                     }
                 }
             }
             if (moverBounds.Intersects(paletteBounds))
             {
-                // Find the distance from the edge of the paleete to mover
+                // Find the distance from the edge of the palette to mover
                 float distanceLeft = Math.Abs(moverBounds.Left - paletteBounds.Right);
                 float distanceRight = Math.Abs(moverBounds.Right - paletteBounds.Left);
                 float distanceTop = Math.Abs(moverBounds.Top - paletteBounds.Bottom);
@@ -465,24 +550,36 @@ public class Tutorials : Scene
                 // Determine which mover edge is the closest.
                 float minDistance = Math.Min(Math.Min(distanceLeft, distanceRight), Math.Min(distanceTop, distanceBottom));
 
-                if (!pIsMoved)
+                if (mover.getType() == "B")
                 {
                     if (minDistance == distanceLeft)
                     {
+                        if (mover.Movable("R"))
+                        {
+                            mover.Shift("right", (int)minDistance);
+                        }
                         _palette.Shift("left", (int)minDistance);
                     }
-                    if (minDistance == distanceRight)
+                    else if (minDistance == distanceRight)
                     {
+                        if (mover.Movable("L"))
+                        {
+                            mover.Shift("left", (int)minDistance);
+                        }
                         _palette.Shift("right", (int)minDistance);
                     }
-                    if (minDistance == distanceTop)
+                    else if (minDistance == distanceTop)
                     {
                         _palette.Shift("up", (int)minDistance);
-                        // If palette is moved up, it is standing on something
+                        // If palette is moved up, palette is standing on mover
                         _palette.Land();
                     }
-                    if (minDistance == distanceBottom)
+                    else if (minDistance == distanceBottom)
                     {
+                        if (mover.Movable("U"))
+                        {
+                            mover.Shift("up", (int)minDistance);
+                        }
                         _palette.Shift("down", (int)minDistance);
                     }
                 }
@@ -490,21 +587,249 @@ public class Tutorials : Scene
                 {
                     if (minDistance == distanceLeft)
                     {
-                        mover.Shift("right", (int)minDistance);
+                        _palette.Shift("left", (int)minDistance);
                     }
-                    if (minDistance == distanceRight)
+                    else if (minDistance == distanceRight)
                     {
-                        mover.Shift("left", (int)minDistance);
+                        _palette.Shift("right", (int)minDistance);
                     }
-                    if (minDistance == distanceTop)
+                    else if (minDistance == distanceTop)
                     {
-                        mover.Shift("down", (int)minDistance);
-                        // If mover is moved down, palette is standing on it
+                        _palette.Shift("up", (int)minDistance);
+                        // If palette is moved up, palette is standing on mover
                         _palette.Land();
                     }
-                    if (minDistance == distanceBottom)
+                    else if (minDistance == distanceBottom)
                     {
-                        mover.Shift("up", (int)minDistance);
+                        _palette.Shift("down", (int)minDistance);
+                    }
+                }
+            }
+            for (int j = 0; j < Movings.Count; j++)
+            {
+                if (i != j)
+                {
+                    Mover mover2 = Movings[j];
+                    Rectangle M2Bounds = mover2.GetBounds();
+                    if (moverBounds.Intersects(M2Bounds))
+                    {
+                        // Find the distance from the edge of the rect to mover
+                        float distanceLeft = Math.Abs(M2Bounds.Right - moverBounds.Left);
+                        float distanceRight = Math.Abs(M2Bounds.Left - moverBounds.Right);
+                        float distanceTop = Math.Abs(M2Bounds.Bottom - moverBounds.Top);
+                        float distanceBottom = Math.Abs(M2Bounds.Top - moverBounds.Bottom);
+
+                        // Determine which mover edge is the closest.
+                        float minDistance = Math.Min(Math.Min(distanceLeft, distanceRight), Math.Min(distanceTop, distanceBottom));
+
+                        if (mover.getType() == "U" && mover2.getType() == "D")
+                        {
+                            mover.Shift("down", (int)minDistance / 2);
+                            mover2.Shift("up", (int)minDistance / 2);
+                        }
+                        else if (mover.getType() == "D" && mover2.getType() == "U")
+                        {
+                            mover.Shift("up", (int)minDistance / 2);
+                            mover2.Shift("down", (int)minDistance / 2);
+                        }
+                        else if (mover.getType() == "R" && mover2.getType() == "L")
+                        {
+                            mover.Shift("left", (int)minDistance / 2);
+                            mover2.Shift("right", (int)minDistance / 2);
+                        }
+                        else if (mover.getType() == "L" && mover2.getType() == "R")
+                        {
+                            mover.Shift("right", (int)minDistance / 2);
+                            mover2.Shift("left", (int)minDistance / 2);
+                        }
+                        else if (mover.getType() == "B" && mover2.getType() == "B")
+                        {
+                            mover.Shift("right", (int)minDistance / 2);
+                            mover2.Shift("left", (int)minDistance / 2);
+                        }
+                        else
+                        {
+                            if (minDistance == distanceLeft)
+                            {
+                                if (mover.getType() == "L")
+                                {
+                                    if (mover2.Movable("L"))
+                                    {
+                                        mover2.Shift("left", (int)minDistance);
+                                    }
+                                    else
+                                    {
+                                        mover.Shift("right", (int)minDistance);
+                                        mover.noMoving("L");
+                                    }
+                                }
+                                else if (mover2.getType() == "R")
+                                {
+                                    if (mover.Movable("R"))
+                                    {
+                                        mover.Shift("right", (int)minDistance);
+                                    }
+                                    else
+                                    {
+                                        mover2.Shift("left", (int)minDistance);
+                                        mover2.noMoving("R");
+                                    }
+                                }
+                                else
+                                {
+                                    if (mover.Movable("R") && mover2.Movable("L"))
+                                    {
+                                        mover.Shift("right", (int)minDistance / 2);
+                                        mover2.Shift("left", (int)minDistance / 2);
+                                    }
+                                    else if (mover.Movable("R"))
+                                    {
+                                        mover.Shift("right", (int)minDistance);
+                                        mover.noMoving("L");
+                                    }
+                                    else if (mover2.Movable("L"))
+                                    {
+                                        mover2.Shift("left", (int)minDistance);
+                                        mover2.noMoving("R");
+                                    }
+                                }
+                            }
+                            else if (minDistance == distanceRight)
+                            {
+                                if (mover.getType() == "R")
+                                {
+                                    if (mover2.Movable("R"))
+                                    {
+                                        mover2.Shift("right", (int)minDistance);
+                                    }
+                                    else
+                                    {
+                                        mover.Shift("left", (int)minDistance);
+                                        mover.noMoving("R");
+                                    }
+                                }
+                                else if (mover2.getType() == "L")
+                                {
+                                    if (mover.Movable("L"))
+                                    {
+                                        mover.Shift("left", (int)minDistance);
+                                    }
+                                    else
+                                    {
+                                        mover2.Shift("right", (int)minDistance);
+                                        mover2.noMoving("L");
+                                    }
+                                }
+                                else
+                                {
+                                    if (mover.Movable("R") && mover2.Movable("L"))
+                                    {
+                                        mover.Shift("right", (int)minDistance / 2);
+                                        mover2.Shift("left", (int)minDistance / 2);
+                                    }
+                                    else if (mover.Movable("R"))
+                                    {
+                                        mover.Shift("right", (int)minDistance);
+                                        mover.noMoving("L");
+                                    }
+                                    else if (mover2.Movable("L"))
+                                    {
+                                        mover2.Shift("left", (int)minDistance);
+                                        mover2.noMoving("R");
+                                    }
+                                }
+                            }
+                            else if (minDistance == distanceTop)
+                            {
+                                if (mover.getType() == "U")
+                                {
+                                    if (mover2.Movable("U"))
+                                    {
+                                        mover2.Shift("up", (int)minDistance);
+                                    }
+                                    else
+                                    {
+                                        mover.Shift("down", (int)minDistance);
+                                        mover.noMoving("U");
+                                    }
+                                }
+                                else if (mover2.getType() == "D")
+                                {
+                                    if (mover.Movable("D"))
+                                    {
+                                        mover.Shift("down", (int)minDistance);
+                                    }
+                                    else
+                                    {
+                                        mover2.Shift("up", (int)minDistance);
+                                        mover2.noMoving("D");
+                                    }
+                                }
+                                else
+                                {
+                                    if (mover.Movable("D") && mover2.Movable("U"))
+                                    {
+                                        mover.Shift("down", (int)minDistance / 2);
+                                        mover2.Shift("up", (int)minDistance / 2);
+                                    }
+                                    else if (mover.Movable("D"))
+                                    {
+                                        mover.Shift("down", (int)minDistance);
+                                        mover.noMoving("U");
+                                    }
+                                    else if (mover2.Movable("U"))
+                                    {
+                                        mover2.Shift("up", (int)minDistance);
+                                        mover2.noMoving("D");
+                                    }
+                                }
+                            }
+                            else if (minDistance == distanceBottom)
+                            {
+                                if (mover.getType() == "D")
+                                {
+                                    if (mover2.Movable("D"))
+                                    {
+                                        mover2.Shift("down", (int)minDistance);
+                                    }
+                                    else
+                                    {
+                                        mover.Shift("up", (int)minDistance);
+                                        mover.noMoving("D");
+                                    }
+                                }
+                                else if (mover2.getType() == "U")
+                                {
+                                    if (mover.Movable("U"))
+                                    {
+                                        mover.Shift("up", (int)minDistance);
+                                    }
+                                    else
+                                    {
+                                        mover2.Shift("down", (int)minDistance);
+                                        mover2.noMoving("U");
+                                    }
+                                }
+                                else
+                                {
+                                    if (mover.Movable("U") && mover2.Movable("D"))
+                                    {
+                                        mover.Shift("up", (int)minDistance / 2);
+                                        mover2.Shift("down", (int)minDistance / 2);
+                                    }
+                                    else if (mover.Movable("U"))
+                                    {
+                                        mover.Shift("up", (int)minDistance);
+                                        mover.noMoving("D");
+                                    }
+                                    else if (mover2.Movable("D"))
+                                    {
+                                        mover2.Shift("down", (int)minDistance);
+                                        mover2.noMoving("U");
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -548,6 +873,7 @@ public class Tutorials : Scene
             foreach (Effector effector in Effectors)
             {
                 string whichFace = "";
+                bool touching = false;
                 Rectangle effBounds = effector.GetBounds();
                 if (moverBounds.Intersects(effBounds))
                 {
@@ -564,47 +890,53 @@ public class Tutorials : Scene
                     {
                         mover.Shift("left", (int)minDistance);
                         whichFace = "left";
+                        touching = true;
                     }
                     else if (minDistance == distanceRight)
                     {
                         mover.Shift("right", (int)minDistance);
                         whichFace = "right";
+                        touching = true;
                     }
                     else if (minDistance == distanceTop)
                     {
                         mover.Shift("up", (int)minDistance);
-                        whichFace= "top";
+                        whichFace = "top";
+                        touching = true;
                     }
                     else if (minDistance == distanceBottom)
                     {
                         mover.Shift("down", (int)minDistance);
                         whichFace = "bottom";
+                        touching = true;
                     }
                 }
-                bool touching = false;
-                if (moverBounds.Right == effBounds.Left && moverBounds.Bottom >= effBounds.Top && moverBounds.Top <= effBounds.Bottom)
-                {
-                    whichFace = "left";
-                    touching = true;
-                }
-                else if (moverBounds.Left == effBounds.Right && moverBounds.Bottom >= effBounds.Top && moverBounds.Top <= effBounds.Bottom)
-                {
-                    whichFace = "right";
-                    touching = true;
-                }
-                else if (moverBounds.Top == effBounds.Bottom && moverBounds.Right >= effBounds.Left && moverBounds.Left <= effBounds.Right)
+                else if (moverBounds.Top == effBounds.Bottom && moverBounds.Left < effBounds.Right && moverBounds.Right > effBounds.Left)
                 {
                     whichFace = "bottom";
                     touching = true;
                 }
-                else if (moverBounds.Bottom == effBounds.Top && moverBounds.Right >= effBounds.Left && moverBounds.Left <= effBounds.Right)
+                else if (moverBounds.Bottom == effBounds.Top && moverBounds.Left < effBounds.Right && moverBounds.Right > effBounds.Left)
                 {
                     whichFace = "top";
                     touching = true;
                 }
-                if (touching && !mover.isAffected())
+                else if (moverBounds.Right == effBounds.Left && moverBounds.Top < effBounds.Bottom && moverBounds.Bottom > effBounds.Top)
                 {
-                    mover.affect();
+                    whichFace = "left";
+                    touching = true;
+                }
+                else if (moverBounds.Left == effBounds.Right && moverBounds.Top < effBounds.Bottom && moverBounds.Bottom > effBounds.Top)
+                {
+                    whichFace = "right";
+                    touching = true;
+                }
+                if (touching && !effector.hasAffected() && !mover.hasAffected())
+                {
+                    effector.Affect();
+                    mover.Affect();
+                    bool equals = false;
+                    Mover newMover = new Mover();
                     switch (effector.whichType())
                     {
                         case "C":
@@ -615,68 +947,148 @@ public class Tutorials : Scene
                                 case "U": mover.changeType("L"); break;
                                 case "D": mover.changeType("R"); break;
                             }
-
-
-
                             break;
                         case "A":
-
-
-
-
+                            switch (mover.getType())
+                            {
+                                case "R": mover.changeType("D"); break;
+                                case "L": mover.changeType("U"); break;
+                                case "U": mover.changeType("R"); break;
+                                case "D": mover.changeType("L"); break;
+                            }
                             break;
                         case "V":
-                            switch (whichFace)
+                            if (whichFace == "top")
                             {
-                                case "top":
-                                    //newMovers.Add(new Mover(mover.getType(), mSprites, mover.getX(), mover.getY() + (int)( 1.5 * (effector.GetHeight() + mover.GetHeight()))));
-                                    break;
-
+                                equals = true;
+                                if (mover.getType() == "B")
+                                {
+                                    newMover = new Block(gravBlock, mover.getX(), effector.getY() + mover.GetHeight());
+                                }
+                                else
+                                {
+                                    newMover = new Mover(mover.getType(), mSprites, mover.getX(), effector.getY() + mover.GetHeight());
+                                }
                             }
-
-
-
+                            else if (whichFace == "bottom")
+                            {
+                                equals = true;
+                                if (mover.getType() == "B")
+                                {
+                                    newMover = new Block(gravBlock, mover.getX(), effector.getY() - mover.GetHeight());
+                                }
+                                else
+                                {
+                                    newMover = new Mover(mover.getType(), mSprites, mover.getX(), effector.getY() - mover.GetHeight());
+                                }
+                            }
+                            else
+                            {
+                                break;
+                            }
                             break;
                         case "H":
-
-
-
-
+                            if (whichFace == "right")
+                            {
+                                equals = true;
+                                if (mover.getType() == "B")
+                                {
+                                    newMover = new Block(gravBlock, effector.getX() - mover.GetWidth(), mover.getY());
+                                }
+                                else
+                                {
+                                    newMover = new Mover(mover.getType(), mSprites, effector.getX() - mover.GetWidth(), mover.getY());
+                                }
+                            }
+                            else if (whichFace == "left")
+                            {
+                                equals = true;
+                                if (mover.getType() == "B")
+                                {
+                                    newMover = new Block(gravBlock, effector.getX() + mover.GetWidth(), mover.getY());
+                                }
+                                else
+                                {
+                                    newMover = new Mover(mover.getType(), mSprites, effector.getX() + mover.GetWidth(), mover.getY());
+                                }
+                            }
+                            else
+                            {
+                                break;
+                            }
                             break;
                     }
+                    if (equals)
+                    {
+                        Rectangle bounds = newMover.GetBounds();
+                        bool clear = true;
+                        if (bounds.Intersects(_palette.GetBounds()))
+                        {
+                            clear = false;
+                        }
+                        foreach (var Mover in Movings)
+                        {
+                            Rectangle mBounds = Mover.GetBounds();
+                            if (bounds.Intersects(mBounds))
+                            {
+                                clear = false;
+                            }
+                        }
+                        foreach (GameObjects.Button button in Buttons)
+                        {
+                            Rectangle bBounds = button.GetBounds();
+                            if (bounds.Intersects(bBounds))
+                            {
+                                clear = false;
+                            }
+                        }
+                        foreach (Effector eff in Effectors)
+                        {
+                            Rectangle fBounds = eff.GetBounds();
+                            if (bounds.Intersects(fBounds))
+                            {
+                                clear = false;
+                            }
+                        }
+                        if (clear)
+                        {
+                            newMovers.Add(newMover);
+                            Movings.Add(newMover);
+                            i++;
+                        }
+                        else
+                        {
+                            effector.unAffect();
+                            mover.unAffect();
+                        }
+                    }
                 }
-                if (!touching)
+                if (!touching && effector.hasAffected() && mover.hasAffected())
                 {
-                    mover.unaffect();
+                    effector.unAffect();
+                    mover.unAffect();
                 }
-
-
-
             }
-        }
-        foreach (Mover mover in newMovers)
-        {
-            Movers.Add(mover);
         }
     }
 
-    static List<Rectangle> MapCollision()
+    static List<Rectangle> MapCollision(int[,] Map)
     {
         int groups = 0;
 
         /// Each pass through the system
-        int[,] flatpass = new int[map.GetLength(0), map.GetLength(1)];
-        int[,] sizepass = new int[map.GetLength(0), map.GetLength(1)];
-        int[,] groupingpass = new int[map.GetLength(0), map.GetLength(1)];
+        int[,] flatpass = new int[Map.GetLength(0), Map.GetLength(1)];
+        int[,] sizepass = new int[Map.GetLength(0), Map.GetLength(1)];
+        int[,] groupingpass = new int[Map.GetLength(0), Map.GetLength(1)];
 
         /// Iterates through the system horizontally, grouping the hits in each row
         /// and assigns each a size and index value while labelling the groups
-        for (int y = 0; y < map.GetLength(0); y++)
+        for (int y = 0; y < Map.GetLength(0); y++)
         {
             int ones = 0;
-            for (int x = 0; x < map.GetLength(1); x++)
+            for (int x = 0; x < Map.GetLength(1); x++)
             {
-                if (map[y, x] == 1)
+                if (Map[y, x] == 1)
                 {
                     ones++;
                 }
@@ -700,19 +1112,19 @@ public class Tutorials : Scene
                 groups++;
                 for (int z = 0; z < ones; z++)
                 {
-                    flatpass[y, map.GetLength(1) - 1 - z] = ones * 100 + z + 1;
-                    groupingpass[y, map.GetLength(1) - 1 - z] = groups;
+                    flatpass[y, Map.GetLength(1) - 1 - z] = ones * 100 + z + 1;
+                    groupingpass[y, Map.GetLength(1) - 1 - z] = groups;
                 }
             }
         }
 
         /// Iterates vertically through the system to combine groups
-        for (int x = 0; x < map.GetLength(1); x++)
+        for (int x = 0; x < Map.GetLength(1); x++)
         {
             int same = 1;
             /// Pre sets the check value as the top input in the column
             int value = flatpass[0, x];
-            for (int y = 0; y < map.GetLength(0) - 1; y++)
+            for (int y = 0; y < Map.GetLength(0) - 1; y++)
             {
                 /// If the one below has the same size group and is at the same index, they are grouped
                 /// -------------
@@ -741,8 +1153,8 @@ public class Tutorials : Scene
             /// it automatically finishes the group
             for (int z = 0; z < same; z++)
             {
-                sizepass[map.GetLength(0) - z - 1, x] = same * (value / 100);
-                groupingpass[map.GetLength(0) - z - 1, x] = groupingpass[map.GetLength(0) - same, x];
+                sizepass[Map.GetLength(0) - z - 1, x] = same * (value / 100);
+                groupingpass[Map.GetLength(0) - z - 1, x] = groupingpass[Map.GetLength(0) - same, x];
             }
         }
 
@@ -813,13 +1225,9 @@ public class Tutorials : Scene
         // Draw the palette
         _palette.Draw();
 
-        foreach (Mover mover in Movers)
+        foreach (var mover in Movings)
         {
             mover.Draw();
-        }
-        foreach (Block block in Blocks)
-        {
-            block.Draw();
         }
         foreach (GameObjects.Button button in Buttons)
         {

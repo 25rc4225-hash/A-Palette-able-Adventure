@@ -13,12 +13,13 @@ namespace MonoGameLibrary.Graphics
     public class Layout
     {
         private static int[,] map;
+        private static int[,] entMap;
         private static List<string[]> entities = new List<string[]>();
         private static ContentManager _content;
         private static string _filename;
         private static Tileset _tileset;
         private static Tilemap _tilemap;
-        private static Vector2 Scale = new Vector2(3.333f, 3.333f);
+        private static Vector2 Scale = new Vector2(3.334f, 3.334f);
         public Layout(ContentManager content, string filename)
         {
             _content = content;
@@ -26,8 +27,13 @@ namespace MonoGameLibrary.Graphics
         }
         public int[,] GetMap()
         {
+            entities = new List<string[]>();
             XmlArray();
             return map;
+        }
+        public int[,] GetEntMap()
+        {
+            return entMap;
         }
         public List<string[]> GetEntites()
         {
@@ -80,6 +86,7 @@ namespace MonoGameLibrary.Graphics
                     int columnCount = rows[0].Split(" ", StringSplitOptions.RemoveEmptyEntries).Length;
 
                     map = new int[rows.Length, columnCount];
+                    entMap = new int[rows.Length, columnCount];
 
                     for (int wide = 0; wide < rows[0].Length; wide++)
                     {
@@ -129,7 +136,11 @@ namespace MonoGameLibrary.Graphics
                                                 value = "M";
                                             }
                                         }
-                                        entities.Add(new string[] { value, (Math.Floor(wide * tileWidth * Scale.X / 2)).ToString(), (Math.Floor(tall * tileHeight * Scale.Y)).ToString() });
+                                        entities.Add(new string[] { value, (wide * tileWidth * Scale.X / 2).ToString(), (tall * tileHeight * Scale.Y).ToString() });
+                                        if (value == "X")
+                                        {
+                                            entMap[tall, wide / 2] = 1;
+                                        }
                                     }
                                 }
                             }
@@ -886,11 +897,11 @@ namespace MonoGameLibrary.Graphics
                                 }
                                 if (four)
                                 {
-                                    tileIndex = 23;
+                                    tileIndex = 25;
                                 }
                                 if (six)
                                 {
-                                    tileIndex = 25;
+                                    tileIndex = 23;
                                 }
                                 if (eight)
                                 {
@@ -916,6 +927,11 @@ namespace MonoGameLibrary.Graphics
                                     {
                                         tileIndex = 13;
                                     }
+                                    else if (four)
+                                    {
+                                        tileIndex = 12;
+                                        rotation = 270;
+                                    }
                                     else if (six)
                                     {
                                         tileIndex = 12;
@@ -937,12 +953,12 @@ namespace MonoGameLibrary.Graphics
                                     }
                                     else if (eight)
                                     {
-                                        tileIndex = 25;
+                                        tileIndex = 22;
                                     }
                                 }
                                 else if (six)
                                 {
-                                    tileIndex = 23;
+                                    tileIndex = 20;
                                 }
                                 else if (seven)
                                 {
@@ -982,8 +998,7 @@ namespace MonoGameLibrary.Graphics
                                     {
                                         if (six)
                                         {
-                                            tileIndex = 10;
-                                            rotation = 90;
+                                            tileIndex = 18;
                                         }
                                         else if (seven)
                                         {

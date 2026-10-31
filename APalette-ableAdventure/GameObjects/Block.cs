@@ -7,31 +7,21 @@ using System.Collections.Generic;
 
 namespace APalette_ableAdventure.GameObjects;
 
-public class Block
+public class Block : Mover
 {
-    // The _sprite that is being modified
-    private Sprite _sprite;
-
     private int gravity = 0;
 
     // String for storing current movement direction
     private Vector2 _direction = Vector2.UnitY;
 
-    /// Gets or Sets position of block
-    public Vector2 Position { get; set; }
-    public Vector2 startPosition { get; set; }
-
     private int fallCount = 0;
 
-    public Block(Sprite sprite, int X, int Y)
+    public Block(Sprite sprite, float X, float Y)
     {
         _sprite = sprite;
+        base.startSprite = _sprite;
         Position = new Vector2(X, Y);
         startPosition = Position;
-    }
-    public void Initialize()
-    {
-        Position = startPosition;
     }
 
     public void changeGrav(string way)
@@ -54,19 +44,17 @@ public class Block
         }
         fallCount = 0;
     }
-    public void Update()
+    public override void Update(GameTime gameTime)
     {
-        Position += -_direction * fallCount;
+        Position += _direction * fallCount;
         fallCount++;
     }
-    public void Land()
+    public override void Land()
     {
         fallCount = 0;
     }
-
-    /// Draws block
-    public void Draw()
+    public override string getType()
     {
-        _sprite.Draw(Core.SpriteBatch, Position);
+        return "B";
     }
 }

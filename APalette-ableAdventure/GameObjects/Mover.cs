@@ -12,12 +12,14 @@ public class Mover
     private const float MOVEMENT_SPEED = 2.0f;
 
     // The _sprite that is being modified
-    private Sprite _sprite;
+    protected Sprite _sprite;
+    protected Sprite startSprite;
 
     // String for storing current movement direction
     private Vector2 _direction;
 
     private string _type;
+    private string startType;
 
     /// Gets or Sets position of mover
     public Vector2 Position { get; set; }
@@ -27,12 +29,14 @@ public class Mover
     private Sprite lSprite;
     private Sprite uSprite;
     private Sprite dSprite;
-    private bool affected = false;
+    private bool isAffecting = false;
+    private List<string> cantMove = new List<string>();
 
     /// Creates Mover
-    public Mover(string type, List<Sprite> Sprites, int X, int Y)
+    public Mover(string type, List<Sprite> Sprites, float X, float Y)
     {
         _type = type;
+        startType = _type;
         rSprite = Sprites[0];
         lSprite = Sprites[1];
         uSprite = Sprites[2];
@@ -44,14 +48,18 @@ public class Mover
             case "U": _sprite = uSprite; break;
             case "D": _sprite = dSprite; break;
         }
+        startSprite = _sprite;
         Position = new Vector2(X, Y);
         startPosition = Position;
     }
+    public Mover() { }
 
     /// Initializes the Mover, can be used to reset it back to an initial state.
     public void Initialize()
     {
         Position = startPosition;
+        _type = startType;
+        _sprite = startSprite;
     }
 
     /// Moves mover
@@ -68,21 +76,9 @@ public class Mover
         Position += _direction * MOVEMENT_SPEED;
     }
 
-    public string getType()
+    public virtual string getType()
     {
         return _type;
-    }
-    public void affect()
-    {
-        affected = true;
-    }
-    public void unaffect()
-    {
-        affected = false;
-    }
-    public bool isAffected() 
-    { 
-        return affected; 
     }
     public void changeType(string newType)
     {
@@ -101,13 +97,12 @@ public class Mover
     }
     public int getY()
     {
-        return (int)Position.X;
+        return (int)Position.Y;
     }
 
     /// Updates Mover
-    public void Update(GameTime gameTime)
+    public virtual void Update(GameTime gameTime)
     {
-        // Checks input buffer for movement
         Move();
     }
 
@@ -147,6 +142,42 @@ public class Mover
         }
     }
 
+    public bool Movable(string direction)
+    {
+        return !cantMove.Contains(direction);
+    }
+    public void noMoving(string direction)
+    {
+        if (!cantMove.Contains(direction))
+        {
+            cantMove.Add(direction);
+        }
+    }
+    public void resetMove(string direction)
+    {
+        cantMove.RemoveAll(x => x == direction);
+    }
+    public void totalMoveReset()
+    {
+        cantMove = new List<string>();
+    }
+
+
+
+
+    public void Affect()
+    {
+        isAffecting = true;
+    }
+    public bool hasAffected()
+    {
+        return isAffecting;
+    }
+    public void unAffect()
+    {
+        isAffecting = false;
+    }
+
     // Return sprite height
     public int GetHeight()
     {
@@ -158,4 +189,7 @@ public class Mover
     {
         return (int)_sprite.Width;
     }
+
+
+    public virtual void Land() { }
 }

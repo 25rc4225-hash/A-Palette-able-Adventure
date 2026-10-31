@@ -13,7 +13,7 @@ public class Portal
 
     public Vector2 Position { get; set; }
 
-    public Portal(AnimatedSprite sprite, int X, int Y)
+    public Portal(AnimatedSprite sprite, float X, float Y)
     {
         _sprite = sprite;
         Position = new Vector2(X, Y);

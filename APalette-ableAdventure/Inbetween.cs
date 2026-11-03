@@ -21,6 +21,8 @@ namespace APalette_ableAdventure;
 public class Inbetween
 {
     private int Scene = 0;
+    private const int startScene = 1;
+    private const int lastScene = 8;
 
     public Inbetween()
     {
@@ -28,7 +30,7 @@ public class Inbetween
     }
     public void Initialize()
     {
-        Scene = 6;
+        Scene = startScene;
         Core.ChangeScene(new TitleScene());
     }
     public void Change(bool Title)
@@ -37,18 +39,21 @@ public class Inbetween
         {
             Scene++;
         }
-        switch (Scene)
+        if(Scene == 0)
         {
-            case 0: Core.ChangeScene(new TitleScene()); break;
-            case 1: Core.ChangeScene(new Tutorials("Tutorial0")); break;
-            case 2: Core.ChangeScene(new Tutorials("Tutorial1")); break;
-            case 3: Core.ChangeScene(new Tutorials("Tutorial2")); break;
-            case 4: Core.ChangeScene(new Tutorials("Tutorial3")); break;
-            case 5: Core.ChangeScene(new Tutorials("Tutorial4")); break;
-            case 6: Core.ChangeScene(new Tutorials("Tutorial5")); break;
-            case 7: Core.ChangeScene(new Tutorials("Tutorial6")); break;
-
-            case 10: Scene = 1; Core.ChangeScene(new TitleScene()); break;
+            Core.ChangeScene(new TitleScene());
+        }
+        else
+        {
+            if (Scene <= lastScene)
+            {
+                Core.ChangeScene(new Levels(Scene.ToString()));
+            }
+            else
+            {
+                Scene = 1;
+                Core.ChangeScene(new TitleScene());
+            }
         }
     }
 }

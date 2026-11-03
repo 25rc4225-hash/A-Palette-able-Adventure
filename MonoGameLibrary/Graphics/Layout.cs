@@ -1116,8 +1116,7 @@ namespace MonoGameLibrary.Graphics
                                 {
                                     if (seven)
                                     {
-                                        tileIndex = 12;
-                                        rotation = 90;
+                                        tileIndex = 20;
                                     }
                                     else if (eight)
                                     {

@@ -18,6 +18,12 @@ namespace APalette_ableAdventure
                    s_keyboard.WasKeyJustPressed(Keys.W) ||
                    s_keyboard.WasKeyJustPressed(Keys.Space);
         }
+        /// Returns true if the player has triggered the "move down" action.
+        public static bool MoveDown()
+        {
+            return s_keyboard.WasKeyJustPressed(Keys.Down) ||
+                   s_keyboard.WasKeyJustPressed(Keys.S);
+        }
 
         /// Returns true if the player has triggered the "move left" action.
         public static bool MoveLeft()
@@ -31,6 +37,24 @@ namespace APalette_ableAdventure
         {
             return s_keyboard.IsKeyDown(Keys.Right) ||
                    s_keyboard.IsKeyDown(Keys.D);
+        }
+
+        /// Returns true if the player has triggered the "rotate clockwise" action.
+        public static bool SpinClock()
+        {
+            return s_keyboard.IsKeyDown(Keys.E);
+        }
+
+        /// Returns true if the player has triggered the "rotate anticlockwise" action.
+        public static bool SpinAntiClock()
+        {
+            return s_keyboard.IsKeyDown(Keys.Q);
+        }
+
+        /// Returns true if the player has triggered the "CycleBlocks" action.
+        public static bool CycleBlocks()
+        {
+            return s_keyboard.IsKeyDown(Keys.F);
         }
 
         /// Returns true if the player has triggered the "pause" action.

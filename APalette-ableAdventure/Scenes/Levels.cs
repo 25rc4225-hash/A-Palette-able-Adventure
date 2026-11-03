@@ -13,17 +13,19 @@ using System.Collections.Generic;
 
 namespace APalette_ableAdventure.Scenes;
 
-public class Tutorials : Scene
+public class Levels : Scene
 {
-    private string mapName = "";
-    public Tutorials(string Map)
+    private string mapNum = "";
+    private bool addBlocks = false;
+    public Levels(string Map)
     {
-        mapName = Map;
+        mapNum = Map;
     }
     private enum GameState
     {
         Playing,
         Paused,
+        Placing,
         GameOver
     }
 
@@ -162,7 +164,7 @@ public class Tutorials : Scene
         // Create the texture atlas from the XML configuration file.
         TextureAtlas atlas = TextureAtlas.FromFile(Core.Content, "images/atlas-definition.xml");
 
-        Layout Map = new Layout(Content, $"images/{mapName}_Map.xml");
+        Layout Map = new Layout(Content, $"images/Level{mapNum}_Map.xml");
         map = Map.GetMap();
         entMap = Map.GetEntMap();
 
@@ -329,8 +331,7 @@ public class Tutorials : Scene
         // here.
         if (_state == GameState.GameOver)
         {
-            Reset();
-            Core.ChangeScene(new TitleScene());
+            InitializeNewGame();
         }
 
         // If the pause button is pressed, toggle the pause state.

@@ -71,6 +71,7 @@
 		<Region name="defaultPortal" x="12" y="104" width="12" height="12" />
 		<Region name="defaultWater" x="24" y="104" width="12" height="12" />
 		<Region name="BackGround" x="216" y="12" width="12" height="12" />
+		<Region name="BuildArea" x="36" y="104" width="12" height="12" />
 	</Regions>
 	<Animations>
 		<Animation name="rNpalette-animation" delay="500">

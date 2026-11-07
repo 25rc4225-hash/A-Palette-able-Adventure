@@ -76,7 +76,7 @@ public class Palette
     {
         Vector2 potentialNextDirection = Vector2.Zero;
 
-        if (GameController.MoveUp())
+        if (GameController.MoveUp() || GameController.Space())
         {
             potentialNextDirection = -Vector2.UnitY;
         }

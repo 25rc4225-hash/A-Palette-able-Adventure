@@ -36,6 +36,10 @@ namespace MonoGameTestProject
         {
             inbetween.Change(Title);
         }
+        public static void PreviousLevel()
+        {
+            inbetween.goBack();
+        }
         public static void Title()
         {
             Core.ChangeScene(new TitleScene());

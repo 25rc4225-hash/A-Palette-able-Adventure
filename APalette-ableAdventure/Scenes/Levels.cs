@@ -16,10 +16,10 @@ namespace APalette_ableAdventure.Scenes;
 public class Levels : Scene
 {
     private string mapNum = "";
-    private bool addBlocks = false;
-    public Levels(string Map)
+    public Levels(string Map, List<string[]> addingBlocks)
     {
         mapNum = Map;
+        addedBlocks = addingBlocks;
     }
     private enum GameState
     {
@@ -34,6 +34,7 @@ public class Levels : Scene
 
     private static int[,] map;
     private static int[,] entMap;
+    private static List<string[]> addedBlocks;
     private static List<string[]> entities;
     private List<AnimatedSprite> pAnimations = new List<AnimatedSprite>();
     private static List<Mover> Movings = new List<Mover>();
@@ -109,7 +110,8 @@ public class Levels : Scene
     private void OnRetryButtonClicked(object sender, EventArgs args)
     {
         // Player has chosen to retry, so initialize a new game.
-        InitializeNewGame();
+        Inbetween inbetween = new Inbetween();
+        inbetween.Change(true);
     }
 
     private void OnQuitButtonClicked(object sender, EventArgs args)
@@ -126,7 +128,7 @@ public class Levels : Scene
         Effectors = new List<Effector>();
         Waters = new List<Water>();
     }
-
+    
     private void InitializeNewGame()
     {
         // Initialize the palette
@@ -168,9 +170,35 @@ public class Levels : Scene
         map = Map.GetMap();
         entMap = Map.GetEntMap();
 
+        for (int y = 0; y < map.GetLength(0); y++)
+        {
+            for (int x = 0; x < map.GetLength(1); x++)
+            {
+                if (map[y, x] == 2)
+                {
+                    map[y, x] = 0;
+                }
+            }
+        }
+
+        entities = Map.GetEntites();
+
         // Create the tilemap from the XML configuration file.
         _tilemap = Map.CreateTileMap();
         _tilemap.Scale = Scale;
+
+        if (addedBlocks != null)
+        {
+            foreach (string[] block in addedBlocks)
+            {
+                if ("XCAVH".Contains(block[0]))
+                {
+                    entMap[(int)(float.Parse(block[2]) / _tilemap.TileHeight), (int)(float.Parse(block[1]) / _tilemap.TileWidth)] = 1;
+                }
+                entities.Add(block);
+            }
+        }
+        
 
         // Load the bounce sound effect for the bat.
         SoundEffect jumpSoundEffect = Content.Load<SoundEffect>("audio/bounce");
@@ -262,8 +290,6 @@ public class Levels : Scene
         AnimatedSprite BottomW = atlas.CreateAnimatedSprite("BottomW");
         BottomW.Scale = Scale;
         wAnimations.Add(BottomW);
-
-        entities = Map.GetEntites();
 
         int waterNum = 0;
 
@@ -387,9 +413,22 @@ public class Levels : Scene
         // Perform collision checks.
         CollisionChecks(gameTime, toHide);
 
+        
         if (GameController.Reset())
         {
             InitializeNewGame();
+        }
+        if (GameController.Skip())
+        {
+            Game1.NextLevel(false);
+        }
+        if (GameController.goBack())
+        {
+            Game1.PreviousLevel();
+        }
+        if (GameController.Build())
+        {
+            Core.ChangeScene(new addBlocks(mapNum, addedBlocks));
         }
     }
 
@@ -406,8 +445,6 @@ public class Levels : Scene
 
         List<Rectangle> mapBlocks = MapCollision(map);
         List<Rectangle> entMapBlocks = MapCollision(entMap);
-
-        bool pIsMoved = false;
 
         foreach (Water water in Waters)
         {
@@ -479,24 +516,20 @@ public class Levels : Scene
                 if (minDistance == distanceLeft)
                 {
                     _palette.Shift("left", (int)minDistance);
-                    pIsMoved = true;
                 }
                 if (minDistance == distanceRight)
                 {
                     _palette.Shift("right", (int)minDistance);
-                    pIsMoved = true;
                 }
                 if (minDistance == distanceTop)
                 {
                     _palette.Shift("up", (int)minDistance);
-                    pIsMoved = true;
                     // Therefore Palette is on terrain
                     _palette.Land();
                 }
                 if (minDistance == distanceBottom)
                 {
                     _palette.Shift("down", (int)minDistance);
-                    pIsMoved = true;
                 }
             }
         }
@@ -643,11 +676,6 @@ public class Levels : Scene
                             mover.Shift("right", (int)minDistance / 2);
                             mover2.Shift("left", (int)minDistance / 2);
                         }
-                        else if (mover.getType() == "B" && mover2.getType() == "B")
-                        {
-                            mover.Shift("right", (int)minDistance / 2);
-                            mover2.Shift("left", (int)minDistance / 2);
-                        }
                         else
                         {
                             if (minDistance == distanceLeft)
@@ -747,6 +775,7 @@ public class Levels : Scene
                                     if (mover2.Movable("U"))
                                     {
                                         mover2.Shift("up", (int)minDistance);
+                                        mover2.Land();
                                     }
                                     else
                                     {
@@ -763,6 +792,7 @@ public class Levels : Scene
                                     else
                                     {
                                         mover2.Shift("up", (int)minDistance);
+                                        mover2.Land();
                                         mover2.noMoving("D");
                                     }
                                 }
@@ -772,6 +802,7 @@ public class Levels : Scene
                                     {
                                         mover.Shift("down", (int)minDistance / 2);
                                         mover2.Shift("up", (int)minDistance / 2);
+                                        mover2.Land();
                                     }
                                     else if (mover.Movable("D"))
                                     {
@@ -782,6 +813,7 @@ public class Levels : Scene
                                     {
                                         mover2.Shift("up", (int)minDistance);
                                         mover2.noMoving("D");
+                                        mover2.Land();
                                     }
                                 }
                             }
@@ -797,6 +829,7 @@ public class Levels : Scene
                                     {
                                         mover.Shift("up", (int)minDistance);
                                         mover.noMoving("D");
+                                        mover.Land();
                                     }
                                 }
                                 else if (mover2.getType() == "U")
@@ -804,6 +837,7 @@ public class Levels : Scene
                                     if (mover.Movable("U"))
                                     {
                                         mover.Shift("up", (int)minDistance);
+                                        mover.Land();
                                     }
                                     else
                                     {
@@ -816,12 +850,14 @@ public class Levels : Scene
                                     if (mover.Movable("U") && mover2.Movable("D"))
                                     {
                                         mover.Shift("up", (int)minDistance / 2);
+                                        mover.Land();
                                         mover2.Shift("down", (int)minDistance / 2);
                                     }
                                     else if (mover.Movable("U"))
                                     {
                                         mover.Shift("up", (int)minDistance);
                                         mover.noMoving("D");
+                                        mover.Land();
                                     }
                                     else if (mover2.Movable("D"))
                                     {

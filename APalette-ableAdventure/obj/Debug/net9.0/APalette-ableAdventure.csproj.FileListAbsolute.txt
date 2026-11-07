@@ -137,3 +137,5 @@ C:\Users\rober\OneDrive\Documents\GitHub\A-Palette-able-Adventure\APalette-ableA
 C:\Users\rober\OneDrive\Documents\GitHub\A-Palette-able-Adventure\APalette-ableAdventure\bin\Debug\net9.0\Content\images\Level6_Map.xml
 C:\Users\rober\OneDrive\Documents\GitHub\A-Palette-able-Adventure\APalette-ableAdventure\bin\Debug\net9.0\Content\images\Level7_Map.xml
 C:\Users\rober\OneDrive\Documents\GitHub\A-Palette-able-Adventure\APalette-ableAdventure\bin\Debug\net9.0\Content\images\Level8_Map.xml
+C:\Users\rober\OneDrive\Documents\GitHub\A-Palette-able-Adventure\APalette-ableAdventure\bin\Debug\net9.0\Content\images\Level9_Map.xml
+C:\Users\rober\OneDrive\Documents\GitHub\A-Palette-able-Adventure\APalette-ableAdventure\bin\Debug\net9.0\Content\images\Level10_Map.xml

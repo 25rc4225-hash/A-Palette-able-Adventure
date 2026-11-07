@@ -14,6 +14,8 @@ namespace MonoGameLibrary.Graphics
     {
         private static int[,] map;
         private static int[,] entMap;
+        private static string[,] entityMap;
+        private static string denyList;
         private static List<string[]> entities = new List<string[]>();
         private static ContentManager _content;
         private static string _filename;
@@ -35,6 +37,10 @@ namespace MonoGameLibrary.Graphics
         {
             return entMap;
         }
+        public string[,] GetEntities()
+        {
+            return entityMap;
+        }
         public List<string[]> GetEntites()
         {
             return entities;
@@ -42,6 +48,10 @@ namespace MonoGameLibrary.Graphics
         public Vector2 GetScale()
         {
             return Scale;
+        }
+        public string getDenyList()
+        {
+            return denyList;
         }
         public void XmlArray()
         {
@@ -63,6 +73,7 @@ namespace MonoGameLibrary.Graphics
                     int width = int.Parse(split[2]);
                     int height = int.Parse(split[3]);
 
+                    denyList = tilesetElement.Attribute("denylist").Value;
                     int tileWidth = int.Parse(tilesetElement.Attribute("tileWidth").Value);
                     int tileHeight = int.Parse(tilesetElement.Attribute("tileHeight").Value);
                     string contentPath = tilesetElement.Value;
@@ -87,6 +98,7 @@ namespace MonoGameLibrary.Graphics
 
                     map = new int[rows.Length, columnCount];
                     entMap = new int[rows.Length, columnCount];
+                    entityMap = new string[rows.Length, columnCount];
 
                     for (int wide = 0; wide < rows[0].Length; wide++)
                     {
@@ -104,10 +116,12 @@ namespace MonoGameLibrary.Graphics
                                 if (seven)
                                 {
                                     map[tall, wide / 2] = 1;
+                                    entityMap[tall, wide / 2] = "1";
                                 }
                                 else
                                 {
-                                    if (value == "0" || value == "1")
+                                    entityMap[tall, wide / 2] = value;
+                                    if (value == "0" || value == "1" || value == "2")
                                     {
                                         map[tall, wide / 2] = int.Parse(value);
                                     }
@@ -137,7 +151,7 @@ namespace MonoGameLibrary.Graphics
                                             }
                                         }
                                         entities.Add(new string[] { value, (wide * tileWidth * Scale.X / 2).ToString(), (tall * tileHeight * Scale.Y).ToString() });
-                                        if (value == "X")
+                                        if ("XCAVH".Contains(value))
                                         {
                                             entMap[tall, wide / 2] = 1;
                                         }

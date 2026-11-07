@@ -1,5 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using System;
+using System.Collections.Generic;
 
 namespace MonoGameLibrary.Input;
 
@@ -19,14 +21,14 @@ public class MouseInfo
     }
 
     /// Gets or Sets the current x-coordinate position of the mouse cursor in screen space.
-    public int X
+    public float X
     {
         get => CurrentState.X;
         set => SetPosition(value, CurrentState.Y);
     }
 
     /// Gets or Sets the current y-coordinate position of the mouse cursor in screen space.
-    public int Y
+    public float Y
     {
         get => CurrentState.Y;
         set => SetPosition(CurrentState.X, value);
@@ -49,6 +51,7 @@ public class MouseInfo
 
     /// Gets the value of the scroll wheel between the previous and current frame.
     public int ScrollWheelDelta => CurrentState.ScrollWheelValue - PreviousState.ScrollWheelValue;
+
 
     /// Creates a new MouseInfo.
     public MouseInfo()
@@ -145,12 +148,12 @@ public class MouseInfo
     }
 
     /// Sets the current position of the mouse cursor in screen space and updates the CurrentState with the new position.
-    public void SetPosition(int x, int y)
+    public void SetPosition(float x, float y)
     {
-        Mouse.SetPosition(x, y);
+        Mouse.SetPosition((int)x, (int)y);
         CurrentState = new MouseState(
-            x,
-            y,
+            (int)x,
+            (int)y,
             CurrentState.ScrollWheelValue,
             CurrentState.LeftButton,
             CurrentState.MiddleButton,
@@ -158,5 +161,9 @@ public class MouseInfo
             CurrentState.XButton1,
             CurrentState.XButton2
         );
+    }
+    public Vector2 GetPosition()
+    {
+        return new Vector2(X, Y);
     }
 }

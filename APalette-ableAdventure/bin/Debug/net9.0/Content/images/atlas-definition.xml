@@ -54,6 +54,24 @@
 		<Region name="slider-off-background" x="341" y="96" width="11" height="10" />
 		<Region name="slider-middle-background" x="345" y="81" width="3" height="3" />
 		<Region name="slider-max-background" x="354" y="96" width="11" height="10" />
+
+		<Region name="defaultRight" x="0" y="80" width="12" height="12" />
+		<Region name="defaultLeft" x="0" y="92" width="12" height="12" />
+		<Region name="defaultUp" x="12" y="80" width="12" height="12" />
+		<Region name="defaultDown" x="12" y="92" width="12" height="12" />
+		<Region name="defaultBlock" x="24" y="80" width="12" height="12" />
+		<Region name="defaultEcks" x="24" y="92" width="12" height="12" />
+		<Region name="defaultHoriz" x="36" y="80" width="12" height="12" />
+		<Region name="defaultVert" x="36" y="92" width="12" height="12" />
+		<Region name="defaultClock" x="48" y="80" width="12" height="12" />
+		<Region name="defaultAntiC" x="48" y="92" width="12" height="12" />
+		<Region name="defaultGround" x="60" y="80" width="12" height="12" />
+		<Region name="defaultPalette" x="60" y="92" width="12" height="12" />
+		<Region name="defaultButton" x="0" y="104" width="12" height="12" />
+		<Region name="defaultPortal" x="12" y="104" width="12" height="12" />
+		<Region name="defaultWater" x="24" y="104" width="12" height="12" />
+		<Region name="BackGround" x="216" y="12" width="12" height="12" />
+		<Region name="BuildArea" x="36" y="104" width="12" height="12" />
 	</Regions>
 	<Animations>
 		<Animation name="rNpalette-animation" delay="500">

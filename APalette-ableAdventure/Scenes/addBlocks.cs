@@ -15,9 +15,10 @@ namespace APalette_ableAdventure.Scenes;
 public class addBlocks : Scene
 {
     private string mapNum = "";
-    public addBlocks(string Map)
+    public addBlocks(string Map, List<string[]> blocksToAdd)
     {
         mapNum = Map;
+        addedBlocks = blocksToAdd;
     }
     private enum GameState
     {
@@ -29,22 +30,27 @@ public class addBlocks : Scene
 
 
     private static int[,] map;
-    private static int[,] entMap;
+    private static string[,] entMap;
     private static string[,] fullMap;
-    private static string[,] addingMap;
+    private static List<string[]> addedBlocks;
+    private static string denyList;
 
-    Sprite palette = new Sprite();
+
+    Sprite Palette = new Sprite();
     List<Sprite> mSprites = new List<Sprite>();
     Sprite gravBlock = new Sprite();
     Sprite Button = new Sprite();
     List<Sprite> eSprites = new List<Sprite>();
     Sprite EndPortal = new Sprite();
     Sprite Water = new Sprite();
+    Sprite Terrain = new Sprite();
+    Sprite Background = new Sprite();
+    Sprite BuildArea = new Sprite();
 
-    static bool placing = true;
     static string currentBlock = "G";
-    static int blockX = 0, blockY = 0;
-    static int blockSelector = 0;
+    static int blockX = 1, blockY = 1;
+    static int blockSelector =-1;
+    static int blockNum = 3;
 
 
     // Buffer to queue inputs input by player during input polling.
@@ -72,7 +78,6 @@ public class addBlocks : Scene
 
     public override void Initialize()
     {
-        Reset();
         // LoadContent is called during base.Initialize().
         base.Initialize();
 
@@ -130,12 +135,6 @@ public class addBlocks : Scene
         // Player has chosen to quit, so return back to the title scene.
         Game1.Title();
     }
-
-    private void Reset()
-    {
-
-    }
-
     private void InitializeNewGame()
     {
         // initialize the input buffer.
@@ -152,20 +151,23 @@ public class addBlocks : Scene
 
         Layout Map = new Layout(Content, $"images/Level{mapNum}_Map.xml");
         map = Map.GetMap();
-        entMap = Map.GetEntMap();
-        addingMap = new string[map.GetLength(0), map.GetLength(1)];
+        entMap = Map.GetEntities();
+        fullMap = new string[map.GetLength(0), map.GetLength(1)];
+        denyList = Map.getDenyList();
+        CycleThruBlocks();
+        foreach (string[] block in addedBlocks)
+        {
+            fullMap[(int)(float.Parse(block[2]) / _tilemap.TileHeight), (int)(float.Parse(block[1]) / _tilemap.TileWidth)] = block[0];
+        }
 
         for (int y = 0; y < map.GetLength(0); y++)
         {
             for (int x = 0; x < map.GetLength(1); x++)
             {
-                if (map[y, x] != 0)
+                fullMap[y, x] = entMap[y, x];
+                if (fullMap[y, x] == "0")
                 {
                     fullMap[y, x] = map[y, x].ToString();
-                }
-                else
-                {
-                    fullMap[y, x] = entMap[y, x].ToString();
                 }
             }
         }
@@ -178,8 +180,8 @@ public class addBlocks : Scene
         errorSoundEffect = Content.Load<SoundEffect>("audio/bounce");
 
         // Create the sprite for the slime from the atlas.
-        palette = atlas.CreateSprite("defaultPalette");
-        palette.Scale = Scale;
+        Palette = atlas.CreateSprite("defaultPalette");
+        Palette.Scale = Scale;
 
         MonoGameLibrary.Graphics.Sprite moverR = atlas.CreateSprite("defaultRight");
         moverR.Scale = Scale;
@@ -203,24 +205,33 @@ public class addBlocks : Scene
         Sprite Ecks = atlas.CreateSprite("defaultEcks");
         Ecks.Scale = Scale;
         eSprites.Add(Ecks);
-        AnimatedSprite Clock = atlas.CreateAnimatedSprite("defualtClock");
+        Sprite Clock = atlas.CreateSprite("defaultClock");
         Clock.Scale = Scale;
         eSprites.Add(Clock);
-        AnimatedSprite antiClock = atlas.CreateAnimatedSprite("defaultAntiC");
+        Sprite antiClock = atlas.CreateSprite("defaultAntiC");
         antiClock.Scale = Scale;
         eSprites.Add(antiClock);
-        AnimatedSprite VertEqual = atlas.CreateAnimatedSprite("defaultVert");
+        Sprite VertEqual = atlas.CreateSprite("defaultVert");
         VertEqual.Scale = Scale;
         eSprites.Add(VertEqual);
-        AnimatedSprite HorizEqual = atlas.CreateAnimatedSprite("defaultHoriz");
+        Sprite HorizEqual = atlas.CreateSprite("defaultHoriz");
         HorizEqual.Scale = Scale;
         eSprites.Add(HorizEqual);
 
         EndPortal = atlas.CreateSprite("defaultPortal");
-        EndPortal.Scale = new Vector2(5.25f, 5.25f);
+        EndPortal.Scale = Scale;
 
-        Sprite Water = atlas.CreateSprite("defaultWater");
+        Water = atlas.CreateSprite("defaultWater");
         Water.Scale = Scale;
+
+        Terrain = atlas.CreateSprite("defaultGround");
+        Terrain.Scale = Scale;
+
+        Background = atlas.CreateSprite("BackGround");
+        Background.Scale = Scale;
+
+        BuildArea = atlas.CreateSprite("BuildArea");
+        BuildArea.Scale = Scale;
     }
 
     /// Adds movements to the input buffer
@@ -236,11 +247,11 @@ public class addBlocks : Scene
         {
             potentialNextDirection = "D";
         }
-        else if (GameController.MoveLeft())
+        else if (GameController.ShiftLeft())
         {
             potentialNextDirection = "L";
         }
-        else if (GameController.MoveRight())
+        else if (GameController.ShiftRight())
         {
             potentialNextDirection = "R";
         }
@@ -260,6 +271,18 @@ public class addBlocks : Scene
         {
             potentialNextDirection = "_";
         }
+        else if (GameController.LeftClick() || GameController.Space())
+        {
+            potentialNextDirection = "click";
+        }
+        else if (GameController.wasMoved())
+        {
+            potentialNextDirection = "moved";
+        }
+        else if (GameController.Reset())
+        {
+            potentialNextDirection = "undo";
+        }
 
         // If a new direction was input, consider adding it to the buffer
         if (_inputBuffer.Count < MAX_BUFFER_SIZE)
@@ -270,57 +293,102 @@ public class addBlocks : Scene
 
     public override void Update(GameTime gameTime)
     {
-        if (true)
+        // Ensure the UI is always updated.
+        _ui.Update(gameTime);
+
+        if (GameController.Skip())
         {
-            // Ensure the UI is always updated.
-            _ui.Update(gameTime);
+            Game1.NextLevel(false);
+        }
+        if (GameController.goBack())
+        {
+            Game1.PreviousLevel();
+        }
 
-            // If the game is in a game over state, immediately return back
-            // here.
-            if (_state == GameState.GameOver)
-            {
-                InitializeNewGame();
-            }
+        // If the game is in a game over state, immediately return back
+        // here.
+        if (_state == GameState.GameOver)
+        {
+            InitializeNewGame();
+        }
 
-            // If the pause button is pressed, toggle the pause state.
-            if (GameController.Pause())
-            {
-                TogglePause();
-            }
+        // If the pause button is pressed, toggle the pause state.
+        if (GameController.Pause())
+        {
+            TogglePause();
+        }
 
-            // At this point, if the game is paused, just return back early.
-            if (_state == GameState.Paused)
-            {
-                return;
-            }
+        // At this point, if the game is paused, just return back early.
+        if (_state == GameState.Paused)
+        {
+            return;
         }
 
 
         HandleInput();
+
         // Get the next direction from the input buffer if one is available
         if (_inputBuffer.Count > 0)
         {
             _nextMove = _inputBuffer.Dequeue();
         }
         bool place = false;
+        bool done = false;
+        bool moved = false;
+        bool mouseDelta = false;
+        bool undo = false;
         switch (_nextMove)
         {
             case "": break;
-            case "U": blockY--; break;
-            case "D": blockY++; break;
-            case "L": blockX--; break;
-            case "R": blockX++; break;
+            case "U": blockY--; moved = true; break;
+            case "D": blockY++; moved = true; break;
+            case "L": blockX--; moved = true; break;
+            case "R": blockX++; moved = true; break;
             case "E": RotateBlock("E"); break;
             case "Q": RotateBlock("Q"); break;
             case "F": CycleThruBlocks(); break;
-            case "_": place = true; break;
+            case "_": done = true; break;
+            case "click": place = true; break;
+            case "moved": mouseDelta = true; break;
+            case "undo": undo = true; break;
         }
+        if (done)
+        {
+            Core.ChangeScene(new Levels(mapNum, addedBlocks));
+        }
+        if (mouseDelta)
+        {
+            blockX = (int)Math.Floor(GameController.getPos().X / _tilemap.TileWidth);
+            blockY = (int)Math.Floor(GameController.getPos().Y / _tilemap.TileHeight);
+        }
+        if (blockY < 0)
+        {
+            blockY = 0;
+        }
+        else if (blockY > fullMap.GetLength(0) - 1)
+        {
+            blockY = fullMap.GetLength(0) - 1;
+        }
+        if (blockX < 0)
+        {
+            blockX = 0;
+        }
+        if (blockX > fullMap.GetLength(1) - 1)
+        {
+            blockX = fullMap.GetLength(1) - 1;
+        }
+        float screenX = blockX * _tilemap.TileWidth + _tilemap.TileWidth / 2;
+        float screenY = blockY * _tilemap.TileHeight + _tilemap.TileHeight / 2;
+        if (moved)
+        {
+            GameController.setPos(screenX, screenY);
+        }
+
         if (place)
         {
-            if (fullMap[blockY, blockX] == "0")
+            if (fullMap[blockY, blockX] == "2" && addedBlocks.Count < blockNum)
             {
-                fullMap[blockY, blockX] = currentBlock;
-                addingMap[blockY, blockX] = currentBlock;
+                addedBlocks.Add(new string[] { currentBlock, (blockX * _tilemap.TileWidth).ToString(), (blockY * _tilemap.TileHeight).ToString() });
             }
             else
             {
@@ -328,10 +396,13 @@ public class addBlocks : Scene
                 errorSoundEffect.Play();
             }
         }
-
-        if (GameController.Reset())
+        if (undo)
         {
-            InitializeNewGame();
+            if (addedBlocks.Count != 0)
+            {
+                string[] removeBlock = addedBlocks[addedBlocks.Count - 1];
+                addedBlocks.Remove(removeBlock);
+            }
         }
     }
 
@@ -374,12 +445,66 @@ public class addBlocks : Scene
         blockSelector %= 6;
         switch (blockSelector)
         {
-            case 0: currentBlock = "G"; break;
-            case 1: currentBlock = "R"; break;
-            case 2: currentBlock = "X"; break;
-            case 3: currentBlock = "H"; break;
-            case 4: currentBlock = "C"; break;
-            case 5: currentBlock = "B"; break;
+            case 0: 
+                if (denyList.Contains("G"))
+                {
+                    CycleThruBlocks();
+                }
+                else
+                {
+                    currentBlock = "G";
+                }
+                break;
+            case 1:
+                if (denyList.Contains("M"))
+                {
+                    CycleThruBlocks();
+                }
+                else
+                {
+                    currentBlock = "R";
+                }
+                break;
+            case 2:
+                if (denyList.Contains("X"))
+                {
+                    CycleThruBlocks();
+                }
+                else
+                {
+                    currentBlock = "X";
+                }
+                break;
+            case 3:
+                if (denyList.Contains("="))
+                {
+                    CycleThruBlocks();
+                }
+                else
+                {
+                    currentBlock = "H";
+                }
+                break;
+            case 4:
+                if (denyList.Contains("R"))
+                {
+                    CycleThruBlocks();
+                }
+                else
+                {
+                    currentBlock = "C";
+                }
+                break;
+            case 5:
+                if (denyList.Contains("B"))
+                {
+                    CycleThruBlocks();
+                }
+                else
+                {
+                    currentBlock = "B";
+                }
+                break;
         }
     }
 
@@ -413,11 +538,6 @@ public class addBlocks : Scene
         _state = GameState.GameOver;
     }
 
-    private void ProcessMap()
-    {
-
-    }
-
     public override void Draw(GameTime gameTime)
     {
         // Clear the back buffer.
@@ -426,21 +546,69 @@ public class addBlocks : Scene
         // Begin the sprite batch to prepare for rendering.
         Core.SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
 
-        // Draw the tilemap
-        _tilemap.Draw(Core.SpriteBatch);
-
 
         for (int y = 0; y < fullMap.GetLength(0); y++)
         {
             for (int x = 0; x < fullMap.GetLength(1); x++)
             {
+                float X = x * _tilemap.TileWidth;
+                float Y = y * _tilemap.TileHeight;
+                Vector2 Pos = new Vector2(X, Y);
                 switch (fullMap[y, x])
                 {
-
+                    case "0": Background.Draw(Core.SpriteBatch, Pos); break;
+                    case "1": Terrain.Draw(Core.SpriteBatch, Pos); break;
+                    case "2": BuildArea.Draw(Core.SpriteBatch, Pos); break;
+                    case "P": Palette.Draw(Core.SpriteBatch, Pos); break;
+                    case "R": mSprites[0].Draw(Core.SpriteBatch, Pos); break;
+                    case "L": mSprites[1].Draw(Core.SpriteBatch, Pos); break;
+                    case "U": mSprites[2].Draw(Core.SpriteBatch, Pos); break;
+                    case "D": mSprites[3].Draw(Core.SpriteBatch, Pos); break;
+                    case "G": gravBlock.Draw(Core.SpriteBatch, Pos); break;
+                    case "B": Button.Draw(Core.SpriteBatch, Pos); break;
+                    case "X": eSprites[0].Draw(Core.SpriteBatch, Pos); break;
+                    case "C": eSprites[1].Draw(Core.SpriteBatch, Pos); break;
+                    case "A": eSprites[2].Draw(Core.SpriteBatch, Pos); break;
+                    case "V": eSprites[3].Draw(Core.SpriteBatch, Pos); break;
+                    case "H": eSprites[4].Draw(Core.SpriteBatch, Pos); break;
+                    case "E": EndPortal.Draw(Core.SpriteBatch, Pos); break;
+                    case "W": Water.Draw(Core.SpriteBatch, Pos); break;
                 }
             }
         }
-
+        float screenX = blockX * _tilemap.TileWidth;
+        float screenY = blockY * _tilemap.TileHeight;
+        switch (currentBlock)
+        {
+            case "R": mSprites[0].Draw(Core.SpriteBatch, new Vector2(screenX, screenY)); break;
+            case "L": mSprites[1].Draw(Core.SpriteBatch, new Vector2(screenX, screenY)); break;
+            case "U": mSprites[2].Draw(Core.SpriteBatch, new Vector2(screenX, screenY)); break;
+            case "D": mSprites[3].Draw(Core.SpriteBatch, new Vector2(screenX, screenY)); break;
+            case "G": gravBlock.Draw(Core.SpriteBatch, new Vector2(screenX, screenY)); break;
+            case "B": Button.Draw(Core.SpriteBatch, new Vector2(screenX, screenY)); break;
+            case "X": eSprites[0].Draw(Core.SpriteBatch, new Vector2(screenX, screenY)); break;
+            case "C": eSprites[1].Draw(Core.SpriteBatch, new Vector2(screenX, screenY)); break;
+            case "A": eSprites[2].Draw(Core.SpriteBatch, new Vector2(screenX, screenY)); break;
+            case "V": eSprites[3].Draw(Core.SpriteBatch, new Vector2(screenX, screenY)); break;
+            case "H": eSprites[4].Draw(Core.SpriteBatch, new Vector2(screenX, screenY)); break;
+        }
+        foreach (string[] block in addedBlocks)
+        {
+            switch (block[0])
+            {
+                case "R": mSprites[0].Draw(Core.SpriteBatch, new Vector2(float.Parse(block[1]), float.Parse(block[2]))); break;
+                case "L": mSprites[1].Draw(Core.SpriteBatch, new Vector2(float.Parse(block[1]), float.Parse(block[2]))); break;
+                case "U": mSprites[2].Draw(Core.SpriteBatch, new Vector2(float.Parse(block[1]), float.Parse(block[2]))); break;
+                case "D": mSprites[3].Draw(Core.SpriteBatch, new Vector2(float.Parse(block[1]), float.Parse(block[2]))); break;
+                case "G": gravBlock.Draw(Core.SpriteBatch, new Vector2(float.Parse(block[1]), float.Parse(block[2]))); break;
+                case "B": Button.Draw(Core.SpriteBatch, new Vector2(float.Parse(block[1]), float.Parse(block[2]))); break;
+                case "X": eSprites[0].Draw(Core.SpriteBatch, new Vector2(float.Parse(block[1]), float.Parse(block[2]))); break;
+                case "C": eSprites[1].Draw(Core.SpriteBatch, new Vector2(float.Parse(block[1]), float.Parse(block[2]))); break;
+                case "A": eSprites[2].Draw(Core.SpriteBatch, new Vector2(float.Parse(block[1]), float.Parse(block[2]))); break;
+                case "V": eSprites[3].Draw(Core.SpriteBatch, new Vector2(float.Parse(block[1]), float.Parse(block[2]))); break;
+                case "H": eSprites[4].Draw(Core.SpriteBatch, new Vector2(float.Parse(block[1]), float.Parse(block[2]))); break;
+            }
+        }
 
 
         // Always end the sprite batch when finished.

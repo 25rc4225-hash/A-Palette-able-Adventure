@@ -47,10 +47,10 @@ public class addBlocks : Scene
     Sprite Background = new Sprite();
     Sprite BuildArea = new Sprite();
 
-    static string currentBlock = "G";
+    static string currentBlock = "";
     static int blockX = 1, blockY = 1;
     static int blockSelector =-1;
-    static int blockNum = 3;
+    static int blockNum;
 
 
     // Buffer to queue inputs input by player during input polling.
@@ -154,6 +154,7 @@ public class addBlocks : Scene
         entMap = Map.GetEntities();
         fullMap = new string[map.GetLength(0), map.GetLength(1)];
         denyList = Map.getDenyList();
+        blockNum = Map.getblockCount();
         CycleThruBlocks();
         foreach (string[] block in addedBlocks)
         {
@@ -389,6 +390,7 @@ public class addBlocks : Scene
             if (fullMap[blockY, blockX] == "2" && addedBlocks.Count < blockNum)
             {
                 addedBlocks.Add(new string[] { currentBlock, (blockX * _tilemap.TileWidth).ToString(), (blockY * _tilemap.TileHeight).ToString() });
+                fullMap[blockY, blockX] = currentBlock;
             }
             else
             {
@@ -402,6 +404,7 @@ public class addBlocks : Scene
             {
                 string[] removeBlock = addedBlocks[addedBlocks.Count - 1];
                 addedBlocks.Remove(removeBlock);
+                fullMap[(int)(float.Parse(removeBlock[2]) / _tilemap.TileHeight), (int)(float.Parse(removeBlock[1]) / _tilemap.TileWidth)] = "2";
             }
         }
     }

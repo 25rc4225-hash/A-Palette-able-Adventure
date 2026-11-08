@@ -21,9 +21,9 @@ namespace APalette_ableAdventure;
 public class Inbetween
 {
     private int Scene = 0;
-    private const int startScene = 10;
+    private const int startScene = 13;
     private const int devScene = 8;
-    private const int lastScene = 10;
+    private const int lastScene = 13;
 
     public Inbetween()
     {

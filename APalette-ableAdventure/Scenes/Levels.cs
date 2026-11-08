@@ -33,7 +33,8 @@ public class Levels : Scene
     private Palette _palette;
 
     private static int[,] map;
-    private static int[,] entMap;
+    private static int[,] ecksMap;
+    private static int[,] effMap;
     private static List<string[]> addedBlocks;
     private static List<string[]> entities;
     private List<AnimatedSprite> pAnimations = new List<AnimatedSprite>();
@@ -128,7 +129,7 @@ public class Levels : Scene
         Effectors = new List<Effector>();
         Waters = new List<Water>();
     }
-    
+
     private void InitializeNewGame()
     {
         // Initialize the palette
@@ -168,7 +169,8 @@ public class Levels : Scene
 
         Layout Map = new Layout(Content, $"images/Level{mapNum}_Map.xml");
         map = Map.GetMap();
-        entMap = Map.GetEntMap();
+        ecksMap = Map.GetEcksMap();
+        effMap = Map.GetEffMap();
 
         for (int y = 0; y < map.GetLength(0); y++)
         {
@@ -191,14 +193,18 @@ public class Levels : Scene
         {
             foreach (string[] block in addedBlocks)
             {
-                if ("XCAVH".Contains(block[0]))
+                if ("CAVH".Contains(block[0]))
                 {
-                    entMap[(int)(float.Parse(block[2]) / _tilemap.TileHeight), (int)(float.Parse(block[1]) / _tilemap.TileWidth)] = 1;
+                    effMap[(int)(float.Parse(block[2]) / _tilemap.TileHeight), (int)(float.Parse(block[1]) / _tilemap.TileWidth)] = 1;
+                }
+                else if (block[0] == "X")
+                {
+                    ecksMap[(int)(float.Parse(block[2]) / _tilemap.TileHeight), (int)(float.Parse(block[1]) / _tilemap.TileWidth)] = 1;
                 }
                 entities.Add(block);
             }
         }
-        
+
 
         // Load the bounce sound effect for the bat.
         SoundEffect jumpSoundEffect = Content.Load<SoundEffect>("audio/bounce");
@@ -264,7 +270,7 @@ public class Levels : Scene
         eAnimations.Add(HorizEqual);
 
         AnimatedSprite EndPortal = atlas.CreateAnimatedSprite("EndPortal");
-        EndPortal.Scale = new Vector2(5.25f, 5.25f);
+        EndPortal.Scale = 1.334f * Scale;
 
         List<AnimatedSprite> wAnimations = new List<AnimatedSprite>();
         AnimatedSprite Water1 = atlas.CreateAnimatedSprite("Water1");
@@ -413,7 +419,7 @@ public class Levels : Scene
         // Perform collision checks.
         CollisionChecks(gameTime, toHide);
 
-        
+
         if (GameController.Reset())
         {
             InitializeNewGame();
@@ -444,7 +450,8 @@ public class Levels : Scene
         }
 
         List<Rectangle> mapBlocks = MapCollision(map);
-        List<Rectangle> entMapBlocks = MapCollision(entMap);
+        List<Rectangle> EcksBlocks = MapCollision(ecksMap);
+        List<Rectangle> EffBlocks = MapCollision(effMap);
 
         foreach (Water water in Waters)
         {
@@ -492,14 +499,19 @@ public class Levels : Scene
             }
         }
 
-        foreach (Rectangle entBound in entMapBlocks)
+        foreach (Rectangle EcksBound in EcksBlocks)
         {
             if (!hidden)
             {
-                mapBlocks.Add(entBound);
+                mapBlocks.Add(EcksBound);
             }
         }
+        foreach (Rectangle EffBound in EffBlocks)
+        {
+            mapBlocks.Add(EffBound);
+        }
 
+        bool hitHead = false;
         foreach (Rectangle rect in mapBlocks)
         {
             if (paletteBounds.Intersects(rect))
@@ -530,6 +542,7 @@ public class Levels : Scene
                 if (minDistance == distanceBottom)
                 {
                     _palette.Shift("down", (int)minDistance);
+                    hitHead = true;
                 }
             }
         }
@@ -610,11 +623,8 @@ public class Levels : Scene
                     }
                     else if (minDistance == distanceBottom)
                     {
-                        if (mover.Movable("U"))
-                        {
-                            mover.Shift("up", (int)minDistance);
-                        }
-                        _palette.Shift("down", (int)minDistance);
+                        mover.Shift("up", (int)minDistance);
+                        mover.Land();
                     }
                 }
                 else
@@ -629,8 +639,15 @@ public class Levels : Scene
                     }
                     else if (minDistance == distanceTop)
                     {
-                        _palette.Shift("up", (int)minDistance);
-                        // If palette is moved up, palette is standing on mover
+                        if (!hitHead)
+                        {
+                            _palette.Shift("up", (int)minDistance);
+                        }
+                        else
+                        {
+                            mover.Shift("down", 2 * (int)minDistance);
+                        }
+                        // Palette is standing on mover
                         _palette.Land();
                     }
                     else if (minDistance == distanceBottom)
@@ -678,7 +695,7 @@ public class Levels : Scene
                         }
                         else
                         {
-                            if (minDistance == distanceLeft)
+                            if (minDistance == distanceLeft && minDistance != distanceTop && minDistance != distanceBottom)
                             {
                                 if (mover.getType() == "L")
                                 {
@@ -723,7 +740,7 @@ public class Levels : Scene
                                     }
                                 }
                             }
-                            else if (minDistance == distanceRight)
+                            else if (minDistance == distanceRight && minDistance != distanceTop && minDistance != distanceBottom)
                             {
                                 if (mover.getType() == "R")
                                 {
@@ -948,22 +965,22 @@ public class Levels : Scene
                         touching = true;
                     }
                 }
-                else if (moverBounds.Top == effBounds.Bottom && moverBounds.Left < effBounds.Right && moverBounds.Right > effBounds.Left)
+                else if (moverBounds.Top == effBounds.Bottom && moverBounds.Left == effBounds.Left && moverBounds.Right == effBounds.Right)
                 {
                     whichFace = "bottom";
                     touching = true;
                 }
-                else if (moverBounds.Bottom == effBounds.Top && moverBounds.Left < effBounds.Right && moverBounds.Right > effBounds.Left)
+                else if (moverBounds.Bottom == effBounds.Top && moverBounds.Left == effBounds.Left && moverBounds.Right == effBounds.Right)
                 {
                     whichFace = "top";
                     touching = true;
                 }
-                else if (moverBounds.Right == effBounds.Left && moverBounds.Top < effBounds.Bottom && moverBounds.Bottom > effBounds.Top)
+                else if (moverBounds.Right == effBounds.Left && moverBounds.Top == effBounds.Top && moverBounds.Bottom == effBounds.Bottom)
                 {
                     whichFace = "left";
                     touching = true;
                 }
-                else if (moverBounds.Left == effBounds.Right && moverBounds.Top < effBounds.Bottom && moverBounds.Bottom > effBounds.Top)
+                else if (moverBounds.Left == effBounds.Right && moverBounds.Top == effBounds.Top && moverBounds.Bottom == effBounds.Bottom)
                 {
                     whichFace = "right";
                     touching = true;
@@ -979,19 +996,19 @@ public class Levels : Scene
                         case "C":
                             switch (mover.getType())
                             {
-                                case "R": mover.changeType("U"); break;
-                                case "L": mover.changeType("D"); break;
-                                case "U": mover.changeType("L"); break;
-                                case "D": mover.changeType("R"); break;
+                                case "R": mover.changeType("D"); break;
+                                case "L": mover.changeType("U"); break;
+                                case "U": mover.changeType("R"); break;
+                                case "D": mover.changeType("L"); break;
                             }
                             break;
                         case "A":
                             switch (mover.getType())
                             {
-                                case "R": mover.changeType("D"); break;
-                                case "L": mover.changeType("U"); break;
-                                case "U": mover.changeType("R"); break;
-                                case "D": mover.changeType("L"); break;
+                                case "R": mover.changeType("U"); break;
+                                case "L": mover.changeType("D"); break;
+                                case "U": mover.changeType("L"); break;
+                                case "D": mover.changeType("R"); break;
                             }
                             break;
                         case "V":

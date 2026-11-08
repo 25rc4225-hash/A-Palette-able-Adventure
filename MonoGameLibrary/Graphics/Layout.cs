@@ -13,9 +13,11 @@ namespace MonoGameLibrary.Graphics
     public class Layout
     {
         private static int[,] map;
-        private static int[,] entMap;
+        private static int[,] ecksMap;
+        private static int[,] effMap;
         private static string[,] entityMap;
         private static string denyList;
+        private static int blockCount;
         private static List<string[]> entities = new List<string[]>();
         private static ContentManager _content;
         private static string _filename;
@@ -33,9 +35,13 @@ namespace MonoGameLibrary.Graphics
             XmlArray();
             return map;
         }
-        public int[,] GetEntMap()
+        public int[,] GetEcksMap()
         {
-            return entMap;
+            return ecksMap;
+        }
+        public int[,] GetEffMap()
+        {
+            return effMap;
         }
         public string[,] GetEntities()
         {
@@ -52,6 +58,10 @@ namespace MonoGameLibrary.Graphics
         public string getDenyList()
         {
             return denyList;
+        }
+        public int getblockCount()
+        {
+            return blockCount;
         }
         public void XmlArray()
         {
@@ -73,6 +83,7 @@ namespace MonoGameLibrary.Graphics
                     int width = int.Parse(split[2]);
                     int height = int.Parse(split[3]);
 
+                    blockCount = int.Parse(tilesetElement.Attribute("blockCount").Value);
                     denyList = tilesetElement.Attribute("denylist").Value;
                     int tileWidth = int.Parse(tilesetElement.Attribute("tileWidth").Value);
                     int tileHeight = int.Parse(tilesetElement.Attribute("tileHeight").Value);
@@ -97,7 +108,8 @@ namespace MonoGameLibrary.Graphics
                     int columnCount = rows[0].Split(" ", StringSplitOptions.RemoveEmptyEntries).Length;
 
                     map = new int[rows.Length, columnCount];
-                    entMap = new int[rows.Length, columnCount];
+                    ecksMap = new int[rows.Length, columnCount];
+                    effMap = new int[rows.Length, columnCount];
                     entityMap = new string[rows.Length, columnCount];
 
                     for (int wide = 0; wide < rows[0].Length; wide++)
@@ -151,9 +163,13 @@ namespace MonoGameLibrary.Graphics
                                             }
                                         }
                                         entities.Add(new string[] { value, (wide * tileWidth * Scale.X / 2).ToString(), (tall * tileHeight * Scale.Y).ToString() });
-                                        if ("XCAVH".Contains(value))
+                                        if ("CAVH".Contains(value))
                                         {
-                                            entMap[tall, wide / 2] = 1;
+                                            effMap[tall, wide / 2] = 1;
+                                        }
+                                        else if (value == "X")
+                                        {
+                                            ecksMap[tall, wide / 2] = 1;
                                         }
                                     }
                                 }

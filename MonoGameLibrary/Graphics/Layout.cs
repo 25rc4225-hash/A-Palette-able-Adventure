@@ -981,6 +981,10 @@ namespace MonoGameLibrary.Graphics
                                     {
                                         tileIndex = 18;
                                     }
+                                    else if (seven)
+                                    {
+                                        tileIndex = 25;
+                                    }
                                     else if (eight)
                                     {
                                         tileIndex = 22;

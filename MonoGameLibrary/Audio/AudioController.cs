@@ -134,6 +134,7 @@ public class AudioController : IDisposable
 
         MediaPlayer.Play(song);
         MediaPlayer.IsRepeating = isRepeating;
+        MediaPlayer.Volume = 0.25f;
     }
 
     /// Pauses all audio.

@@ -48,7 +48,7 @@ namespace MonoGameTestProject
         protected override void LoadContent()
         {
             // Load the background theme music.
-            _themeSong = Content.Load<Song>("audio/theme");
+            _themeSong = Content.Load<Song>("audio/ThemeSong");
         }
 
         private void InitializeGum()

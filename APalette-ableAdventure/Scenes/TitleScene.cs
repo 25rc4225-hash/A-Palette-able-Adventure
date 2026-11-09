@@ -16,8 +16,8 @@ namespace APalette_ableAdventure.Scenes;
 
 public class TitleScene : Scene
 {
-    private const string DUNGEON_TEXT = "Dungeon";
-    private const string SLIME_TEXT = "Slime";
+    private const string Line1_TEXT = "A Palette-able";
+    private const string Line2_TEXT = "Adventure";
     private const string PRESS_ENTER_TEXT = "Press Enter To Start";
 
     // The font to use to render normal text.
@@ -26,17 +26,17 @@ public class TitleScene : Scene
     // The font used to render the title text.
     private SpriteFont _font5x;
 
-    // The position to draw the dungeon text at.
-    private Vector2 _dungeonTextPos;
+    // The position to draw the Line1 text at.
+    private Vector2 _Line1TextPos;
 
-    // The origin to set for the dungeon text.
-    private Vector2 _dungeonTextOrigin;
+    // The origin to set for the Line1 text.
+    private Vector2 _Line1TextOrigin;
 
-    // The position to draw the slime text at.
-    private Vector2 _slimeTextPos;
+    // The position to draw the Line2 text at.
+    private Vector2 _Line2TextPos;
 
-    // The origin to set for the slime text.
-    private Vector2 _slimeTextOrigin;
+    // The origin to set for the Line2 text.
+    private Vector2 _Line2TextOrigin;
 
     // The position to draw the press enter text at.
     private Vector2 _pressEnterPos;
@@ -81,14 +81,14 @@ public class TitleScene : Scene
         Core.ExitOnEscape = true;
 
         // Set the position and origin for the Dungeon text.
-        Vector2 size = _font5x.MeasureString(DUNGEON_TEXT);
-        _dungeonTextPos = new Vector2(640, 100);
-        _dungeonTextOrigin = size * 0.5f;
+        Vector2 size = _font5x.MeasureString(Line1_TEXT);
+        _Line1TextPos = new Vector2(640, 100);
+        _Line1TextOrigin = size * 0.5f;
 
         // Set the position and origin for the Slime text.
-        size = _font5x.MeasureString(SLIME_TEXT);
-        _slimeTextPos = new Vector2(757, 207);
-        _slimeTextOrigin = size * 0.5f;
+        size = _font5x.MeasureString(Line2_TEXT);
+        _Line2TextPos = new Vector2(757, 207);
+        _Line2TextOrigin = size * 0.5f;
 
         // Set the position and origin for the press enter text.
         size = _font.MeasureString(PRESS_ENTER_TEXT);
@@ -158,17 +158,17 @@ public class TitleScene : Scene
 
             // Draw the Dungeon text slightly offset from it is original position and
             // with a transparent color to give it a drop shadow
-            Core.SpriteBatch.DrawString(_font5x, DUNGEON_TEXT, _dungeonTextPos + new Vector2(10, 10), dropShadowColor, 0.0f, _dungeonTextOrigin, 1.0f, SpriteEffects.None, 1.0f);
+            Core.SpriteBatch.DrawString(_font5x, Line1_TEXT, _Line1TextPos + new Vector2(10, 10), dropShadowColor, 0.0f, _Line1TextOrigin, 0.75f, SpriteEffects.None, 1.0f);
 
             // Draw the Dungeon text on top of that at its original position
-            Core.SpriteBatch.DrawString(_font5x, DUNGEON_TEXT, _dungeonTextPos, Color.White, 0.0f, _dungeonTextOrigin, 1.0f, SpriteEffects.None, 1.0f);
+            Core.SpriteBatch.DrawString(_font5x, Line1_TEXT, _Line1TextPos, Color.White, 0.0f, _Line1TextOrigin, 0.75f, SpriteEffects.None, 1.0f);
 
             // Draw the Slime text slightly offset from it is original position and
             // with a transparent color to give it a drop shadow
-            Core.SpriteBatch.DrawString(_font5x, SLIME_TEXT, _slimeTextPos + new Vector2(10, 10), dropShadowColor, 0.0f, _slimeTextOrigin, 1.0f, SpriteEffects.None, 1.0f);
+            Core.SpriteBatch.DrawString(_font5x, Line2_TEXT, _Line2TextPos + new Vector2(10, 10), dropShadowColor, 0.0f, _Line2TextOrigin, 0.75f, SpriteEffects.None, 1.0f);
 
             // Draw the Slime text on top of that at its original position
-            Core.SpriteBatch.DrawString(_font5x, SLIME_TEXT, _slimeTextPos, Color.White, 0.0f, _slimeTextOrigin, 1.0f, SpriteEffects.None, 1.0f);
+            Core.SpriteBatch.DrawString(_font5x, Line2_TEXT, _Line2TextPos, Color.White, 0.0f, _Line2TextOrigin, 0.75f, SpriteEffects.None, 1.0f);
 
             // Always end the sprite batch when finished.
             Core.SpriteBatch.End();

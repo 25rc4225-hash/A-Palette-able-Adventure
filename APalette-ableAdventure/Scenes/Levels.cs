@@ -205,17 +205,14 @@ public class Levels : Scene
             }
         }
 
+        // Loading a SoundEffect using the content pipeline
+        SoundEffect voiceLine = Content.Load<SoundEffect>($"audio/Level{mapNum}");
 
-        // Load the bounce sound effect for the bat.
-        SoundEffect jumpSoundEffect = Content.Load<SoundEffect>("audio/bounce");
-
-        // ---------------------------------------------------------------------------------
-        //// Loading a SoundEffect using the content pipeline
-        //SoundEffect voiceLine = Content.Load<SoundEffect>($"{mapName}VoiceLine");
-
-        //// Play the sound effect with default settings
-        //voiceLine.Play();
-        // ---------------------------------------------------------------------------------
+        if (int.Parse(mapNum) < 8)
+        {
+            // Play the sound effect with default settings
+            voiceLine.Play();
+        }
 
         // Create the animated sprite for the slime from the atlas.
         AnimatedSprite paletteRNull = atlas.CreateAnimatedSprite("rNpalette-animation");

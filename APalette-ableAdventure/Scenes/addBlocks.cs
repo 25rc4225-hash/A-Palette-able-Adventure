@@ -49,7 +49,7 @@ public class addBlocks : Scene
 
     static string currentBlock = "";
     static int blockX = 1, blockY = 1;
-    static int blockSelector =-1;
+    static int blockSelector = -1;
     static int blockNum;
 
 
@@ -78,6 +78,10 @@ public class addBlocks : Scene
 
     public override void Initialize()
     {
+        if (int.Parse(mapNum) < 8)
+        {
+            Core.ChangeScene(new Levels(mapNum, null));
+        }
         // LoadContent is called during base.Initialize().
         base.Initialize();
 
@@ -179,6 +183,12 @@ public class addBlocks : Scene
 
         // Load the error sound effect for the placing.
         errorSoundEffect = Content.Load<SoundEffect>("audio/bounce");
+
+        // Loading a SoundEffect using the content pipeline
+        SoundEffect voiceLine = Content.Load<SoundEffect>($"audio/Level{mapNum}");
+
+        // Play the sound effect with default settings
+        voiceLine.Play();
 
         // Create the sprite for the slime from the atlas.
         Palette = atlas.CreateSprite("defaultPalette");
@@ -448,7 +458,7 @@ public class addBlocks : Scene
         blockSelector %= 6;
         switch (blockSelector)
         {
-            case 0: 
+            case 0:
                 if (denyList.Contains("G"))
                 {
                     CycleThruBlocks();
@@ -543,81 +553,84 @@ public class addBlocks : Scene
 
     public override void Draw(GameTime gameTime)
     {
-        // Clear the back buffer.
-        Core.GraphicsDevice.Clear(Color.CornflowerBlue);
-
-        // Begin the sprite batch to prepare for rendering.
-        Core.SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
-
-
-        for (int y = 0; y < fullMap.GetLength(0); y++)
+        if (int.Parse(mapNum) >= 8)
         {
-            for (int x = 0; x < fullMap.GetLength(1); x++)
+            // Clear the back buffer.
+            Core.GraphicsDevice.Clear(Color.CornflowerBlue);
+
+            // Begin the sprite batch to prepare for rendering.
+            Core.SpriteBatch.Begin(samplerState: SamplerState.PointClamp);
+
+
+            for (int y = 0; y < fullMap.GetLength(0); y++)
             {
-                float X = x * _tilemap.TileWidth;
-                float Y = y * _tilemap.TileHeight;
-                Vector2 Pos = new Vector2(X, Y);
-                switch (fullMap[y, x])
+                for (int x = 0; x < fullMap.GetLength(1); x++)
                 {
-                    case "0": Background.Draw(Core.SpriteBatch, Pos); break;
-                    case "1": Terrain.Draw(Core.SpriteBatch, Pos); break;
-                    case "2": BuildArea.Draw(Core.SpriteBatch, Pos); break;
-                    case "P": Palette.Draw(Core.SpriteBatch, Pos); break;
-                    case "R": mSprites[0].Draw(Core.SpriteBatch, Pos); break;
-                    case "L": mSprites[1].Draw(Core.SpriteBatch, Pos); break;
-                    case "U": mSprites[2].Draw(Core.SpriteBatch, Pos); break;
-                    case "D": mSprites[3].Draw(Core.SpriteBatch, Pos); break;
-                    case "G": gravBlock.Draw(Core.SpriteBatch, Pos); break;
-                    case "B": Button.Draw(Core.SpriteBatch, Pos); break;
-                    case "X": eSprites[0].Draw(Core.SpriteBatch, Pos); break;
-                    case "C": eSprites[1].Draw(Core.SpriteBatch, Pos); break;
-                    case "A": eSprites[2].Draw(Core.SpriteBatch, Pos); break;
-                    case "V": eSprites[3].Draw(Core.SpriteBatch, Pos); break;
-                    case "H": eSprites[4].Draw(Core.SpriteBatch, Pos); break;
-                    case "E": EndPortal.Draw(Core.SpriteBatch, Pos); break;
-                    case "W": Water.Draw(Core.SpriteBatch, Pos); break;
+                    float X = x * _tilemap.TileWidth;
+                    float Y = y * _tilemap.TileHeight;
+                    Vector2 Pos = new Vector2(X, Y);
+                    switch (fullMap[y, x])
+                    {
+                        case "0": Background.Draw(Core.SpriteBatch, Pos); break;
+                        case "1": Terrain.Draw(Core.SpriteBatch, Pos); break;
+                        case "2": BuildArea.Draw(Core.SpriteBatch, Pos); break;
+                        case "P": Palette.Draw(Core.SpriteBatch, Pos); break;
+                        case "R": mSprites[0].Draw(Core.SpriteBatch, Pos); break;
+                        case "L": mSprites[1].Draw(Core.SpriteBatch, Pos); break;
+                        case "U": mSprites[2].Draw(Core.SpriteBatch, Pos); break;
+                        case "D": mSprites[3].Draw(Core.SpriteBatch, Pos); break;
+                        case "G": gravBlock.Draw(Core.SpriteBatch, Pos); break;
+                        case "B": Button.Draw(Core.SpriteBatch, Pos); break;
+                        case "X": eSprites[0].Draw(Core.SpriteBatch, Pos); break;
+                        case "C": eSprites[1].Draw(Core.SpriteBatch, Pos); break;
+                        case "A": eSprites[2].Draw(Core.SpriteBatch, Pos); break;
+                        case "V": eSprites[3].Draw(Core.SpriteBatch, Pos); break;
+                        case "H": eSprites[4].Draw(Core.SpriteBatch, Pos); break;
+                        case "E": EndPortal.Draw(Core.SpriteBatch, Pos); break;
+                        case "W": Water.Draw(Core.SpriteBatch, Pos); break;
+                    }
                 }
             }
-        }
-        float screenX = blockX * _tilemap.TileWidth;
-        float screenY = blockY * _tilemap.TileHeight;
-        switch (currentBlock)
-        {
-            case "R": mSprites[0].Draw(Core.SpriteBatch, new Vector2(screenX, screenY)); break;
-            case "L": mSprites[1].Draw(Core.SpriteBatch, new Vector2(screenX, screenY)); break;
-            case "U": mSprites[2].Draw(Core.SpriteBatch, new Vector2(screenX, screenY)); break;
-            case "D": mSprites[3].Draw(Core.SpriteBatch, new Vector2(screenX, screenY)); break;
-            case "G": gravBlock.Draw(Core.SpriteBatch, new Vector2(screenX, screenY)); break;
-            case "B": Button.Draw(Core.SpriteBatch, new Vector2(screenX, screenY)); break;
-            case "X": eSprites[0].Draw(Core.SpriteBatch, new Vector2(screenX, screenY)); break;
-            case "C": eSprites[1].Draw(Core.SpriteBatch, new Vector2(screenX, screenY)); break;
-            case "A": eSprites[2].Draw(Core.SpriteBatch, new Vector2(screenX, screenY)); break;
-            case "V": eSprites[3].Draw(Core.SpriteBatch, new Vector2(screenX, screenY)); break;
-            case "H": eSprites[4].Draw(Core.SpriteBatch, new Vector2(screenX, screenY)); break;
-        }
-        foreach (string[] block in addedBlocks)
-        {
-            switch (block[0])
+            float screenX = blockX * _tilemap.TileWidth;
+            float screenY = blockY * _tilemap.TileHeight;
+            switch (currentBlock)
             {
-                case "R": mSprites[0].Draw(Core.SpriteBatch, new Vector2(float.Parse(block[1]), float.Parse(block[2]))); break;
-                case "L": mSprites[1].Draw(Core.SpriteBatch, new Vector2(float.Parse(block[1]), float.Parse(block[2]))); break;
-                case "U": mSprites[2].Draw(Core.SpriteBatch, new Vector2(float.Parse(block[1]), float.Parse(block[2]))); break;
-                case "D": mSprites[3].Draw(Core.SpriteBatch, new Vector2(float.Parse(block[1]), float.Parse(block[2]))); break;
-                case "G": gravBlock.Draw(Core.SpriteBatch, new Vector2(float.Parse(block[1]), float.Parse(block[2]))); break;
-                case "B": Button.Draw(Core.SpriteBatch, new Vector2(float.Parse(block[1]), float.Parse(block[2]))); break;
-                case "X": eSprites[0].Draw(Core.SpriteBatch, new Vector2(float.Parse(block[1]), float.Parse(block[2]))); break;
-                case "C": eSprites[1].Draw(Core.SpriteBatch, new Vector2(float.Parse(block[1]), float.Parse(block[2]))); break;
-                case "A": eSprites[2].Draw(Core.SpriteBatch, new Vector2(float.Parse(block[1]), float.Parse(block[2]))); break;
-                case "V": eSprites[3].Draw(Core.SpriteBatch, new Vector2(float.Parse(block[1]), float.Parse(block[2]))); break;
-                case "H": eSprites[4].Draw(Core.SpriteBatch, new Vector2(float.Parse(block[1]), float.Parse(block[2]))); break;
+                case "R": mSprites[0].Draw(Core.SpriteBatch, new Vector2(screenX, screenY)); break;
+                case "L": mSprites[1].Draw(Core.SpriteBatch, new Vector2(screenX, screenY)); break;
+                case "U": mSprites[2].Draw(Core.SpriteBatch, new Vector2(screenX, screenY)); break;
+                case "D": mSprites[3].Draw(Core.SpriteBatch, new Vector2(screenX, screenY)); break;
+                case "G": gravBlock.Draw(Core.SpriteBatch, new Vector2(screenX, screenY)); break;
+                case "B": Button.Draw(Core.SpriteBatch, new Vector2(screenX, screenY)); break;
+                case "X": eSprites[0].Draw(Core.SpriteBatch, new Vector2(screenX, screenY)); break;
+                case "C": eSprites[1].Draw(Core.SpriteBatch, new Vector2(screenX, screenY)); break;
+                case "A": eSprites[2].Draw(Core.SpriteBatch, new Vector2(screenX, screenY)); break;
+                case "V": eSprites[3].Draw(Core.SpriteBatch, new Vector2(screenX, screenY)); break;
+                case "H": eSprites[4].Draw(Core.SpriteBatch, new Vector2(screenX, screenY)); break;
             }
+            foreach (string[] block in addedBlocks)
+            {
+                switch (block[0])
+                {
+                    case "R": mSprites[0].Draw(Core.SpriteBatch, new Vector2(float.Parse(block[1]), float.Parse(block[2]))); break;
+                    case "L": mSprites[1].Draw(Core.SpriteBatch, new Vector2(float.Parse(block[1]), float.Parse(block[2]))); break;
+                    case "U": mSprites[2].Draw(Core.SpriteBatch, new Vector2(float.Parse(block[1]), float.Parse(block[2]))); break;
+                    case "D": mSprites[3].Draw(Core.SpriteBatch, new Vector2(float.Parse(block[1]), float.Parse(block[2]))); break;
+                    case "G": gravBlock.Draw(Core.SpriteBatch, new Vector2(float.Parse(block[1]), float.Parse(block[2]))); break;
+                    case "B": Button.Draw(Core.SpriteBatch, new Vector2(float.Parse(block[1]), float.Parse(block[2]))); break;
+                    case "X": eSprites[0].Draw(Core.SpriteBatch, new Vector2(float.Parse(block[1]), float.Parse(block[2]))); break;
+                    case "C": eSprites[1].Draw(Core.SpriteBatch, new Vector2(float.Parse(block[1]), float.Parse(block[2]))); break;
+                    case "A": eSprites[2].Draw(Core.SpriteBatch, new Vector2(float.Parse(block[1]), float.Parse(block[2]))); break;
+                    case "V": eSprites[3].Draw(Core.SpriteBatch, new Vector2(float.Parse(block[1]), float.Parse(block[2]))); break;
+                    case "H": eSprites[4].Draw(Core.SpriteBatch, new Vector2(float.Parse(block[1]), float.Parse(block[2]))); break;
+                }
+            }
+
+
+            // Always end the sprite batch when finished.
+            Core.SpriteBatch.End();
+
+            // Draw the UI.
+            _ui.Draw();
         }
-
-
-        // Always end the sprite batch when finished.
-        Core.SpriteBatch.End();
-
-        // Draw the UI.
-        _ui.Draw();
     }
 }

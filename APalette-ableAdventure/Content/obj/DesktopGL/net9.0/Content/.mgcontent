@@ -4,6 +4,26 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/rober/OneDrive/Documents/GitHub/A-Palette-able-Adventure/APalette-ableAdventure/Content/audio/bounce.wav</File>
+    <File>C:/Users/rober/OneDrive/Documents/GitHub/A-Palette-able-Adventure/APalette-ableAdventure/Content/audio/collect.wav</File>
+    <File>C:/Users/rober/OneDrive/Documents/GitHub/A-Palette-able-Adventure/APalette-ableAdventure/Content/audio/Level1.wav</File>
+    <File>C:/Users/rober/OneDrive/Documents/GitHub/A-Palette-able-Adventure/APalette-ableAdventure/Content/audio/Level10.wav</File>
+    <File>C:/Users/rober/OneDrive/Documents/GitHub/A-Palette-able-Adventure/APalette-ableAdventure/Content/audio/Level11.wav</File>
+    <File>C:/Users/rober/OneDrive/Documents/GitHub/A-Palette-able-Adventure/APalette-ableAdventure/Content/audio/Level12.wav</File>
+    <File>C:/Users/rober/OneDrive/Documents/GitHub/A-Palette-able-Adventure/APalette-ableAdventure/Content/audio/Level13.wav</File>
+    <File>C:/Users/rober/OneDrive/Documents/GitHub/A-Palette-able-Adventure/APalette-ableAdventure/Content/audio/Level14.wav</File>
+    <File>C:/Users/rober/OneDrive/Documents/GitHub/A-Palette-able-Adventure/APalette-ableAdventure/Content/audio/Level2.wav</File>
+    <File>C:/Users/rober/OneDrive/Documents/GitHub/A-Palette-able-Adventure/APalette-ableAdventure/Content/audio/Level3.wav</File>
+    <File>C:/Users/rober/OneDrive/Documents/GitHub/A-Palette-able-Adventure/APalette-ableAdventure/Content/audio/Level4.wav</File>
+    <File>C:/Users/rober/OneDrive/Documents/GitHub/A-Palette-able-Adventure/APalette-ableAdventure/Content/audio/Level5.wav</File>
+    <File>C:/Users/rober/OneDrive/Documents/GitHub/A-Palette-able-Adventure/APalette-ableAdventure/Content/audio/Level6.wav</File>
+    <File>C:/Users/rober/OneDrive/Documents/GitHub/A-Palette-able-Adventure/APalette-ableAdventure/Content/audio/Level7.wav</File>
+    <File>C:/Users/rober/OneDrive/Documents/GitHub/A-Palette-able-Adventure/APalette-ableAdventure/Content/audio/Level8.wav</File>
+    <File>C:/Users/rober/OneDrive/Documents/GitHub/A-Palette-able-Adventure/APalette-ableAdventure/Content/audio/Level9.wav</File>
+    <File>C:/Users/rober/OneDrive/Documents/GitHub/A-Palette-able-Adventure/APalette-ableAdventure/Content/audio/theme.ogg</File>
+    <File>C:/Users/rober/OneDrive/Documents/GitHub/A-Palette-able-Adventure/APalette-ableAdventure/Content/audio/ThemeSong.ogg</File>
+    <File>C:/Users/rober/OneDrive/Documents/GitHub/A-Palette-able-Adventure/APalette-ableAdventure/Content/audio/ui.wav</File>
+    <File>C:/Users/rober/OneDrive/Documents/GitHub/A-Palette-able-Adventure/APalette-ableAdventure/Content/audio/Victory.wav</File>
     <File>C:/Users/rober/OneDrive/Documents/GitHub/A-Palette-able-Adventure/APalette-ableAdventure/Content/fonts/04B_30_5x.spritefont</File>
     <File>C:/Users/rober/OneDrive/Documents/GitHub/A-Palette-able-Adventure/APalette-ableAdventure/Content/fonts/04B_30.spritefont</File>
     <File>C:/Users/rober/OneDrive/Documents/GitHub/A-Palette-able-Adventure/APalette-ableAdventure/Content/images/atlas.png</File>
@@ -12,6 +32,26 @@
     <File>C:/Users/rober/OneDrive/Documents/GitHub/A-Palette-able-Adventure/APalette-ableAdventure/Content/images/logo.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

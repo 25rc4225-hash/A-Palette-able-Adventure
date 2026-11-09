@@ -21,9 +21,9 @@ namespace APalette_ableAdventure;
 public class Inbetween
 {
     private int Scene = 0;
-    private const int startScene = 13;
+    private const int startScene = 1;
     private const int devScene = 8;
-    private const int lastScene = 13;
+    private const int lastScene = 14;
 
     public Inbetween()
     {
@@ -51,11 +51,7 @@ public class Inbetween
         }
         else
         {
-            if (Scene < devScene)
-            {
-                Core.ChangeScene(new Levels(Scene.ToString(), null));
-            }
-            else if (Scene <= lastScene)
+            if (Scene <= lastScene)
             {
                 Core.ChangeScene(new addBlocks(Scene.ToString(), new List<string[]>()));
             }

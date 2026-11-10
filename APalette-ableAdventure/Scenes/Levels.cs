@@ -205,11 +205,21 @@ public class Levels : Scene
             }
         }
 
-        // Loading a SoundEffect using the content pipeline
-        SoundEffect voiceLine = Content.Load<SoundEffect>($"audio/Level{mapNum}");
+        
 
         if (int.Parse(mapNum) < 8)
         {
+            // Loading a SoundEffect using the content pipeline
+            SoundEffect voiceLine = Content.Load<SoundEffect>($"audio/Level{mapNum}");
+
+            // Play the sound effect with default settings
+            voiceLine.Play();
+        }
+        if (int.Parse(mapNum) == 15)
+        {
+            // Loading a SoundEffect using the content pipeline
+            SoundEffect voiceLine = Content.Load<SoundEffect>($"audio/Victory");
+
             // Play the sound effect with default settings
             voiceLine.Play();
         }
@@ -484,6 +494,7 @@ public class Levels : Scene
                 else if (minDistance == distanceTop)
                 {
                     _palette.Shift("up", (int)minDistance);
+                    _palette.Land();
                     if (!button.isPushed())
                     {
                         button.Push(gameTime);

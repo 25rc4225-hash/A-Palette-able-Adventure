@@ -161,3 +161,5 @@ C:\Users\rober\OneDrive\Documents\GitHub\A-Palette-able-Adventure\APalette-ableA
 C:\Users\rober\OneDrive\Documents\GitHub\A-Palette-able-Adventure\APalette-ableAdventure\bin\Debug\net9.0\Content\audio\Level8.xnb
 C:\Users\rober\OneDrive\Documents\GitHub\A-Palette-able-Adventure\APalette-ableAdventure\bin\Debug\net9.0\Content\audio\Level9.xnb
 C:\Users\rober\OneDrive\Documents\GitHub\A-Palette-able-Adventure\APalette-ableAdventure\bin\Debug\net9.0\Content\audio\Victory.xnb
+C:\Users\rober\OneDrive\Documents\GitHub\A-Palette-able-Adventure\APalette-ableAdventure\bin\Debug\net9.0\Content\images\Level15_Map.xml
+C:\Users\rober\OneDrive\Documents\GitHub\A-Palette-able-Adventure\APalette-ableAdventure\bin\Debug\net9.0\Content\audio\Level15.xnb

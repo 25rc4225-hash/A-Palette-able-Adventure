@@ -78,7 +78,7 @@ public class addBlocks : Scene
 
     public override void Initialize()
     {
-        if (int.Parse(mapNum) < 8)
+        if (int.Parse(mapNum) < 8 || int.Parse(mapNum) == 15)
         {
             Core.ChangeScene(new Levels(mapNum, null));
         }
@@ -160,9 +160,12 @@ public class addBlocks : Scene
         denyList = Map.getDenyList();
         blockNum = Map.getblockCount();
         CycleThruBlocks();
-        foreach (string[] block in addedBlocks)
+        if (!(addedBlocks is null))
         {
-            fullMap[(int)(float.Parse(block[2]) / _tilemap.TileHeight), (int)(float.Parse(block[1]) / _tilemap.TileWidth)] = block[0];
+            foreach (string[] block in addedBlocks)
+            {
+                fullMap[(int)(float.Parse(block[2]) / _tilemap.TileHeight), (int)(float.Parse(block[1]) / _tilemap.TileWidth)] = block[0];
+            }
         }
 
         for (int y = 0; y < map.GetLength(0); y++)
@@ -553,7 +556,7 @@ public class addBlocks : Scene
 
     public override void Draw(GameTime gameTime)
     {
-        if (int.Parse(mapNum) >= 8)
+        if (int.Parse(mapNum) >= 8 && int.Parse(mapNum) != 15)
         {
             // Clear the back buffer.
             Core.GraphicsDevice.Clear(Color.CornflowerBlue);

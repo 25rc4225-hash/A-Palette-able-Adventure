@@ -22,8 +22,7 @@ public class Inbetween
 {
     private int Scene = 0;
     private const int startScene = 1;
-    private const int devScene = 8;
-    private const int lastScene = 14;
+    private const int lastScene = 15;
 
     public Inbetween()
     {

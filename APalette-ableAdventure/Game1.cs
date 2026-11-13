@@ -14,7 +14,7 @@ namespace MonoGameTestProject
         private Song _themeSong;
         private static Inbetween inbetween = new Inbetween();
 
-        public Game1() : base("I am a Screen", 1280, 720, false)
+        public Game1() : base("I am a Screen", 1280, 720, true)
         {
 
         }

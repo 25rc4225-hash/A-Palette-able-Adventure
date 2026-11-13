@@ -519,7 +519,7 @@ public class Levels : Scene
             mapBlocks.Add(EffBound);
         }
 
-        bool hitHead = false;
+        bool[] pMoved = { false, false, false, false };
         foreach (Rectangle rect in mapBlocks)
         {
             if (paletteBounds.Intersects(rect))
@@ -536,22 +536,41 @@ public class Levels : Scene
                 if (minDistance == distanceLeft)
                 {
                     _palette.Shift("left", (int)minDistance);
+                    pMoved[0] = true;
                 }
                 if (minDistance == distanceRight)
                 {
                     _palette.Shift("right", (int)minDistance);
+                    pMoved[1] = true;
                 }
                 if (minDistance == distanceTop)
                 {
                     _palette.Shift("up", (int)minDistance);
                     // Therefore Palette is on terrain
                     _palette.Land();
+                    pMoved[2] = true;
                 }
                 if (minDistance == distanceBottom)
                 {
                     _palette.Shift("down", (int)minDistance);
-                    hitHead = true;
+                    pMoved[3] = true;
                 }
+            }
+            else if (rect.Left == paletteBounds.Right)
+            {
+                pMoved[0] = true;
+            }
+            else if (rect.Right == paletteBounds.Left)
+            {
+                pMoved[1] = true;
+            }
+            else if (rect.Top == paletteBounds.Bottom)
+            {
+                pMoved[2] = true;
+            }
+            else if (rect.Bottom == paletteBounds.Top)
+            {
+                pMoved[3] = true;
             }
         }
 
@@ -639,28 +658,49 @@ public class Levels : Scene
                 {
                     if (minDistance == distanceLeft)
                     {
-                        _palette.Shift("left", (int)minDistance);
+                        if (!pMoved[1])
+                        {
+                            _palette.Shift("left", (int)minDistance);
+                        }
+                        else
+                        {
+                            mover.Shift("right", (int)minDistance);
+                        }
                     }
                     else if (minDistance == distanceRight)
                     {
-                        _palette.Shift("right", (int)minDistance);
+                        if (!pMoved[0])
+                        {
+                            _palette.Shift("right", (int)minDistance);
+                        }
+                        else
+                        {
+                            mover.Shift("left", (int)minDistance);
+                        }
                     }
                     else if (minDistance == distanceTop)
                     {
-                        if (!hitHead)
+                        if (!pMoved[3])
                         {
                             _palette.Shift("up", (int)minDistance);
                         }
                         else
                         {
-                            mover.Shift("down", 2 * (int)minDistance);
+                            mover.Shift("down", (int)minDistance);
                         }
                         // Palette is standing on mover
                         _palette.Land();
                     }
                     else if (minDistance == distanceBottom)
                     {
-                        _palette.Shift("down", (int)minDistance);
+                        if (!pMoved[2])
+                        {
+                            _palette.Shift("down", (int)minDistance);
+                        }
+                        else
+                        {
+                            mover.Shift("up", (int)minDistance);
+                        }
                     }
                 }
             }

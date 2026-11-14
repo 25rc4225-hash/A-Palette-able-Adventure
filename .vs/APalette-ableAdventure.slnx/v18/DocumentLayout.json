@@ -3,12 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\users\\rober\\onedrive\\documents\\github\\a-palette-able-adventure\\apalette-ableadventure\\content\\bin\\desktopgl\\content\\images\\level1_map.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\content\\bin\\desktopgl\\content\\images\\level1_map.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\users\\rober\\onedrive\\documents\\github\\a-palette-able-adventure\\apalette-ableadventure\\scenes\\addblocks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\scenes\\addblocks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\users\\rober\\onedrive\\documents\\github\\a-palette-able-adventure\\apalette-ableadventure\\scenes\\levels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\scenes\\levels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\users\\rober\\onedrive\\documents\\github\\a-palette-able-adventure\\apalette-ableadventure\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\users\\rober\\onedrive\\documents\\github\\a-palette-able-adventure\\apalette-ableadventure\\gameobjects\\palette.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\gameobjects\\palette.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\users\\rober\\onedrive\\documents\\github\\a-palette-able-adventure\\apalette-ableadventure\\content\\bin\\desktopgl\\content\\images\\level1_map.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\content\\bin\\desktopgl\\content\\images\\level1_map.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\users\\rober\\onedrive\\documents\\github\\a-palette-able-adventure\\apalette-ableadventure\\content\\bin\\desktopgl\\content\\images\\level2_map.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\content\\bin\\desktopgl\\content\\images\\level2_map.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\users\\rober\\onedrive\\documents\\github\\a-palette-able-adventure\\apalette-ableadventure\\scenes\\titlescene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\scenes\\titlescene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{136C3C93-6D14-C06D-3DBE-468E75475147}|MonoGameLibrary\\MonoGameLibrary.csproj|c:\\users\\rober\\onedrive\\documents\\github\\a-palette-able-adventure\\monogamelibrary\\graphics\\layout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,20 +39,8 @@
       "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\content\\images\\atlas-definition.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\users\\rober\\onedrive\\documents\\github\\a-palette-able-adventure\\apalette-ableadventure\\scenes\\levels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\scenes\\levels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\users\\rober\\onedrive\\documents\\github\\a-palette-able-adventure\\apalette-ableadventure\\content\\bin\\desktopgl\\content\\images\\level9_map.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\content\\bin\\desktopgl\\content\\images\\level9_map.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\users\\rober\\onedrive\\documents\\github\\a-palette-able-adventure\\apalette-ableadventure\\content\\bin\\desktopgl\\content\\images\\level2_map.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\content\\bin\\desktopgl\\content\\images\\level2_map.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\users\\rober\\onedrive\\documents\\github\\a-palette-able-adventure\\apalette-ableadventure\\gameobjects\\palette.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\gameobjects\\palette.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\users\\rober\\onedrive\\documents\\github\\a-palette-able-adventure\\apalette-ableadventure\\content\\bin\\desktopgl\\content\\images\\level8_map.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
@@ -57,10 +65,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\users\\rober\\onedrive\\documents\\github\\a-palette-able-adventure\\apalette-ableadventure\\content\\bin\\desktopgl\\content\\images\\level10_map.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\content\\bin\\desktopgl\\content\\images\\level10_map.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\users\\rober\\onedrive\\documents\\github\\a-palette-able-adventure\\apalette-ableadventure\\scenes\\addblocks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\scenes\\addblocks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\users\\rober\\onedrive\\documents\\github\\a-palette-able-adventure\\apalette-ableadventure\\inbetween.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -97,10 +101,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\users\\rober\\onedrive\\documents\\github\\a-palette-able-adventure\\apalette-ableadventure\\ui\\animatedbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\ui\\animatedbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\users\\rober\\onedrive\\documents\\github\\a-palette-able-adventure\\apalette-ableadventure\\scenes\\titlescene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|solutionrelative:apalette-ableadventure\\scenes\\titlescene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0AA3B5FD-B0C7-C59D-363C-0BE1D4E8C8A0}|APalette-ableAdventure\\APalette-ableAdventure.csproj|c:\\users\\rober\\onedrive\\documents\\github\\a-palette-able-adventure\\apalette-ableadventure\\content\\bin\\desktopgl\\content\\images\\level3_map.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
@@ -234,11 +234,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 349,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "Inbetween.cs",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\Inbetween.cs",
               "RelativeDocumentMoniker": "APalette-ableAdventure\\Inbetween.cs",
@@ -251,26 +251,27 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 0,
               "Title": "addBlocks.cs",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\Scenes\\addBlocks.cs",
               "RelativeDocumentMoniker": "APalette-ableAdventure\\Scenes\\addBlocks.cs",
               "ToolTip": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\Scenes\\addBlocks.cs",
               "RelativeToolTip": "APalette-ableAdventure\\Scenes\\addBlocks.cs",
-              "ViewState": "AgIAAEwAAAAAAAAAAIA6wHoAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAK0AAAAAAAAAAADwv8EAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-03T11:33:01.45Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "Levels.cs",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\Scenes\\Levels.cs",
               "RelativeDocumentMoniker": "APalette-ableAdventure\\Scenes\\Levels.cs",
               "ToolTip": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\Scenes\\Levels.cs",
               "RelativeToolTip": "APalette-ableAdventure\\Scenes\\Levels.cs",
-              "ViewState": "AgIAAMEBAAAAAAAAAAAgwNQBAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAMcAAAAAAAAAAAAQwNcAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-09T15:08:26.727Z",
               "IsPinned": true,
@@ -278,21 +279,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "Level1_Map.xml",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\Content\\bin\\DesktopGL\\Content\\images\\Level1_Map.xml",
               "RelativeDocumentMoniker": "APalette-ableAdventure\\Content\\bin\\DesktopGL\\Content\\images\\Level1_Map.xml",
               "ToolTip": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\Content\\bin\\DesktopGL\\Content\\images\\Level1_Map.xml",
               "RelativeToolTip": "APalette-ableAdventure\\Content\\bin\\DesktopGL\\Content\\images\\Level1_Map.xml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
               "WhenOpened": "2026-10-27T13:04:33.179Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "Level2_Map.xml",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\Content\\bin\\DesktopGL\\Content\\images\\Level2_Map.xml",
               "RelativeDocumentMoniker": "APalette-ableAdventure\\Content\\bin\\DesktopGL\\Content\\images\\Level2_Map.xml",
@@ -301,8 +301,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
               "WhenOpened": "2026-10-27T13:31:20.58Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -345,7 +344,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "Level6_Map.xml",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\Content\\bin\\DesktopGL\\Content\\images\\Level6_Map.xml",
               "RelativeDocumentMoniker": "APalette-ableAdventure\\Content\\bin\\DesktopGL\\Content\\images\\Level6_Map.xml",
@@ -358,7 +357,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "Level7_Map.xml",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\Content\\bin\\DesktopGL\\Content\\images\\Level7_Map.xml",
               "RelativeDocumentMoniker": "APalette-ableAdventure\\Content\\bin\\DesktopGL\\Content\\images\\Level7_Map.xml",
@@ -371,7 +370,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "Level8_Map.xml",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\Content\\bin\\DesktopGL\\Content\\images\\Level8_Map.xml",
               "RelativeDocumentMoniker": "APalette-ableAdventure\\Content\\bin\\DesktopGL\\Content\\images\\Level8_Map.xml",
@@ -384,7 +383,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "Level9_Map.xml",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\Content\\bin\\DesktopGL\\Content\\images\\Level9_Map.xml",
               "RelativeDocumentMoniker": "APalette-ableAdventure\\Content\\bin\\DesktopGL\\Content\\images\\Level9_Map.xml",
@@ -393,12 +392,11 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
               "WhenOpened": "2026-11-06T16:30:00.7Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "Level10_Map.xml",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\Content\\bin\\DesktopGL\\Content\\images\\Level10_Map.xml",
               "RelativeDocumentMoniker": "APalette-ableAdventure\\Content\\bin\\DesktopGL\\Content\\images\\Level10_Map.xml",
@@ -411,7 +409,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "Level11_Map.xml",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\Content\\bin\\DesktopGL\\Content\\images\\Level11_Map.xml",
               "RelativeDocumentMoniker": "APalette-ableAdventure\\Content\\bin\\DesktopGL\\Content\\images\\Level11_Map.xml",
@@ -424,7 +422,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "Level12_Map.xml",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\Content\\bin\\DesktopGL\\Content\\images\\Level12_Map.xml",
               "RelativeDocumentMoniker": "APalette-ableAdventure\\Content\\bin\\DesktopGL\\Content\\images\\Level12_Map.xml",
@@ -437,7 +435,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "Level13_Map.xml",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\Content\\bin\\DesktopGL\\Content\\images\\Level13_Map.xml",
               "RelativeDocumentMoniker": "APalette-ableAdventure\\Content\\bin\\DesktopGL\\Content\\images\\Level13_Map.xml",
@@ -450,7 +448,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "Level14_Map.xml",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\Content\\bin\\DesktopGL\\Content\\images\\Level14_Map.xml",
               "RelativeDocumentMoniker": "APalette-ableAdventure\\Content\\bin\\DesktopGL\\Content\\images\\Level14_Map.xml",
@@ -463,7 +461,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "Level15_Map.xml",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\Content\\bin\\DesktopGL\\Content\\images\\Level15_Map.xml",
               "RelativeDocumentMoniker": "APalette-ableAdventure\\Content\\bin\\DesktopGL\\Content\\images\\Level15_Map.xml",
@@ -476,7 +474,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "Layout.cs",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\MonoGameLibrary\\Graphics\\Layout.cs",
               "RelativeDocumentMoniker": "MonoGameLibrary\\Graphics\\Layout.cs",
@@ -485,8 +483,7 @@
               "ViewState": "AgIAAB8AAAAAAAAAAAA8wNkDAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-22T11:30:42.574Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -526,19 +523,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 6,
               "Title": "TitleScene.cs",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\Scenes\\TitleScene.cs",
               "RelativeDocumentMoniker": "APalette-ableAdventure\\Scenes\\TitleScene.cs",
               "ToolTip": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\Scenes\\TitleScene.cs",
               "RelativeToolTip": "APalette-ableAdventure\\Scenes\\TitleScene.cs",
-              "ViewState": "AgIAAK4AAAAAAAAAAADwv6AAAACQAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKAAAACQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-06T17:46:30.511Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "Core.cs",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\MonoGameLibrary\\Core.cs",
               "RelativeDocumentMoniker": "MonoGameLibrary\\Core.cs",
@@ -550,20 +547,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Game1.cs",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\Game1.cs",
               "RelativeDocumentMoniker": "APalette-ableAdventure\\Game1.cs",
               "ToolTip": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\Game1.cs",
               "RelativeToolTip": "APalette-ableAdventure\\Game1.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwBoAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-09T15:07:15.647Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "AudioController.cs",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\MonoGameLibrary\\Audio\\AudioController.cs",
               "RelativeDocumentMoniker": "MonoGameLibrary\\Audio\\AudioController.cs",
@@ -575,7 +572,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "Level19_Map.xml",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\Content\\images\\Level19_Map.xml",
               "RelativeDocumentMoniker": "APalette-ableAdventure\\Content\\images\\Level19_Map.xml",
@@ -587,19 +584,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 3,
               "Title": "Palette.cs",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\GameObjects\\Palette.cs",
               "RelativeDocumentMoniker": "APalette-ableAdventure\\GameObjects\\Palette.cs",
               "ToolTip": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\GameObjects\\Palette.cs",
               "RelativeToolTip": "APalette-ableAdventure\\GameObjects\\Palette.cs",
-              "ViewState": "AgIAAHsAAAAAAAAAAAAYwJAAAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAAIIAAAAAAAAAAAAAwJAAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-09T15:11:47.577Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "atlas-definition.xml",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\Content\\images\\atlas-definition.xml",
               "RelativeDocumentMoniker": "APalette-ableAdventure\\Content\\images\\atlas-definition.xml",
@@ -607,12 +604,11 @@
               "RelativeToolTip": "APalette-ableAdventure\\Content\\images\\atlas-definition.xml",
               "ViewState": "AgIAAHgAAAAAAAAAAAAAAKEAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
-              "WhenOpened": "2026-08-25T14:06:22.563Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-25T14:06:22.563Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "atlas-definition.xml",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\Content\\bin\\DesktopGL\\Content\\images\\atlas-definition.xml",
               "RelativeDocumentMoniker": "APalette-ableAdventure\\Content\\bin\\DesktopGL\\Content\\images\\atlas-definition.xml",
@@ -624,7 +620,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "AnimatedButton.cs",
               "DocumentMoniker": "C:\\Users\\rober\\OneDrive\\Documents\\GitHub\\A-Palette-able-Adventure\\APalette-ableAdventure\\UI\\AnimatedButton.cs",
               "RelativeDocumentMoniker": "APalette-ableAdventure\\UI\\AnimatedButton.cs",
@@ -944,8 +940,7 @@
               "RelativeToolTip": "MonoGameLibrary\\MonoGameLibrary.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-08-06T17:43:30.234Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-06T17:43:30.234Z"
             }
           ]
         }

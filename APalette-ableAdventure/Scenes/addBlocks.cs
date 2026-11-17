@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGameGum;
 using MonoGameLibrary;
+using MonoGameLibrary.Audio;
 using MonoGameLibrary.Graphics;
 using MonoGameLibrary.Scenes;
 using MonoGameTestProject;
@@ -330,6 +331,11 @@ public class addBlocks : Scene
         if (GameController.Pause())
         {
             TogglePause();
+        }
+        // If the mute button is pressed, toggle the mute state.
+        if (GameController.Mute())
+        {
+            Core.Audio.ToggleMute();
         }
 
         // At this point, if the game is paused, just return back early.

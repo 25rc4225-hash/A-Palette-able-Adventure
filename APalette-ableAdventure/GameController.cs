@@ -113,6 +113,10 @@ namespace APalette_ableAdventure
         {
             return s_keyboard.WasKeyJustPressed(Keys.B);
         }
+        public static bool Mute()
+        {
+            return s_keyboard.WasKeyJustPressed(Keys.M);
+        }
 
 
         public static void setPos(float X, float Y)

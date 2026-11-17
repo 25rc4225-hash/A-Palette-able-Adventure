@@ -7,6 +7,7 @@ using MonoGameGum;
 using MonoGameLibrary;
 using MonoGameLibrary.Graphics;
 using MonoGameLibrary.Scenes;
+using MonoGameLibrary.Audio;
 using MonoGameTestProject;
 using System;
 using System.Collections.Generic;
@@ -58,7 +59,6 @@ public class Levels : Scene
     private GameSceneUI _ui;
 
     private GameState _state;
-
     public override void Initialize()
     {
         Reset();
@@ -365,7 +365,6 @@ public class Levels : Scene
     {
         // Ensure the UI is always updated.
         _ui.Update(gameTime);
-
         // If the game is in a game over state, immediately return back
         // here.
         if (_state == GameState.GameOver)
@@ -377,6 +376,11 @@ public class Levels : Scene
         if (GameController.Pause())
         {
             TogglePause();
+        }
+        // If the mute button is pressed, toggle the mute state.
+        if (GameController.Mute())
+        {
+            Core.Audio.ToggleMute();
         }
 
         // At this point, if the game is paused, just return back early.

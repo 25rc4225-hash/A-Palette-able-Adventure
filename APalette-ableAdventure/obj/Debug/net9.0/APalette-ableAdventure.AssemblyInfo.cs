@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("APalette-ableAdventure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+543fb54ac5dc6f4071c3254d9f539fa67577713a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b1ab9f77d4f840571bea93ddcbc7da1077b81f0d")]
 [assembly: System.Reflection.AssemblyProductAttribute("APalette-ableAdventure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("APalette-ableAdventure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

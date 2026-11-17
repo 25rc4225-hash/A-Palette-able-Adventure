@@ -10,6 +10,7 @@ using MonoGameGum.GueDeriving;
 using MonoGameLibrary;
 using MonoGameLibrary.Graphics;
 using MonoGameLibrary.Scenes;
+using MonoGameLibrary.Audio;
 using MonoGameTestProject;
 
 namespace APalette_ableAdventure.Scenes;
@@ -135,6 +136,12 @@ public class TitleScene : Scene
         // a seamless wrap.
         _backgroundOffset.X %= _backgroundPattern.Width;
         _backgroundOffset.Y %= _backgroundPattern.Height;
+
+        // If the mute button is pressed, toggle the mute state.
+        if (GameController.Mute())
+        {
+            Core.Audio.ToggleMute();
+        }
 
         GumService.Default.Update(gameTime);
     }
